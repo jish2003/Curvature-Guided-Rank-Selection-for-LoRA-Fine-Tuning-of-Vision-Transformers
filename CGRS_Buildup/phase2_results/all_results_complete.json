@@ -1,0 +1,2286 @@
+{
+  "phase1": {
+    "Full fine-tune": {
+      "test_loss": 0.29739541341010484,
+      "test_acc": 92.87,
+      "trainable_params": 86567396
+    },
+    "Frozen backbone": {
+      "test_loss": 0.48475964347720146,
+      "test_acc": 86.46,
+      "trainable_params": 76900
+    },
+    "LoRA r=3": {
+      "test_loss": 1.000977053976059,
+      "test_acc": 84.77,
+      "trainable_params": 110592,
+      "ckpt_path": "./phase1_results/lora_r3_full.pt",
+      "adapter_path": "./phase1_results/lora_r3_adapter"
+    },
+    "LoRA r=5": {
+      "test_loss": 0.7518106229305267,
+      "test_acc": 87.36,
+      "trainable_params": 184320,
+      "ckpt_path": "./phase1_results/lora_r5_full.pt",
+      "adapter_path": "./phase1_results/lora_r5_adapter"
+    },
+    "LoRA r=6": {
+      "test_loss": 0.6846094871997833,
+      "test_acc": 87.27,
+      "trainable_params": 221184,
+      "ckpt_path": "./phase1_results/lora_r6_full.pt",
+      "adapter_path": "./phase1_results/lora_r6_adapter"
+    },
+    "LoRA r=10": {
+      "test_loss": 0.5439446346521377,
+      "test_acc": 89.02,
+      "trainable_params": 368640,
+      "ckpt_path": "./phase1_results/lora_r10_full.pt",
+      "adapter_path": "./phase1_results/lora_r10_adapter"
+    },
+    "LoRA r=12": {
+      "test_loss": 0.49148102486133577,
+      "test_acc": 89.31,
+      "trainable_params": 442368,
+      "ckpt_path": "./phase1_results/lora_r12_full.pt",
+      "adapter_path": "./phase1_results/lora_r12_adapter"
+    },
+    "LoRA r=16": {
+      "test_loss": 0.46061923320293424,
+      "test_acc": 89.51,
+      "trainable_params": 589824,
+      "ckpt_path": "./phase1_results/lora_r16_full.pt",
+      "adapter_path": "./phase1_results/lora_r16_adapter"
+    },
+    "LoRA r=30": {
+      "test_loss": 0.40889885486364363,
+      "test_acc": 90.3,
+      "trainable_params": 1105920,
+      "ckpt_path": "./phase1_results/lora_r30_full.pt",
+      "adapter_path": "./phase1_results/lora_r30_adapter"
+    },
+    "LoRA r=52": {
+      "test_loss": 0.3842954066991806,
+      "test_acc": 90.62,
+      "trainable_params": 1916928,
+      "ckpt_path": "./phase1_results/lora_r52_full.pt",
+      "adapter_path": "./phase1_results/lora_r52_adapter"
+    },
+    "LoRA r=64": {
+      "test_loss": 0.38395306997299194,
+      "test_acc": 90.48,
+      "trainable_params": 2359296,
+      "ckpt_path": "./phase1_results/lora_r64_full.pt",
+      "adapter_path": "./phase1_results/lora_r64_adapter"
+    },
+    "LoRA r=80": {
+      "test_loss": 0.3786165094256401,
+      "test_acc": 90.42,
+      "trainable_params": 2949120,
+      "ckpt_path": "./phase1_results/lora_r80_full.pt",
+      "adapter_path": "./phase1_results/lora_r80_adapter"
+    },
+    "LoRA r=100": {
+      "test_loss": 0.367096852016449,
+      "test_acc": 90.9,
+      "trainable_params": 3686400,
+      "ckpt_path": "./phase1_results/lora_r100_full.pt",
+      "adapter_path": "./phase1_results/lora_r100_adapter"
+    },
+    "LoRA r=128": {
+      "test_loss": 0.3723338495016098,
+      "test_acc": 90.55,
+      "trainable_params": 4718592,
+      "ckpt_path": "./phase1_results/lora_r128_full.pt",
+      "adapter_path": "./phase1_results/lora_r128_adapter"
+    },
+    "LoRA r=150": {
+      "test_loss": 0.36478545644283294,
+      "test_acc": 90.7,
+      "trainable_params": 5529600,
+      "ckpt_path": "./phase1_results/lora_r150_full.pt",
+      "adapter_path": "./phase1_results/lora_r150_adapter"
+    },
+    "LoRA r=200": {
+      "test_loss": 0.36510144916176795,
+      "test_acc": 90.95,
+      "trainable_params": 7372800,
+      "ckpt_path": "./phase1_results/lora_r200_full.pt",
+      "adapter_path": "./phase1_results/lora_r200_adapter"
+    }
+  },
+  "curvature": {
+    "r=3": {
+      "lambda_max": 0.15329670906066895,
+      "trace": 98.10964965820312,
+      "trace_normalized": 0.0008871315254105462,
+      "concentration_ratio": 172.80042980878844,
+      "num_params": 110592,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 0.0002689763205125928,
+          "trace": 0.07399643957614899,
+          "trace_normalized": 1.6058254914241843e-05,
+          "num_params": 4608
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.00874579418450594,
+          "trace": 1.5147395133972168,
+          "trace_normalized": 0.0003287195286247879,
+          "num_params": 4608
+        },
+        "(1, 'query')": {
+          "lambda_max": 0.0005543407751247287,
+          "trace": 0.09032970666885376,
+          "trace_normalized": 1.9602801330620423e-05,
+          "num_params": 4608
+        },
+        "(1, 'value')": {
+          "lambda_max": 0.01164837647229433,
+          "trace": 2.17625093460083,
+          "trace_normalized": 0.0004722766752820462,
+          "num_params": 4608
+        },
+        "(2, 'query')": {
+          "lambda_max": 0.0016895856242626905,
+          "trace": 0.22680971026420593,
+          "trace_normalized": 4.922085645375773e-05,
+          "num_params": 4608
+        },
+        "(2, 'value')": {
+          "lambda_max": 0.012974326498806477,
+          "trace": 2.6760106086730957,
+          "trace_normalized": 0.0005807314882986248,
+          "num_params": 4608
+        },
+        "(3, 'query')": {
+          "lambda_max": 0.0020640594884753227,
+          "trace": 0.4497496485710144,
+          "trace_normalized": 9.760192187968642e-05,
+          "num_params": 4608
+        },
+        "(3, 'value')": {
+          "lambda_max": 0.01445609237998724,
+          "trace": 2.6316072940826416,
+          "trace_normalized": 0.000571095326449722,
+          "num_params": 4608
+        },
+        "(4, 'query')": {
+          "lambda_max": 0.0155975092202425,
+          "trace": 0.6361124515533447,
+          "trace_normalized": 0.00013804524496663362,
+          "num_params": 4608
+        },
+        "(4, 'value')": {
+          "lambda_max": 0.00839619617909193,
+          "trace": 3.074791431427002,
+          "trace_normalized": 0.0006672724266536534,
+          "num_params": 4608
+        },
+        "(5, 'query')": {
+          "lambda_max": 0.0035826985258609056,
+          "trace": 0.6047313213348389,
+          "trace_normalized": 0.00013123509415891021,
+          "num_params": 4608
+        },
+        "(5, 'value')": {
+          "lambda_max": 0.008181327022612095,
+          "trace": 4.579975128173828,
+          "trace_normalized": 0.0009939182782545686,
+          "num_params": 4608
+        },
+        "(6, 'query')": {
+          "lambda_max": 0.00722581148147583,
+          "trace": 0.9732417464256287,
+          "trace_normalized": 0.00021120697783771902,
+          "num_params": 4608
+        },
+        "(6, 'value')": {
+          "lambda_max": 0.02107548527419567,
+          "trace": 4.675334930419922,
+          "trace_normalized": 0.00101461261510849,
+          "num_params": 4608
+        },
+        "(7, 'query')": {
+          "lambda_max": 0.0224453154951334,
+          "trace": 1.7712664604187012,
+          "trace_normalized": 0.0003843894228339195,
+          "num_params": 4608
+        },
+        "(7, 'value')": {
+          "lambda_max": 0.028346097096800804,
+          "trace": 9.018369674682617,
+          "trace_normalized": 0.0019571115262806416,
+          "num_params": 4608
+        },
+        "(8, 'query')": {
+          "lambda_max": 0.04287147894501686,
+          "trace": 3.011077880859375,
+          "trace_normalized": 0.0006534457206726074,
+          "num_params": 4608
+        },
+        "(8, 'value')": {
+          "lambda_max": 0.037095073610544205,
+          "trace": 12.968279838562012,
+          "trace_normalized": 0.002814296865835786,
+          "num_params": 4608
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.08865285664796829,
+          "trace": 5.834325790405273,
+          "trace_normalized": 0.0012661297805607319,
+          "num_params": 4608
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.02766438201069832,
+          "trace": 11.425395011901855,
+          "trace_normalized": 0.0024794694036245346,
+          "num_params": 4608
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.08417906612157822,
+          "trace": 7.7139081954956055,
+          "trace_normalized": 0.001674025203101337,
+          "num_params": 4608
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.017351001501083374,
+          "trace": 5.212557792663574,
+          "trace_normalized": 0.0011311974376440048,
+          "num_params": 4608
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.15329670906066895,
+          "trace": 14.128049850463867,
+          "trace_normalized": 0.0030659830663353205,
+          "num_params": 4608
+        },
+        "(11, 'value')": {
+          "lambda_max": 0.005099378991872072,
+          "trace": 2.6427440643310547,
+          "trace_normalized": 0.0005735121667385101,
+          "num_params": 4608
+        }
+      }
+    },
+    "r=5": {
+      "lambda_max": 0.22615991532802582,
+      "trace": 68.16969299316406,
+      "trace_normalized": 0.0003698442545202043,
+      "concentration_ratio": 611.5004138969812,
+      "num_params": 184320,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 0.0001532838650746271,
+          "trace": 0.05642630532383919,
+          "trace_normalized": 7.347175596805755e-06,
+          "num_params": 7680
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.006462601013481617,
+          "trace": 1.2776648998260498,
+          "trace_normalized": 0.00016636263171676546,
+          "num_params": 7680
+        },
+        "(1, 'query')": {
+          "lambda_max": 0.00029787185485474765,
+          "trace": 0.06400434672832489,
+          "trace_normalized": 8.333900041179731e-06,
+          "num_params": 7680
+        },
+        "(1, 'value')": {
+          "lambda_max": 0.004939021077007055,
+          "trace": 1.7665071487426758,
+          "trace_normalized": 0.0002300139603903517,
+          "num_params": 7680
+        },
+        "(2, 'query')": {
+          "lambda_max": 0.00036625179927796125,
+          "trace": 0.15544551610946655,
+          "trace_normalized": 2.024030254688114e-05,
+          "num_params": 7680
+        },
+        "(2, 'value')": {
+          "lambda_max": 0.0047079697251319885,
+          "trace": 1.4215915203094482,
+          "trace_normalized": 0.00018510306836105883,
+          "num_params": 7680
+        },
+        "(3, 'query')": {
+          "lambda_max": 0.00046235183253884315,
+          "trace": 0.269609272480011,
+          "trace_normalized": 3.5105374990962446e-05,
+          "num_params": 7680
+        },
+        "(3, 'value')": {
+          "lambda_max": 0.00411119032651186,
+          "trace": 2.0342607498168945,
+          "trace_normalized": 0.00026487771538086236,
+          "num_params": 7680
+        },
+        "(4, 'query')": {
+          "lambda_max": 0.0017511231126263738,
+          "trace": 0.2953512668609619,
+          "trace_normalized": 3.845719766104594e-05,
+          "num_params": 7680
+        },
+        "(4, 'value')": {
+          "lambda_max": 0.004082038067281246,
+          "trace": 2.483038902282715,
+          "trace_normalized": 0.0003233123861718923,
+          "num_params": 7680
+        },
+        "(5, 'query')": {
+          "lambda_max": 0.002388773253187537,
+          "trace": 0.43345749378204346,
+          "trace_normalized": 5.643978147418238e-05,
+          "num_params": 7680
+        },
+        "(5, 'value')": {
+          "lambda_max": 0.006068835034966469,
+          "trace": 2.3623251914978027,
+          "trace_normalized": 0.00030759445508010685,
+          "num_params": 7680
+        },
+        "(6, 'query')": {
+          "lambda_max": 0.004555804189294577,
+          "trace": 0.5681666135787964,
+          "trace_normalized": 7.398003072012216e-05,
+          "num_params": 7680
+        },
+        "(6, 'value')": {
+          "lambda_max": 0.007397836539894342,
+          "trace": 3.2134366035461426,
+          "trace_normalized": 0.0004184162535239011,
+          "num_params": 7680
+        },
+        "(7, 'query')": {
+          "lambda_max": 0.004642249085009098,
+          "trace": 0.7956565618515015,
+          "trace_normalized": 0.00010360112355556339,
+          "num_params": 7680
+        },
+        "(7, 'value')": {
+          "lambda_max": 0.012911034747958183,
+          "trace": 5.656176567077637,
+          "trace_normalized": 0.0007364813354797661,
+          "num_params": 7680
+        },
+        "(8, 'query')": {
+          "lambda_max": 0.01324960496276617,
+          "trace": 1.3518530130386353,
+          "trace_normalized": 0.00017602254229132086,
+          "num_params": 7680
+        },
+        "(8, 'value')": {
+          "lambda_max": 0.013581610284745693,
+          "trace": 7.24224853515625,
+          "trace_normalized": 0.0009430011850781739,
+          "num_params": 7680
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.0404653437435627,
+          "trace": 3.039640426635742,
+          "trace_normalized": 0.00039578654104843736,
+          "num_params": 7680
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.013063754886388779,
+          "trace": 6.899607181549072,
+          "trace_normalized": 0.000898386409971863,
+          "num_params": 7680
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.08124011754989624,
+          "trace": 5.602010726928711,
+          "trace_normalized": 0.0007294285460375249,
+          "num_params": 7680
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.022312898188829422,
+          "trace": 6.927778720855713,
+          "trace_normalized": 0.0009020545403473079,
+          "num_params": 7680
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.22615991532802582,
+          "trace": 12.565463066101074,
+          "trace_normalized": 0.0016361280577257276,
+          "num_params": 7680
+        },
+        "(11, 'value')": {
+          "lambda_max": 0.002663564635440707,
+          "trace": 1.6879709959030151,
+          "trace_normalized": 0.0002197879075538367,
+          "num_params": 7680
+        }
+      }
+    },
+    "r=6": {
+      "lambda_max": 0.05466657131910324,
+      "trace": 49.146488189697266,
+      "trace_normalized": 0.0002221973026516261,
+      "concentration_ratio": 246.027158839032,
+      "num_params": 221184,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 0.00019074622832704335,
+          "trace": 0.047220297157764435,
+          "trace_normalized": 5.12373026140267e-06,
+          "num_params": 9216
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.014816202223300934,
+          "trace": 1.7489088773727417,
+          "trace_normalized": 0.00018976876162923872,
+          "num_params": 9216
+        },
+        "(1, 'query')": {
+          "lambda_max": 0.0007974258624017239,
+          "trace": 0.08679622411727905,
+          "trace_normalized": 9.417993169336114e-06,
+          "num_params": 9216
+        },
+        "(1, 'value')": {
+          "lambda_max": 0.002522403374314308,
+          "trace": 1.3331207036972046,
+          "trace_normalized": 0.0001446528622182086,
+          "num_params": 9216
+        },
+        "(2, 'query')": {
+          "lambda_max": 0.000483153504319489,
+          "trace": 0.14346355199813843,
+          "trace_normalized": 1.5566791262244806e-05,
+          "num_params": 9216
+        },
+        "(2, 'value')": {
+          "lambda_max": 0.011751811020076275,
+          "trace": 1.6162773370742798,
+          "trace_normalized": 0.00017537731037009507,
+          "num_params": 9216
+        },
+        "(3, 'query')": {
+          "lambda_max": 0.0009547265945002437,
+          "trace": 0.24485281109809875,
+          "trace_normalized": 2.6568230168777518e-05,
+          "num_params": 9216
+        },
+        "(3, 'value')": {
+          "lambda_max": 0.006656449753791094,
+          "trace": 2.148726463317871,
+          "trace_normalized": 0.00023315174621529877,
+          "num_params": 9216
+        },
+        "(4, 'query')": {
+          "lambda_max": 0.0018257033079862595,
+          "trace": 0.2557360529899597,
+          "trace_normalized": 2.7749138098442927e-05,
+          "num_params": 9216
+        },
+        "(4, 'value')": {
+          "lambda_max": 0.0017739689210429788,
+          "trace": 1.5913540124893188,
+          "trace_normalized": 0.00017267296789214015,
+          "num_params": 9216
+        },
+        "(5, 'query')": {
+          "lambda_max": 0.0019195120548829436,
+          "trace": 0.3090095520019531,
+          "trace_normalized": 3.352968269609846e-05,
+          "num_params": 9216
+        },
+        "(5, 'value')": {
+          "lambda_max": 0.00831933505833149,
+          "trace": 2.6870155334472656,
+          "trace_normalized": 0.0002915598452091217,
+          "num_params": 9216
+        },
+        "(6, 'query')": {
+          "lambda_max": 0.0013005188666284084,
+          "trace": 0.3324207067489624,
+          "trace_normalized": 3.606995596783236e-05,
+          "num_params": 9216
+        },
+        "(6, 'value')": {
+          "lambda_max": 0.005689744837582111,
+          "trace": 2.792349100112915,
+          "trace_normalized": 0.0003029892686754465,
+          "num_params": 9216
+        },
+        "(7, 'query')": {
+          "lambda_max": 0.0026224851608276367,
+          "trace": 0.5502192974090576,
+          "trace_normalized": 5.9702615544665605e-05,
+          "num_params": 9216
+        },
+        "(7, 'value')": {
+          "lambda_max": 0.012352916412055492,
+          "trace": 4.406068801879883,
+          "trace_normalized": 0.0004780890594702214,
+          "num_params": 9216
+        },
+        "(8, 'query')": {
+          "lambda_max": 0.006750100292265415,
+          "trace": 0.8259146213531494,
+          "trace_normalized": 8.961747516877949e-05,
+          "num_params": 9216
+        },
+        "(8, 'value')": {
+          "lambda_max": 0.011324001476168633,
+          "trace": 5.25316047668457,
+          "trace_normalized": 0.0005700043984688818,
+          "num_params": 9216
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.03984850272536278,
+          "trace": 2.8282086849212646,
+          "trace_normalized": 0.00030688027618452907,
+          "num_params": 9216
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.00774506526067853,
+          "trace": 5.415314674377441,
+          "trace_normalized": 0.000587599235586822,
+          "num_params": 9216
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.04620177671313286,
+          "trace": 3.562741994857788,
+          "trace_normalized": 0.0003865822509396821,
+          "num_params": 9216
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.010483082383871078,
+          "trace": 3.185405731201172,
+          "trace_normalized": 0.00034563863300718367,
+          "num_params": 9216
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.05466657131910324,
+          "trace": 6.24399471282959,
+          "trace_normalized": 0.0006775168003514409,
+          "num_params": 9216
+        },
+        "(11, 'value')": {
+          "lambda_max": 0.002453927416354418,
+          "trace": 1.5382108688354492,
+          "trace_normalized": 0.0001669065677560866,
+          "num_params": 9216
+        }
+      }
+    },
+    "r=10": {
+      "lambda_max": 0.051825642585754395,
+      "trace": 22.28282928466797,
+      "trace_normalized": 6.0446042981412676e-05,
+      "concentration_ratio": 857.3868391071369,
+      "num_params": 368640,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 3.8769427192164585e-05,
+          "trace": 0.021134257316589355,
+          "trace_normalized": 1.3759282637693104e-06,
+          "num_params": 15360
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.002249574288725853,
+          "trace": 0.6425899267196655,
+          "trace_normalized": 4.183528290013783e-05,
+          "num_params": 15360
+        },
+        "(1, 'query')": {
+          "lambda_max": 4.220630944473669e-05,
+          "trace": 0.020109262317419052,
+          "trace_normalized": 1.3091968185108271e-06,
+          "num_params": 15360
+        },
+        "(1, 'value')": {
+          "lambda_max": 0.0017730658873915672,
+          "trace": 0.6886867880821228,
+          "trace_normalized": 4.4836382585344836e-05,
+          "num_params": 15360
+        },
+        "(2, 'query')": {
+          "lambda_max": 0.00048167709610424936,
+          "trace": 0.07522712647914886,
+          "trace_normalized": 4.897599410469411e-06,
+          "num_params": 15360
+        },
+        "(2, 'value')": {
+          "lambda_max": 0.0026643844321370125,
+          "trace": 0.6503260135650635,
+          "trace_normalized": 4.2338935600128025e-05,
+          "num_params": 15360
+        },
+        "(3, 'query')": {
+          "lambda_max": 0.00023096053337212652,
+          "trace": 0.11471118032932281,
+          "trace_normalized": 7.468176136171678e-06,
+          "num_params": 15360
+        },
+        "(3, 'value')": {
+          "lambda_max": 0.0009596929885447025,
+          "trace": 0.6221179962158203,
+          "trace_normalized": 4.0502476622350514e-05,
+          "num_params": 15360
+        },
+        "(4, 'query')": {
+          "lambda_max": 0.0005672274855896831,
+          "trace": 0.11379656195640564,
+          "trace_normalized": 7.408630608551903e-06,
+          "num_params": 15360
+        },
+        "(4, 'value')": {
+          "lambda_max": 0.0008038016967475414,
+          "trace": 0.7585529088973999,
+          "trace_normalized": 4.9384958401788026e-05,
+          "num_params": 15360
+        },
+        "(5, 'query')": {
+          "lambda_max": 0.0004689977504312992,
+          "trace": 0.12696579098701477,
+          "trace_normalized": 8.266002623713575e-06,
+          "num_params": 15360
+        },
+        "(5, 'value')": {
+          "lambda_max": 0.0016341853188350797,
+          "trace": 1.1069318056106567,
+          "trace_normalized": 7.20658790669404e-05,
+          "num_params": 15360
+        },
+        "(6, 'query')": {
+          "lambda_max": 0.0005795881152153015,
+          "trace": 0.14525333046913147,
+          "trace_normalized": 9.456597581447568e-06,
+          "num_params": 15360
+        },
+        "(6, 'value')": {
+          "lambda_max": 0.0009939400479197502,
+          "trace": 0.9995476603507996,
+          "trace_normalized": 6.507472426164895e-05,
+          "num_params": 15360
+        },
+        "(7, 'query')": {
+          "lambda_max": 0.000508486176840961,
+          "trace": 0.2120589315891266,
+          "trace_normalized": 1.3805920389131643e-05,
+          "num_params": 15360
+        },
+        "(7, 'value')": {
+          "lambda_max": 0.0026934160850942135,
+          "trace": 1.530963659286499,
+          "trace_normalized": 9.967212099581957e-05,
+          "num_params": 15360
+        },
+        "(8, 'query')": {
+          "lambda_max": 0.0014416881604120135,
+          "trace": 0.37767913937568665,
+          "trace_normalized": 2.4588487576693296e-05,
+          "num_params": 15360
+        },
+        "(8, 'value')": {
+          "lambda_max": 0.0020484859123826027,
+          "trace": 2.029371500015259,
+          "trace_normalized": 0.00013212054909672588,
+          "num_params": 15360
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.006592272315174341,
+          "trace": 0.9690594673156738,
+          "trace_normalized": 6.308981392066926e-05,
+          "num_params": 15360
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.006120616104453802,
+          "trace": 2.5027060508728027,
+          "trace_normalized": 0.00016293660155497491,
+          "num_params": 15360
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.01591534912586212,
+          "trace": 1.83928644657135,
+          "trace_normalized": 0.00011974521476076916,
+          "num_params": 15360
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.00512531166896224,
+          "trace": 2.2121009826660156,
+          "trace_normalized": 0.0001440170017303899,
+          "num_params": 15360
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.051825642585754395,
+          "trace": 3.759641408920288,
+          "trace_normalized": 0.00024476833641529083,
+          "num_params": 15360
+        },
+        "(11, 'value')": {
+          "lambda_max": 0.0008622451568953693,
+          "trace": 0.7640112638473511,
+          "trace_normalized": 4.974031980964355e-05,
+          "num_params": 15360
+        }
+      }
+    },
+    "r=12": {
+      "lambda_max": 0.013566453941166401,
+      "trace": 16.647254943847656,
+      "trace_normalized": 3.763214098634543e-05,
+      "concentration_ratio": 360.5017738849119,
+      "num_params": 442368,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 2.4423416107310914e-05,
+          "trace": 0.01893705502152443,
+          "trace_normalized": 1.027401026476582e-06,
+          "num_params": 18432
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.0015483644092455506,
+          "trace": 0.5605554580688477,
+          "trace_normalized": 3.0412080377573147e-05,
+          "num_params": 18432
+        },
+        "(1, 'query')": {
+          "lambda_max": 5.926661106059328e-05,
+          "trace": 0.025446008890867233,
+          "trace_normalized": 1.3805343996864394e-06,
+          "num_params": 18432
+        },
+        "(1, 'value')": {
+          "lambda_max": 0.0017422254895791411,
+          "trace": 0.5520949363708496,
+          "trace_normalized": 2.9953067496535368e-05,
+          "num_params": 18432
+        },
+        "(2, 'query')": {
+          "lambda_max": 6.799528637202457e-05,
+          "trace": 0.045840296894311905,
+          "trace_normalized": 2.4869952994777123e-06,
+          "num_params": 18432
+        },
+        "(2, 'value')": {
+          "lambda_max": 0.001810082932934165,
+          "trace": 0.59212327003479,
+          "trace_normalized": 3.2124742574524134e-05,
+          "num_params": 18432
+        },
+        "(3, 'query')": {
+          "lambda_max": 0.00014643973554484546,
+          "trace": 0.07962460070848465,
+          "trace_normalized": 4.319911113270791e-06,
+          "num_params": 18432
+        },
+        "(3, 'value')": {
+          "lambda_max": 0.0008637740393169224,
+          "trace": 0.5509088039398193,
+          "trace_normalized": 2.9888715289416723e-05,
+          "num_params": 18432
+        },
+        "(4, 'query')": {
+          "lambda_max": 0.00021014771482441574,
+          "trace": 0.09399475157260895,
+          "trace_normalized": 5.099541795061668e-06,
+          "num_params": 18432
+        },
+        "(4, 'value')": {
+          "lambda_max": 0.0006195193855091929,
+          "trace": 0.7558509111404419,
+          "trace_normalized": 4.1007537220139056e-05,
+          "num_params": 18432
+        },
+        "(5, 'query')": {
+          "lambda_max": 0.00026795241865329444,
+          "trace": 0.11048455536365509,
+          "trace_normalized": 5.994170805934118e-06,
+          "num_params": 18432
+        },
+        "(5, 'value')": {
+          "lambda_max": 0.0008857988868840039,
+          "trace": 0.7692379951477051,
+          "trace_normalized": 4.173383422312327e-05,
+          "num_params": 18432
+        },
+        "(6, 'query')": {
+          "lambda_max": 0.000509390898514539,
+          "trace": 0.1268283724784851,
+          "trace_normalized": 6.880879482196178e-06,
+          "num_params": 18432
+        },
+        "(6, 'value')": {
+          "lambda_max": 0.0006439606659114361,
+          "trace": 0.9686981439590454,
+          "trace_normalized": 5.255523865344003e-05,
+          "num_params": 18432
+        },
+        "(7, 'query')": {
+          "lambda_max": 0.0003808318288065493,
+          "trace": 0.17428284883499146,
+          "trace_normalized": 9.45544979913393e-06,
+          "num_params": 18432
+        },
+        "(7, 'value')": {
+          "lambda_max": 0.0016358395805582404,
+          "trace": 1.435333490371704,
+          "trace_normalized": 7.787182403262705e-05,
+          "num_params": 18432
+        },
+        "(8, 'query')": {
+          "lambda_max": 0.0015539168380200863,
+          "trace": 0.25465744733810425,
+          "trace_normalized": 1.3816051250614692e-05,
+          "num_params": 18432
+        },
+        "(8, 'value')": {
+          "lambda_max": 0.0026690317317843437,
+          "trace": 1.9242334365844727,
+          "trace_normalized": 0.00010439634934300557,
+          "num_params": 18432
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.008288852870464325,
+          "trace": 0.829552173614502,
+          "trace_normalized": 4.500608702073805e-05,
+          "num_params": 18432
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.002980621997267008,
+          "trace": 2.0124619007110596,
+          "trace_normalized": 0.00010918304906226695,
+          "num_params": 18432
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.013566453941166401,
+          "trace": 1.2573285102844238,
+          "trace_normalized": 6.821443821536377e-05,
+          "num_params": 18432
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.0016529439017176628,
+          "trace": 1.4012179374694824,
+          "trace_normalized": 7.602093683090061e-05,
+          "num_params": 18432
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.005151905585080385,
+          "trace": 1.4909311532974243,
+          "trace_normalized": 8.088819595286623e-05,
+          "num_params": 18432
+        },
+        "(11, 'value')": {
+          "lambda_max": 0.0004093518655281514,
+          "trace": 0.6166298389434814,
+          "trace_normalized": 3.3454311051173136e-05,
+          "num_params": 18432
+        }
+      }
+    },
+    "r=16": {
+      "lambda_max": 0.012322724796831608,
+      "trace": 10.130707740783691,
+      "trace_normalized": 1.7175814718939364e-05,
+      "concentration_ratio": 717.4462627264702,
+      "num_params": 589824,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 5.444678390631452e-05,
+          "trace": 0.018841782584786415,
+          "trace_normalized": 7.666741339562577e-07,
+          "num_params": 24576
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.0035796116571873426,
+          "trace": 0.5154856443405151,
+          "trace_normalized": 2.0975165170966648e-05,
+          "num_params": 24576
+        },
+        "(1, 'query')": {
+          "lambda_max": 3.3753876778064296e-05,
+          "trace": 0.015079227276146412,
+          "trace_normalized": 6.135753665148513e-07,
+          "num_params": 24576
+        },
+        "(1, 'value')": {
+          "lambda_max": 0.0005937140667811036,
+          "trace": 0.3383999466896057,
+          "trace_normalized": 1.3769529687124304e-05,
+          "num_params": 24576
+        },
+        "(2, 'query')": {
+          "lambda_max": 0.00011505174916237593,
+          "trace": 0.03941648080945015,
+          "trace_normalized": 1.6038607100199442e-06,
+          "num_params": 24576
+        },
+        "(2, 'value')": {
+          "lambda_max": 0.0012791749322786927,
+          "trace": 0.3980470895767212,
+          "trace_normalized": 1.6196578144445084e-05,
+          "num_params": 24576
+        },
+        "(3, 'query')": {
+          "lambda_max": 3.554397699190304e-05,
+          "trace": 0.04248913377523422,
+          "trace_normalized": 1.7288873550569406e-06,
+          "num_params": 24576
+        },
+        "(3, 'value')": {
+          "lambda_max": 0.0003626476100180298,
+          "trace": 0.252660870552063,
+          "trace_normalized": 1.0280797141604125e-05,
+          "num_params": 24576
+        },
+        "(4, 'query')": {
+          "lambda_max": 0.0004026003589387983,
+          "trace": 0.05825740098953247,
+          "trace_normalized": 2.370499714743346e-06,
+          "num_params": 24576
+        },
+        "(4, 'value')": {
+          "lambda_max": 0.00038787222001701593,
+          "trace": 0.368280827999115,
+          "trace_normalized": 1.498538586020004e-05,
+          "num_params": 24576
+        },
+        "(5, 'query')": {
+          "lambda_max": 0.00015430216444656253,
+          "trace": 0.06556733697652817,
+          "trace_normalized": 2.667941771505866e-06,
+          "num_params": 24576
+        },
+        "(5, 'value')": {
+          "lambda_max": 0.0004419442848302424,
+          "trace": 0.38995951414108276,
+          "trace_normalized": 1.5867493857513182e-05,
+          "num_params": 24576
+        },
+        "(6, 'query')": {
+          "lambda_max": 8.062835695454851e-05,
+          "trace": 0.04428192973136902,
+          "trace_normalized": 1.801836333470419e-06,
+          "num_params": 24576
+        },
+        "(6, 'value')": {
+          "lambda_max": 0.0005306137609295547,
+          "trace": 0.41948026418685913,
+          "trace_normalized": 1.7068696251953952e-05,
+          "num_params": 24576
+        },
+        "(7, 'query')": {
+          "lambda_max": 0.0003338463429827243,
+          "trace": 0.13360856473445892,
+          "trace_normalized": 5.43654641660396e-06,
+          "num_params": 24576
+        },
+        "(7, 'value')": {
+          "lambda_max": 0.0021786452271044254,
+          "trace": 0.8797258138656616,
+          "trace_normalized": 3.5796136216958985e-05,
+          "num_params": 24576
+        },
+        "(8, 'query')": {
+          "lambda_max": 0.0006393970106728375,
+          "trace": 0.11791523545980453,
+          "trace_normalized": 4.797983365278924e-06,
+          "num_params": 24576
+        },
+        "(8, 'value')": {
+          "lambda_max": 0.0014258582377806306,
+          "trace": 1.046736478805542,
+          "trace_normalized": 4.2591818782966584e-05,
+          "num_params": 24576
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.0025364484172314405,
+          "trace": 0.5707618594169617,
+          "trace_normalized": 2.3224360120366327e-05,
+          "num_params": 24576
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.002102199476212263,
+          "trace": 1.1108372211456299,
+          "trace_normalized": 4.5200082240626216e-05,
+          "num_params": 24576
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.0034314049407839775,
+          "trace": 0.5764243006706238,
+          "trace_normalized": 2.345476605114527e-05,
+          "num_params": 24576
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.0011525326408445835,
+          "trace": 1.1188137531280518,
+          "trace_normalized": 4.552464815787971e-05,
+          "num_params": 24576
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.012322724796831608,
+          "trace": 1.1598105430603027,
+          "trace_normalized": 4.719281423604116e-05,
+          "num_params": 24576
+        },
+        "(11, 'value')": {
+          "lambda_max": 0.0002714529982767999,
+          "trace": 0.449826180934906,
+          "trace_normalized": 1.8303475371794775e-05,
+          "num_params": 24576
+        }
+      }
+    },
+    "r=30": {
+      "lambda_max": 0.00468006357550621,
+      "trace": 6.673667907714844,
+      "trace_normalized": 6.034494274192386e-06,
+      "concentration_ratio": 775.551784011059,
+      "num_params": 1105920,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 9.599711120245047e-06,
+          "trace": 0.010314454324543476,
+          "trace_normalized": 2.2383798636838037e-07,
+          "num_params": 46080
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.00045716032036580145,
+          "trace": 0.28779613971710205,
+          "trace_normalized": 6.245576059882296e-06,
+          "num_params": 46080
+        },
+        "(1, 'query')": {
+          "lambda_max": 1.9699635231518187e-05,
+          "trace": 0.010665591806173325,
+          "trace_normalized": 2.3145815930547542e-07,
+          "num_params": 46080
+        },
+        "(1, 'value')": {
+          "lambda_max": 0.00022145395632833242,
+          "trace": 0.2869367003440857,
+          "trace_normalized": 6.226925052033039e-06,
+          "num_params": 46080
+        },
+        "(2, 'query')": {
+          "lambda_max": 2.5549707061145455e-05,
+          "trace": 0.02649073302745819,
+          "trace_normalized": 5.748856892751064e-07,
+          "num_params": 46080
+        },
+        "(2, 'value')": {
+          "lambda_max": 0.0005551756476052105,
+          "trace": 0.2773210406303406,
+          "trace_normalized": 6.018251951900311e-06,
+          "num_params": 46080
+        },
+        "(3, 'query')": {
+          "lambda_max": 8.609423821326345e-05,
+          "trace": 0.05425752326846123,
+          "trace_normalized": 1.177463673229795e-06,
+          "num_params": 46080
+        },
+        "(3, 'value')": {
+          "lambda_max": 0.00028918468160554767,
+          "trace": 0.2928038239479065,
+          "trace_normalized": 6.35424976280774e-06,
+          "num_params": 46080
+        },
+        "(4, 'query')": {
+          "lambda_max": 3.5567169106798247e-05,
+          "trace": 0.045207224786281586,
+          "trace_normalized": 9.81059542937146e-07,
+          "num_params": 46080
+        },
+        "(4, 'value')": {
+          "lambda_max": 0.0002186602505389601,
+          "trace": 0.26521795988082886,
+          "trace_normalized": 5.755598067480605e-06,
+          "num_params": 46080
+        },
+        "(5, 'query')": {
+          "lambda_max": 9.353262430522591e-05,
+          "trace": 0.06080697476863861,
+          "trace_normalized": 1.319595867244061e-06,
+          "num_params": 46080
+        },
+        "(5, 'value')": {
+          "lambda_max": 0.0004586938885040581,
+          "trace": 0.3958849310874939,
+          "trace_normalized": 8.591253390477505e-06,
+          "num_params": 46080
+        },
+        "(6, 'query')": {
+          "lambda_max": 9.586218220647424e-05,
+          "trace": 0.06373654305934906,
+          "trace_normalized": 1.3831715932610678e-06,
+          "num_params": 46080
+        },
+        "(6, 'value')": {
+          "lambda_max": 0.0003332683409098536,
+          "trace": 0.3909214735031128,
+          "trace_normalized": 8.483539204462431e-06,
+          "num_params": 46080
+        },
+        "(7, 'query')": {
+          "lambda_max": 6.01900574110914e-05,
+          "trace": 0.06369783729314804,
+          "trace_normalized": 1.3823315612171427e-06,
+          "num_params": 46080
+        },
+        "(7, 'value')": {
+          "lambda_max": 0.0002970021450892091,
+          "trace": 0.467282235622406,
+          "trace_normalized": 1.0140674021386076e-05,
+          "num_params": 46080
+        },
+        "(8, 'query')": {
+          "lambda_max": 0.00021184718934819102,
+          "trace": 0.12468507140874863,
+          "trace_normalized": 2.705839278860367e-06,
+          "num_params": 46080
+        },
+        "(8, 'value')": {
+          "lambda_max": 0.0007561705424450338,
+          "trace": 0.7814304232597351,
+          "trace_normalized": 1.695812534308061e-05,
+          "num_params": 46080
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.0007840269827283919,
+          "trace": 0.1787773221731186,
+          "trace_normalized": 3.879716132360045e-06,
+          "num_params": 46080
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.0006030764780007303,
+          "trace": 0.7283622026443481,
+          "trace_normalized": 1.580647221999243e-05,
+          "num_params": 46080
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.0009717578068375587,
+          "trace": 0.29395151138305664,
+          "trace_normalized": 6.3791562752157915e-06,
+          "num_params": 46080
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.00041611952474340796,
+          "trace": 0.6264197826385498,
+          "trace_normalized": 1.3594180018117186e-05,
+          "num_params": 46080
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.00468006357550621,
+          "trace": 0.6389428973197937,
+          "trace_normalized": 1.386594885843806e-05,
+          "num_params": 46080
+        },
+        "(11, 'value')": {
+          "lambda_max": 0.00014296092558652163,
+          "trace": 0.30175766348838806,
+          "trace_normalized": 6.548560577357421e-06,
+          "num_params": 46080
+        }
+      }
+    },
+    "r=52": {
+      "lambda_max": 0.0005416120984591544,
+      "trace": 2.1119513511657715,
+      "trace_normalized": 1.1017374419726623e-06,
+      "concentration_ratio": 491.59771305555796,
+      "num_params": 1916928,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 1.311009668825136e-06,
+          "trace": 0.002881124150007963,
+          "trace_normalized": 3.6071767794965126e-08,
+          "num_params": 79872
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.00010901461791945621,
+          "trace": 0.08000454306602478,
+          "trace_normalized": 1.0016594842454651e-06,
+          "num_params": 79872
+        },
+        "(1, 'query')": {
+          "lambda_max": 1.6307693613271113e-06,
+          "trace": 0.002660272642970085,
+          "trace_normalized": 3.3306697844182054e-08,
+          "num_params": 79872
+        },
+        "(1, 'value')": {
+          "lambda_max": 3.23056046909187e-05,
+          "trace": 0.06439931690692902,
+          "trace_normalized": 8.062815481935104e-07,
+          "num_params": 79872
+        },
+        "(2, 'query')": {
+          "lambda_max": 4.629564955394017e-06,
+          "trace": 0.005989785771816969,
+          "trace_normalized": 7.499230747498586e-08,
+          "num_params": 79872
+        },
+        "(2, 'value')": {
+          "lambda_max": 6.917324208188802e-05,
+          "trace": 0.07810573279857635,
+          "trace_normalized": 9.778863159226603e-07,
+          "num_params": 79872
+        },
+        "(3, 'query')": {
+          "lambda_max": 4.746517788589699e-06,
+          "trace": 0.011521579697728157,
+          "trace_normalized": 1.4425054928324244e-07,
+          "num_params": 79872
+        },
+        "(3, 'value')": {
+          "lambda_max": 4.540769077721052e-05,
+          "trace": 0.07054906338453293,
+          "trace_normalized": 8.832765274746635e-07,
+          "num_params": 79872
+        },
+        "(4, 'query')": {
+          "lambda_max": 8.80630705069052e-06,
+          "trace": 0.010557408444583416,
+          "trace_normalized": 1.3217909611284995e-07,
+          "num_params": 79872
+        },
+        "(4, 'value')": {
+          "lambda_max": 3.5858705814462155e-05,
+          "trace": 0.09141945838928223,
+          "trace_normalized": 1.1445745258242823e-06,
+          "num_params": 79872
+        },
+        "(5, 'query')": {
+          "lambda_max": 2.274560392834246e-05,
+          "trace": 0.01541092712432146,
+          "trace_normalized": 1.9294530773095175e-07,
+          "num_params": 79872
+        },
+        "(5, 'value')": {
+          "lambda_max": 3.870327418553643e-05,
+          "trace": 0.09527640044689178,
+          "trace_normalized": 1.1928635785807273e-06,
+          "num_params": 79872
+        },
+        "(6, 'query')": {
+          "lambda_max": 1.3948354535386898e-05,
+          "trace": 0.01384798064827919,
+          "trace_normalized": 1.733771597400846e-07,
+          "num_params": 79872
+        },
+        "(6, 'value')": {
+          "lambda_max": 3.981208283221349e-05,
+          "trace": 0.1096784844994545,
+          "trace_normalized": 1.3731781791648245e-06,
+          "num_params": 79872
+        },
+        "(7, 'query')": {
+          "lambda_max": 9.575060175848193e-06,
+          "trace": 0.021357707679271698,
+          "trace_normalized": 2.673992014479154e-07,
+          "num_params": 79872
+        },
+        "(7, 'value')": {
+          "lambda_max": 8.127242472255602e-05,
+          "trace": 0.16193562746047974,
+          "trace_normalized": 2.0274392227292992e-06,
+          "num_params": 79872
+        },
+        "(8, 'query')": {
+          "lambda_max": 7.277995609911159e-05,
+          "trace": 0.025562196969985962,
+          "trace_normalized": 3.20039532653027e-07,
+          "num_params": 79872
+        },
+        "(8, 'value')": {
+          "lambda_max": 6.627426046179608e-05,
+          "trace": 0.1994788944721222,
+          "trace_normalized": 2.497482228136505e-06,
+          "num_params": 79872
+        },
+        "(9, 'query')": {
+          "lambda_max": 8.201503806049004e-05,
+          "trace": 0.06453198194503784,
+          "trace_normalized": 8.079425128926232e-07,
+          "num_params": 79872
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.00020053450134582818,
+          "trace": 0.29256466031074524,
+          "trace_normalized": 3.66291897080373e-06,
+          "num_params": 79872
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.0005416120984591544,
+          "trace": 0.13233177363872528,
+          "trace_normalized": 1.656798076510313e-06,
+          "num_params": 79872
+        },
+        "(10, 'value')": {
+          "lambda_max": 0.00013046035019215196,
+          "trace": 0.2165912687778473,
+          "trace_normalized": 2.7117296212963993e-06,
+          "num_params": 79872
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.000223062583245337,
+          "trace": 0.1390351504087448,
+          "trace_normalized": 1.740724542287353e-06,
+          "num_params": 79872
+        },
+        "(11, 'value')": {
+          "lambda_max": 6.524808122776449e-05,
+          "trace": 0.20626017451286316,
+          "trace_normalized": 2.5823840132943587e-06,
+          "num_params": 79872
+        }
+      }
+    },
+    "r=64": {
+      "lambda_max": 0.0006283714319579303,
+      "trace": 2.1778056621551514,
+      "trace_normalized": 9.230743671650998e-07,
+      "concentration_ratio": 680.73686538484,
+      "num_params": 2359296,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 8.600526371083106e-07,
+          "trace": 0.0021030716598033905,
+          "trace_normalized": 2.1393551818960077e-08,
+          "num_params": 98304
+        },
+        "(0, 'value')": {
+          "lambda_max": 0.00010372407996328548,
+          "trace": 0.06101332977414131,
+          "trace_normalized": 6.20659704964055e-07,
+          "num_params": 98304
+        },
+        "(1, 'query')": {
+          "lambda_max": 9.950529147317866e-07,
+          "trace": 0.0023280628956854343,
+          "trace_normalized": 2.3682281025116936e-08,
+          "num_params": 98304
+        },
+        "(1, 'value')": {
+          "lambda_max": 2.0916186258546077e-05,
+          "trace": 0.059208594262599945,
+          "trace_normalized": 6.023009859745798e-07,
+          "num_params": 98304
+        },
+        "(2, 'query')": {
+          "lambda_max": 4.1586199586163275e-06,
+          "trace": 0.007645638659596443,
+          "trace_normalized": 7.777546073839403e-08,
+          "num_params": 98304
+        },
+        "(2, 'value')": {
+          "lambda_max": 9.961413161363453e-05,
+          "trace": 0.0817277729511261,
+          "trace_normalized": 8.313779176205571e-07,
+          "num_params": 98304
+        },
+        "(3, 'query')": {
+          "lambda_max": 2.561181645432953e-06,
+          "trace": 0.009889751672744751,
+          "trace_normalized": 1.0060375643661246e-07,
+          "num_params": 98304
+        },
+        "(3, 'value')": {
+          "lambda_max": 3.77079559257254e-05,
+          "trace": 0.07235704362392426,
+          "trace_normalized": 7.360539484579931e-07,
+          "num_params": 98304
+        },
+        "(4, 'query')": {
+          "lambda_max": 1.3118684364599176e-05,
+          "trace": 0.009989334270358086,
+          "trace_normalized": 1.0161676300413092e-07,
+          "num_params": 98304
+        },
+        "(4, 'value')": {
+          "lambda_max": 2.5731178538990207e-05,
+          "trace": 0.08632367849349976,
+          "trace_normalized": 8.78129867487587e-07,
+          "num_params": 98304
+        },
+        "(5, 'query')": {
+          "lambda_max": 4.6808654587948695e-06,
+          "trace": 0.012461099773645401,
+          "trace_normalized": 1.2676086669216602e-07,
+          "num_params": 98304
+        },
+        "(5, 'value')": {
+          "lambda_max": 2.6897465431829914e-05,
+          "trace": 0.1217990517616272,
+          "trace_normalized": 1.2390040637910715e-06,
+          "num_params": 98304
+        },
+        "(6, 'query')": {
+          "lambda_max": 1.5153994354477618e-05,
+          "trace": 0.015736378729343414,
+          "trace_normalized": 1.6007872716272686e-07,
+          "num_params": 98304
+        },
+        "(6, 'value')": {
+          "lambda_max": 6.288255099207163e-05,
+          "trace": 0.10392294824123383,
+          "trace_normalized": 1.0571588973107282e-06,
+          "num_params": 98304
+        },
+        "(7, 'query')": {
+          "lambda_max": 5.8123118833464105e-06,
+          "trace": 0.01971098780632019,
+          "trace_normalized": 2.0051054150371783e-07,
+          "num_params": 98304
+        },
+        "(7, 'value')": {
+          "lambda_max": 5.4883057600818574e-05,
+          "trace": 0.15921251475811005,
+          "trace_normalized": 1.6195934904317255e-06,
+          "num_params": 98304
+        },
+        "(8, 'query')": {
+          "lambda_max": 2.3737487936159596e-05,
+          "trace": 0.030570387840270996,
+          "trace_normalized": 3.109780664090067e-07,
+          "num_params": 98304
+        },
+        "(8, 'value')": {
+          "lambda_max": 7.060253847157583e-05,
+          "trace": 0.22827830910682678,
+          "trace_normalized": 2.3221671199280536e-06,
+          "num_params": 98304
+        },
+        "(9, 'query')": {
+          "lambda_max": 0.00010262420983053744,
+          "trace": 0.09776648879051208,
+          "trace_normalized": 9.945322290150216e-07,
+          "num_params": 98304
+        },
+        "(9, 'value')": {
+          "lambda_max": 0.00013474017032422125,
+          "trace": 0.28654634952545166,
+          "trace_normalized": 2.914900278483401e-06,
+          "num_params": 98304
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.00039758061757311225,
+          "trace": 0.13677917420864105,
+          "trace_normalized": 1.391389787386288e-06,
+          "num_params": 98304
+        },
+        "(10, 'value')": {
+          "lambda_max": 6.63456303300336e-05,
+          "trace": 0.20879963040351868,
+          "trace_normalized": 2.124019829352619e-06,
+          "num_params": 98304
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.0006283714319579303,
+          "trace": 0.21230684220790863,
+          "trace_normalized": 2.1596970327664167e-06,
+          "num_params": 98304
+        },
+        "(11, 'value')": {
+          "lambda_max": 4.266264659236185e-05,
+          "trace": 0.15132921934127808,
+          "trace_normalized": 1.5394005004054634e-06,
+          "num_params": 98304
+        }
+      }
+    },
+    "r=80": {
+      "lambda_max": 0.0007975038606673479,
+      "trace": 1.4979686737060547,
+      "trace_normalized": 5.079375114291906e-07,
+      "concentration_ratio": 1570.0795327044705,
+      "num_params": 2949120,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 5.179609843253274e-07,
+          "trace": 0.0016799515578895807,
+          "trace_normalized": 1.3671481724486512e-08,
+          "num_params": 122880
+        },
+        "(0, 'value')": {
+          "lambda_max": 3.115335857728496e-05,
+          "trace": 0.053114090114831924,
+          "trace_normalized": 4.322435813719494e-07,
+          "num_params": 122880
+        },
+        "(1, 'query')": {
+          "lambda_max": 1.1541110325197224e-06,
+          "trace": 0.0023122935090214014,
+          "trace_normalized": 1.881749334131655e-08,
+          "num_params": 122880
+        },
+        "(1, 'value')": {
+          "lambda_max": 2.226251490355935e-05,
+          "trace": 0.04688812419772148,
+          "trace_normalized": 3.8157654103088134e-07,
+          "num_params": 122880
+        },
+        "(2, 'query')": {
+          "lambda_max": 1.7863898165160208e-06,
+          "trace": 0.004710501525551081,
+          "trace_normalized": 3.8334160734621037e-08,
+          "num_params": 122880
+        },
+        "(2, 'value')": {
+          "lambda_max": 7.442173227900639e-05,
+          "trace": 0.05704245716333389,
+          "trace_normalized": 4.6421271804319986e-07,
+          "num_params": 122880
+        },
+        "(3, 'query')": {
+          "lambda_max": 2.2524654923472553e-06,
+          "trace": 0.007343601435422897,
+          "trace_normalized": 5.976238526272937e-08,
+          "num_params": 122880
+        },
+        "(3, 'value')": {
+          "lambda_max": 1.7662685422692448e-05,
+          "trace": 0.048592597246170044,
+          "trace_normalized": 3.9544758578813344e-07,
+          "num_params": 122880
+        },
+        "(4, 'query')": {
+          "lambda_max": 2.1060172912257258e-06,
+          "trace": 0.00783594325184822,
+          "trace_normalized": 6.376907180083435e-08,
+          "num_params": 122880
+        },
+        "(4, 'value')": {
+          "lambda_max": 3.166372698615305e-05,
+          "trace": 0.0642501711845398,
+          "trace_normalized": 5.228692430137016e-07,
+          "num_params": 122880
+        },
+        "(5, 'query')": {
+          "lambda_max": 6.3332431636808906e-06,
+          "trace": 0.010312740691006184,
+          "trace_normalized": 8.392530048695335e-08,
+          "num_params": 122880
+        },
+        "(5, 'value')": {
+          "lambda_max": 2.819455949065741e-05,
+          "trace": 0.06938289105892181,
+          "trace_normalized": 5.646394356517703e-07,
+          "num_params": 122880
+        },
+        "(6, 'query')": {
+          "lambda_max": 5.395615517045371e-06,
+          "trace": 0.009355181828141212,
+          "trace_normalized": 7.613267172246196e-08,
+          "num_params": 122880
+        },
+        "(6, 'value')": {
+          "lambda_max": 2.6205863832728937e-05,
+          "trace": 0.07558894902467728,
+          "trace_normalized": 6.151444722490851e-07,
+          "num_params": 122880
+        },
+        "(7, 'query')": {
+          "lambda_max": 5.693460934708128e-06,
+          "trace": 0.014125041663646698,
+          "trace_normalized": 1.1494989138327583e-07,
+          "num_params": 122880
+        },
+        "(7, 'value')": {
+          "lambda_max": 8.912822522688657e-05,
+          "trace": 0.11302924901247025,
+          "trace_normalized": 9.198344059768715e-07,
+          "num_params": 122880
+        },
+        "(8, 'query')": {
+          "lambda_max": 2.252349440823309e-05,
+          "trace": 0.018019195646047592,
+          "trace_normalized": 1.4664060188351868e-07,
+          "num_params": 122880
+        },
+        "(8, 'value')": {
+          "lambda_max": 9.620218042982742e-05,
+          "trace": 0.177541121840477,
+          "trace_normalized": 1.444833401365031e-06,
+          "num_params": 122880
+        },
+        "(9, 'query')": {
+          "lambda_max": 5.1232465921202675e-05,
+          "trace": 0.04769301787018776,
+          "trace_normalized": 3.8812680713817826e-07,
+          "num_params": 122880
+        },
+        "(9, 'value')": {
+          "lambda_max": 5.3588501032209024e-05,
+          "trace": 0.18956321477890015,
+          "trace_normalized": 1.5426694517373107e-06,
+          "num_params": 122880
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.0002075571974273771,
+          "trace": 0.11568018049001694,
+          "trace_normalized": 9.414077908331819e-07,
+          "num_params": 122880
+        },
+        "(10, 'value')": {
+          "lambda_max": 4.3245414417469874e-05,
+          "trace": 0.13494305312633514,
+          "trace_normalized": 1.09816949134256e-06,
+          "num_params": 122880
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.0007975038606673479,
+          "trace": 0.10707905888557434,
+          "trace_normalized": 8.714116574992659e-07,
+          "num_params": 122880
+        },
+        "(11, 'value')": {
+          "lambda_max": 2.177688293159008e-05,
+          "trace": 0.12188605219125748,
+          "trace_normalized": 9.919112926581874e-07,
+          "num_params": 122880
+        }
+      }
+    },
+    "r=100": {
+      "lambda_max": 0.00020484108245000243,
+      "trace": 1.3642783164978027,
+      "trace_normalized": 3.700841787374682e-07,
+      "concentration_ratio": 553.4971250370257,
+      "num_params": 3686400,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 5.568587084781029e-07,
+          "trace": 0.002112437505275011,
+          "trace_normalized": 1.375284863769366e-08,
+          "num_params": 153600
+        },
+        "(0, 'value')": {
+          "lambda_max": 5.789825809188187e-05,
+          "trace": 0.061067454516887665,
+          "trace_normalized": 3.975745812567766e-07,
+          "num_params": 153600
+        },
+        "(1, 'query')": {
+          "lambda_max": 6.276891326706391e-07,
+          "trace": 0.0022767900954931974,
+          "trace_normalized": 1.4822852278939536e-08,
+          "num_params": 153600
+        },
+        "(1, 'value')": {
+          "lambda_max": 2.4043936718953773e-05,
+          "trace": 0.0636289119720459,
+          "trace_normalized": 4.1425073504797183e-07,
+          "num_params": 153600
+        },
+        "(2, 'query')": {
+          "lambda_max": 1.5040881180539145e-06,
+          "trace": 0.005459224339574575,
+          "trace_normalized": 3.554182725906685e-08,
+          "num_params": 153600
+        },
+        "(2, 'value')": {
+          "lambda_max": 4.2932952055707574e-05,
+          "trace": 0.06973586976528168,
+          "trace_normalized": 4.540095801530697e-07,
+          "num_params": 153600
+        },
+        "(3, 'query')": {
+          "lambda_max": 2.5012991500261705e-06,
+          "trace": 0.008638722822070122,
+          "trace_normalized": 5.624168508688854e-08,
+          "num_params": 153600
+        },
+        "(3, 'value')": {
+          "lambda_max": 1.8009952327702194e-05,
+          "trace": 0.059138841927051544,
+          "trace_normalized": 3.85018523729741e-07,
+          "num_params": 153600
+        },
+        "(4, 'query')": {
+          "lambda_max": 2.7850458081957186e-06,
+          "trace": 0.009478751569986343,
+          "trace_normalized": 6.171062238990999e-08,
+          "num_params": 153600
+        },
+        "(4, 'value')": {
+          "lambda_max": 1.305978003074415e-05,
+          "trace": 0.06723354756832123,
+          "trace_normalized": 4.377184268378187e-07,
+          "num_params": 153600
+        },
+        "(5, 'query')": {
+          "lambda_max": 3.8412827052525245e-06,
+          "trace": 0.01005951501429081,
+          "trace_normalized": 6.549163344971021e-08,
+          "num_params": 153600
+        },
+        "(5, 'value')": {
+          "lambda_max": 1.717345730867237e-05,
+          "trace": 0.07185524702072144,
+          "trace_normalized": 4.678076095387951e-07,
+          "num_params": 153600
+        },
+        "(6, 'query')": {
+          "lambda_max": 6.932873930054484e-06,
+          "trace": 0.007935822010040283,
+          "trace_normalized": 5.166550920421287e-08,
+          "num_params": 153600
+        },
+        "(6, 'value')": {
+          "lambda_max": 1.8679147615330294e-05,
+          "trace": 0.07534675300121307,
+          "trace_normalized": 4.90538752728753e-07,
+          "num_params": 153600
+        },
+        "(7, 'query')": {
+          "lambda_max": 6.538126854138682e-06,
+          "trace": 0.012750810012221336,
+          "trace_normalized": 8.301309151192982e-08,
+          "num_params": 153600
+        },
+        "(7, 'value')": {
+          "lambda_max": 3.9382091927109286e-05,
+          "trace": 0.11560436338186264,
+          "trace_normalized": 7.526326157858421e-07,
+          "num_params": 153600
+        },
+        "(8, 'query')": {
+          "lambda_max": 2.6907309802481905e-05,
+          "trace": 0.01858093962073326,
+          "trace_normalized": 1.209696591786269e-07,
+          "num_params": 153600
+        },
+        "(8, 'value')": {
+          "lambda_max": 6.882968591526151e-05,
+          "trace": 0.13783890008926392,
+          "trace_normalized": 8.973887020147231e-07,
+          "num_params": 153600
+        },
+        "(9, 'query')": {
+          "lambda_max": 7.866658415878192e-05,
+          "trace": 0.037343621253967285,
+          "trace_normalized": 2.4312254254255095e-07,
+          "num_params": 153600
+        },
+        "(9, 'value')": {
+          "lambda_max": 4.5944758312543854e-05,
+          "trace": 0.1564662754535675,
+          "trace_normalized": 1.0186606687057065e-06,
+          "num_params": 153600
+        },
+        "(10, 'query')": {
+          "lambda_max": 0.00012776489893440157,
+          "trace": 0.08065365254878998,
+          "trace_normalized": 5.250889216767973e-07,
+          "num_params": 153600
+        },
+        "(10, 'value')": {
+          "lambda_max": 2.989492531924043e-05,
+          "trace": 0.11707913130521774,
+          "trace_normalized": 7.622339239787834e-07,
+          "num_params": 153600
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.00020484108245000243,
+          "trace": 0.0713304728269577,
+          "trace_normalized": 4.643911211132945e-07,
+          "num_params": 153600
+        },
+        "(11, 'value')": {
+          "lambda_max": 1.2262076779734343e-05,
+          "trace": 0.10266229510307312,
+          "trace_normalized": 6.683743549729115e-07,
+          "num_params": 153600
+        }
+      }
+    },
+    "r=128": {
+      "lambda_max": 6.169699918245897e-05,
+      "trace": 0.7939750552177429,
+      "trace_normalized": 1.6826524845075457e-07,
+      "concentration_ratio": 366.66295083244484,
+      "num_params": 4718592,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 3.572698972220678e-07,
+          "trace": 0.001308910083025694,
+          "trace_normalized": 6.657461248948948e-09,
+          "num_params": 196608
+        },
+        "(0, 'value')": {
+          "lambda_max": 1.7736707377480343e-05,
+          "trace": 0.03289160132408142,
+          "trace_normalized": 1.672953402476196e-07,
+          "num_params": 196608
+        },
+        "(1, 'query')": {
+          "lambda_max": 2.9264214163049473e-07,
+          "trace": 0.0010900909546762705,
+          "trace_normalized": 5.54448931211482e-09,
+          "num_params": 196608
+        },
+        "(1, 'value')": {
+          "lambda_max": 1.2529993909993209e-05,
+          "trace": 0.03157684952020645,
+          "trace_normalized": 1.6060816676599643e-07,
+          "num_params": 196608
+        },
+        "(2, 'query')": {
+          "lambda_max": 1.5595178410876542e-06,
+          "trace": 0.002697890857234597,
+          "trace_normalized": 1.3722182501396674e-08,
+          "num_params": 196608
+        },
+        "(2, 'value')": {
+          "lambda_max": 2.2209160306374542e-05,
+          "trace": 0.031505756080150604,
+          "trace_normalized": 1.6024657156776811e-07,
+          "num_params": 196608
+        },
+        "(3, 'query')": {
+          "lambda_max": 1.4621992932006833e-06,
+          "trace": 0.005237095057964325,
+          "trace_normalized": 2.6637243522031895e-08,
+          "num_params": 196608
+        },
+        "(3, 'value')": {
+          "lambda_max": 1.7267582734348252e-05,
+          "trace": 0.02707991749048233,
+          "trace_normalized": 1.3773558293905808e-07,
+          "num_params": 196608
+        },
+        "(4, 'query')": {
+          "lambda_max": 3.321888698337716e-06,
+          "trace": 0.004746685270220041,
+          "trace_normalized": 2.414289035357342e-08,
+          "num_params": 196608
+        },
+        "(4, 'value')": {
+          "lambda_max": 1.5770861864439212e-05,
+          "trace": 0.03441659361124039,
+          "trace_normalized": 1.750518521248523e-07,
+          "num_params": 196608
+        },
+        "(5, 'query')": {
+          "lambda_max": 1.80803760940762e-06,
+          "trace": 0.005264253355562687,
+          "trace_normalized": 2.6775378358934177e-08,
+          "num_params": 196608
+        },
+        "(5, 'value')": {
+          "lambda_max": 9.920136108121369e-06,
+          "trace": 0.04202517867088318,
+          "trace_normalized": 2.1375112169153e-07,
+          "num_params": 196608
+        },
+        "(6, 'query')": {
+          "lambda_max": 2.29436113841075e-06,
+          "trace": 0.005022292956709862,
+          "trace_normalized": 2.5544704129742968e-08,
+          "num_params": 196608
+        },
+        "(6, 'value')": {
+          "lambda_max": 1.031375359161757e-05,
+          "trace": 0.0438835471868515,
+          "trace_normalized": 2.232032727533806e-07,
+          "num_params": 196608
+        },
+        "(7, 'query')": {
+          "lambda_max": 1.6204295434363303e-06,
+          "trace": 0.006561458110809326,
+          "trace_normalized": 3.3373304120232206e-08,
+          "num_params": 196608
+        },
+        "(7, 'value')": {
+          "lambda_max": 1.3048866094322875e-05,
+          "trace": 0.056603021919727325,
+          "trace_normalized": 2.87897876205534e-07,
+          "num_params": 196608
+        },
+        "(8, 'query')": {
+          "lambda_max": 4.479234576137969e-06,
+          "trace": 0.010354203172028065,
+          "trace_normalized": 5.266420188831944e-08,
+          "num_params": 196608
+        },
+        "(8, 'value')": {
+          "lambda_max": 2.0458464859984815e-05,
+          "trace": 0.0753415897488594,
+          "trace_normalized": 3.832071513443225e-07,
+          "num_params": 196608
+        },
+        "(9, 'query')": {
+          "lambda_max": 2.271505945827812e-05,
+          "trace": 0.029702849686145782,
+          "trace_normalized": 1.5107650597201427e-07,
+          "num_params": 196608
+        },
+        "(9, 'value')": {
+          "lambda_max": 3.360559276188724e-05,
+          "trace": 0.09182954579591751,
+          "trace_normalized": 4.670692419495026e-07,
+          "num_params": 196608
+        },
+        "(10, 'query')": {
+          "lambda_max": 5.5766857258277014e-05,
+          "trace": 0.04755352437496185,
+          "trace_normalized": 2.4186974201256817e-07,
+          "num_params": 196608
+        },
+        "(10, 'value')": {
+          "lambda_max": 2.0502930055954494e-05,
+          "trace": 0.09104766696691513,
+          "trace_normalized": 4.630923911008722e-07,
+          "num_params": 196608
+        },
+        "(11, 'query')": {
+          "lambda_max": 6.169699918245897e-05,
+          "trace": 0.05391693115234375,
+          "trace_normalized": 2.742357025908859e-07,
+          "num_params": 196608
+        },
+        "(11, 'value')": {
+          "lambda_max": 8.794732821115758e-06,
+          "trace": 0.0623176172375679,
+          "trace_normalized": 3.169637921018875e-07,
+          "num_params": 196608
+        }
+      }
+    },
+    "r=150": {
+      "lambda_max": 0.00011515788355609402,
+      "trace": 0.8483041524887085,
+      "trace_normalized": 1.534114859101397e-07,
+      "concentration_ratio": 750.6421845191072,
+      "num_params": 5529600,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 4.774519197781046e-07,
+          "trace": 0.0015100258169695735,
+          "trace_normalized": 6.553931619635023e-09,
+          "num_params": 230400
+        },
+        "(0, 'value')": {
+          "lambda_max": 2.5662760890554637e-05,
+          "trace": 0.04430975019931793,
+          "trace_normalized": 1.9231663372920593e-07,
+          "num_params": 230400
+        },
+        "(1, 'query')": {
+          "lambda_max": 3.1082294071893557e-07,
+          "trace": 0.0011643136385828257,
+          "trace_normalized": 5.053444773750471e-09,
+          "num_params": 230400
+        },
+        "(1, 'value')": {
+          "lambda_max": 1.0503383236937225e-05,
+          "trace": 0.030773013830184937,
+          "trace_normalized": 1.3356343231407664e-07,
+          "num_params": 230400
+        },
+        "(2, 'query')": {
+          "lambda_max": 1.1183213928234181e-06,
+          "trace": 0.0029583750292658806,
+          "trace_normalized": 1.2840169816286107e-08,
+          "num_params": 230400
+        },
+        "(2, 'value')": {
+          "lambda_max": 1.803376289899461e-05,
+          "trace": 0.03208480030298233,
+          "trace_normalized": 1.3925695441230346e-07,
+          "num_params": 230400
+        },
+        "(3, 'query')": {
+          "lambda_max": 1.655829009905574e-06,
+          "trace": 0.005912101827561855,
+          "trace_normalized": 2.5660165547947145e-08,
+          "num_params": 230400
+        },
+        "(3, 'value')": {
+          "lambda_max": 1.0771014785859734e-05,
+          "trace": 0.03198758140206337,
+          "trace_normalized": 1.3883499150324496e-07,
+          "num_params": 230400
+        },
+        "(4, 'query')": {
+          "lambda_max": 1.9773776784859365e-06,
+          "trace": 0.006183737888932228,
+          "trace_normalized": 2.683914068768445e-08,
+          "num_params": 230400
+        },
+        "(4, 'value')": {
+          "lambda_max": 5.404665444075363e-06,
+          "trace": 0.035852283239364624,
+          "trace_normalized": 1.5560887334231666e-07,
+          "num_params": 230400
+        },
+        "(5, 'query')": {
+          "lambda_max": 1.945426902238978e-06,
+          "trace": 0.006152641028165817,
+          "trace_normalized": 2.6704171318669978e-08,
+          "num_params": 230400
+        },
+        "(5, 'value')": {
+          "lambda_max": 8.529694241588004e-06,
+          "trace": 0.04208783432841301,
+          "trace_normalized": 1.8267289192408498e-07,
+          "num_params": 230400
+        },
+        "(6, 'query')": {
+          "lambda_max": 1.5012844869488617e-06,
+          "trace": 0.005538486409932375,
+          "trace_normalized": 2.4038570245465962e-08,
+          "num_params": 230400
+        },
+        "(6, 'value')": {
+          "lambda_max": 5.436280844151042e-06,
+          "trace": 0.04413440078496933,
+          "trace_normalized": 1.9155555719407857e-07,
+          "num_params": 230400
+        },
+        "(7, 'query')": {
+          "lambda_max": 2.2307326617010403e-06,
+          "trace": 0.006951636169105768,
+          "trace_normalized": 3.017203198396601e-08,
+          "num_params": 230400
+        },
+        "(7, 'value')": {
+          "lambda_max": 1.6804973711259663e-05,
+          "trace": 0.06131798401474953,
+          "trace_normalized": 2.6613707859723945e-07,
+          "num_params": 230400
+        },
+        "(8, 'query')": {
+          "lambda_max": 7.386313427559799e-06,
+          "trace": 0.008256779983639717,
+          "trace_normalized": 3.5836720257975685e-08,
+          "num_params": 230400
+        },
+        "(8, 'value')": {
+          "lambda_max": 1.8850296328309923e-05,
+          "trace": 0.07919347286224365,
+          "trace_normalized": 3.4372166624052625e-07,
+          "num_params": 230400
+        },
+        "(9, 'query')": {
+          "lambda_max": 2.2629315935773775e-05,
+          "trace": 0.03327146917581558,
+          "trace_normalized": 1.4440742290844355e-07,
+          "num_params": 230400
+        },
+        "(9, 'value')": {
+          "lambda_max": 1.5237455954775214e-05,
+          "trace": 0.09796609729528427,
+          "trace_normalized": 4.2520008491919725e-07,
+          "num_params": 230400
+        },
+        "(10, 'query')": {
+          "lambda_max": 5.9178611991228536e-05,
+          "trace": 0.04923254996538162,
+          "trace_normalized": 2.1368295222146116e-07,
+          "num_params": 230400
+        },
+        "(10, 'value')": {
+          "lambda_max": 1.7195909094880335e-05,
+          "trace": 0.09591084718704224,
+          "trace_normalized": 4.1627973246249894e-07,
+          "num_params": 230400
+        },
+        "(11, 'query')": {
+          "lambda_max": 0.00011515788355609402,
+          "trace": 0.062179286032915115,
+          "trace_normalized": 2.698753860386205e-07,
+          "num_params": 230400
+        },
+        "(11, 'value')": {
+          "lambda_max": 6.6022003011312336e-06,
+          "trace": 0.06337466835975647,
+          "trace_normalized": 2.7506368383001245e-07,
+          "num_params": 230400
+        }
+      }
+    },
+    "r=200": {
+      "lambda_max": 3.782724525080994e-05,
+      "trace": 0.5180277824401855,
+      "trace_normalized": 7.026201476239496e-08,
+      "concentration_ratio": 538.3663849142896,
+      "num_params": 7372800,
+      "per_layer": {
+        "(0, 'query')": {
+          "lambda_max": 1.1790007192757912e-07,
+          "trace": 0.0006621740758419037,
+          "trace_normalized": 2.155514655655111e-09,
+          "num_params": 307200
+        },
+        "(0, 'value')": {
+          "lambda_max": 6.30151453151484e-06,
+          "trace": 0.02044598013162613,
+          "trace_normalized": 6.655592699189583e-08,
+          "num_params": 307200
+        },
+        "(1, 'query')": {
+          "lambda_max": 1.1722907089506407e-07,
+          "trace": 0.000695608789101243,
+          "trace_normalized": 2.2643515951159543e-09,
+          "num_params": 307200
+        },
+        "(1, 'value')": {
+          "lambda_max": 3.23718063555134e-06,
+          "trace": 0.016078468412160873,
+          "trace_normalized": 5.2338766209913956e-08,
+          "num_params": 307200
+        },
+        "(2, 'query')": {
+          "lambda_max": 1.4304428930245194e-07,
+          "trace": 0.0014032786712050438,
+          "trace_normalized": 4.567964673185543e-09,
+          "num_params": 307200
+        },
+        "(2, 'value')": {
+          "lambda_max": 1.1081252523581497e-05,
+          "trace": 0.015571610070765018,
+          "trace_normalized": 5.06888362394875e-08,
+          "num_params": 307200
+        },
+        "(3, 'query')": {
+          "lambda_max": 5.338421829037543e-07,
+          "trace": 0.002854477148503065,
+          "trace_normalized": 9.291918345866179e-09,
+          "num_params": 307200
+        },
+        "(3, 'value')": {
+          "lambda_max": 4.350004019215703e-06,
+          "trace": 0.018963221460580826,
+          "trace_normalized": 6.17292386095869e-08,
+          "num_params": 307200
+        },
+        "(4, 'query')": {
+          "lambda_max": 3.50277929328513e-07,
+          "trace": 0.0030167915392667055,
+          "trace_normalized": 9.820285029604747e-09,
+          "num_params": 307200
+        },
+        "(4, 'value')": {
+          "lambda_max": 2.66569168161368e-06,
+          "trace": 0.023552272468805313,
+          "trace_normalized": 7.666755408308745e-08,
+          "num_params": 307200
+        },
+        "(5, 'query')": {
+          "lambda_max": 9.145680905930931e-07,
+          "trace": 0.0032320094760507345,
+          "trace_normalized": 1.0520864179852651e-08,
+          "num_params": 307200
+        },
+        "(5, 'value')": {
+          "lambda_max": 5.911136213399004e-06,
+          "trace": 0.027968673035502434,
+          "trace_normalized": 9.10438586743112e-08,
+          "num_params": 307200
+        },
+        "(6, 'query')": {
+          "lambda_max": 7.88147929142724e-07,
+          "trace": 0.0038191373459994793,
+          "trace_normalized": 1.2432088247749107e-08,
+          "num_params": 307200
+        },
+        "(6, 'value')": {
+          "lambda_max": 4.082308350916719e-06,
+          "trace": 0.02492017112672329,
+          "trace_normalized": 8.112034777241206e-08,
+          "num_params": 307200
+        },
+        "(7, 'query')": {
+          "lambda_max": 9.031941203829774e-07,
+          "trace": 0.004104786552488804,
+          "trace_normalized": 1.3361935558009463e-08,
+          "num_params": 307200
+        },
+        "(7, 'value')": {
+          "lambda_max": 7.557026037829928e-06,
+          "trace": 0.039539091289043427,
+          "trace_normalized": 1.2870798116182414e-07,
+          "num_params": 307200
+        },
+        "(8, 'query')": {
+          "lambda_max": 2.246569010821986e-06,
+          "trace": 0.00585742574185133,
+          "trace_normalized": 1.906714075516902e-08,
+          "num_params": 307200
+        },
+        "(8, 'value')": {
+          "lambda_max": 1.2999761565879453e-05,
+          "trace": 0.0516812838613987,
+          "trace_normalized": 1.6823335613480594e-07,
+          "num_params": 307200
+        },
+        "(9, 'query')": {
+          "lambda_max": 3.782724525080994e-05,
+          "trace": 0.021158277988433838,
+          "trace_normalized": 6.887460557436498e-08,
+          "num_params": 307200
+        },
+        "(9, 'value')": {
+          "lambda_max": 1.9562963643693365e-05,
+          "trace": 0.06923136860132217,
+          "trace_normalized": 2.2536252686222724e-07,
+          "num_params": 307200
+        },
+        "(10, 'query')": {
+          "lambda_max": 2.2422213078243658e-05,
+          "trace": 0.022106673568487167,
+          "trace_normalized": 7.196182849611432e-08,
+          "num_params": 307200
+        },
+        "(10, 'value')": {
+          "lambda_max": 8.102637366391718e-06,
+          "trace": 0.05993511527776718,
+          "trace_normalized": 1.951012933432139e-07,
+          "num_params": 307200
+        },
+        "(11, 'query')": {
+          "lambda_max": 3.2776471925899386e-05,
+          "trace": 0.03471265733242035,
+          "trace_normalized": 1.1299693625232976e-07,
+          "num_params": 307200
+        },
+        "(11, 'value')": {
+          "lambda_max": 5.076085017208243e-06,
+          "trace": 0.04651719331741333,
+          "trace_normalized": 1.514231655619369e-07,
+          "num_params": 307200
+        }
+      }
+    }
+  },
+  "analysis": {
+    "pearson_lambda_max_vs_acc": -0.8178943307370381,
+    "pearson_trace_vs_acc": -0.9816356071091031,
+    "pearson_trace_normalized_vs_acc": -0.9321491956582642,
+    "spearman_lambda_max_vs_acc": -0.956043956043956,
+    "spearman_trace_vs_acc": -0.9472527472527472,
+    "r_squared_lambda_max": 0.6689511362517875,
+    "r_squared_trace": 0.9636084651444575,
+    "r_squared_trace_normalized": 0.8689021229663488,
+    "best_lora_rank": 200,
+    "best_lora_acc": 90.95,
+    "gap_to_full_finetune": 1.9200000000000017,
+    "lora_ranks_analysed": [
+      3,
+      5,
+      6,
+      10,
+      12,
+      16,
+      30,
+      52,
+      64,
+      80,
+      100,
+      128,
+      150,
+      200
+    ],
+    "n_curvature_batches": 64
+  }
+}

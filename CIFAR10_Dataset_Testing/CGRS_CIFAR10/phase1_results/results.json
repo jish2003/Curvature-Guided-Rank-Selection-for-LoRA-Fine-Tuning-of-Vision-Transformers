@@ -1,0 +1,96 @@
+{
+  "Full fine-tune": {
+    "test_loss": 0.0571897401200491,
+    "test_acc": 98.81,
+    "trainable_params": 85806346
+  },
+  "Frozen backbone": {
+    "test_loss": 0.10127611388393706,
+    "test_acc": 96.95,
+    "trainable_params": 7690
+  },
+  "LoRA r3": {
+    "test_loss": 0.06158647789768874,
+    "test_acc": 98.52,
+    "trainable_params": 110592,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r3_full.pt"
+  },
+  "LoRA r5": {
+    "test_loss": 0.05076383997472003,
+    "test_acc": 98.69,
+    "trainable_params": 184320,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r5_full.pt"
+  },
+  "LoRA r6": {
+    "test_loss": 0.04963276764061302,
+    "test_acc": 98.64,
+    "trainable_params": 221184,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r6_full.pt"
+  },
+  "LoRA r10": {
+    "test_loss": 0.050438747352128846,
+    "test_acc": 98.65,
+    "trainable_params": 368640,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r10_full.pt"
+  },
+  "LoRA r12": {
+    "test_loss": 0.05058103762250394,
+    "test_acc": 98.7,
+    "trainable_params": 442368,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r12_full.pt"
+  },
+  "LoRA r16": {
+    "test_loss": 0.04734817221653648,
+    "test_acc": 98.74,
+    "trainable_params": 589824,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r16_full.pt"
+  },
+  "LoRA r30": {
+    "test_loss": 0.044862546642310916,
+    "test_acc": 98.74,
+    "trainable_params": 1105920,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r30_full.pt"
+  },
+  "LoRA r52": {
+    "test_loss": 0.04228744080653414,
+    "test_acc": 98.83,
+    "trainable_params": 1916928,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r52_full.pt"
+  },
+  "LoRA r64": {
+    "test_loss": 0.04590392205794342,
+    "test_acc": 98.72,
+    "trainable_params": 2359296,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r64_full.pt"
+  },
+  "LoRA r80": {
+    "test_loss": 0.04536571766627021,
+    "test_acc": 98.82,
+    "trainable_params": 2949120,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r80_full.pt"
+  },
+  "LoRA r100": {
+    "test_loss": 0.045022502937633546,
+    "test_acc": 98.74,
+    "trainable_params": 3686400,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r100_full.pt"
+  },
+  "LoRA r128": {
+    "test_loss": 0.047121064183488486,
+    "test_acc": 98.7,
+    "trainable_params": 4718592,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r128_full.pt"
+  },
+  "LoRA r150": {
+    "test_loss": 0.044751029989961534,
+    "test_acc": 98.71,
+    "trainable_params": 5529600,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r150_full.pt"
+  },
+  "LoRA r200": {
+    "test_loss": 0.04422613885519095,
+    "test_acc": 98.68,
+    "trainable_params": 7372800,
+    "ckpt_path": "/home1/jkshaikh/CGRS_CIFAR10/phase1_results/lora_r200_full.pt"
+  }
+}

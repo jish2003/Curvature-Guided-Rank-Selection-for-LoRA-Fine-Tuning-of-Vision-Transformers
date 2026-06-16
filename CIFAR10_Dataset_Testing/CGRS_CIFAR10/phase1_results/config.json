@@ -1,0 +1,33 @@
+{
+  "model_name": "google/vit-base-patch16-224",
+  "num_classes": 10,
+  "train_size": 45000,
+  "batch_size": 16,
+  "epochs": 3,
+  "weight_decay": 0.01,
+  "lr_full": 5e-05,
+  "lr_frozen": 0.001,
+  "lr_lora": 0.0005,
+  "lora_alpha": 16,
+  "lora_dropout": 0.1,
+  "target_modules": [
+    "query",
+    "value"
+  ],
+  "lora_ranks": [
+    3,
+    5,
+    6,
+    10,
+    12,
+    16,
+    30,
+    52,
+    64,
+    80,
+    100,
+    128,
+    150,
+    200
+  ]
+}

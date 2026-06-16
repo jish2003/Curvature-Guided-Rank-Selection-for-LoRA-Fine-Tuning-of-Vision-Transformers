@@ -1,0 +1,110 @@
+{
+  "Full fine-tune": {
+    "test_loss": 0.29739541341010484,
+    "test_acc": 92.87,
+    "trainable_params": 86567396
+  },
+  "Frozen backbone": {
+    "test_loss": 0.48475964347720146,
+    "test_acc": 86.46,
+    "trainable_params": 76900
+  },
+  "LoRA r=3": {
+    "test_loss": 1.000977053976059,
+    "test_acc": 84.77,
+    "trainable_params": 110592,
+    "ckpt_path": "./phase1_results/lora_r3_full.pt",
+    "adapter_path": "./phase1_results/lora_r3_adapter"
+  },
+  "LoRA r=5": {
+    "test_loss": 0.7518106229305267,
+    "test_acc": 87.36,
+    "trainable_params": 184320,
+    "ckpt_path": "./phase1_results/lora_r5_full.pt",
+    "adapter_path": "./phase1_results/lora_r5_adapter"
+  },
+  "LoRA r=6": {
+    "test_loss": 0.6846094871997833,
+    "test_acc": 87.27,
+    "trainable_params": 221184,
+    "ckpt_path": "./phase1_results/lora_r6_full.pt",
+    "adapter_path": "./phase1_results/lora_r6_adapter"
+  },
+  "LoRA r=10": {
+    "test_loss": 0.5439446346521377,
+    "test_acc": 89.02,
+    "trainable_params": 368640,
+    "ckpt_path": "./phase1_results/lora_r10_full.pt",
+    "adapter_path": "./phase1_results/lora_r10_adapter"
+  },
+  "LoRA r=12": {
+    "test_loss": 0.49148102486133577,
+    "test_acc": 89.31,
+    "trainable_params": 442368,
+    "ckpt_path": "./phase1_results/lora_r12_full.pt",
+    "adapter_path": "./phase1_results/lora_r12_adapter"
+  },
+  "LoRA r=16": {
+    "test_loss": 0.46061923320293424,
+    "test_acc": 89.51,
+    "trainable_params": 589824,
+    "ckpt_path": "./phase1_results/lora_r16_full.pt",
+    "adapter_path": "./phase1_results/lora_r16_adapter"
+  },
+  "LoRA r=30": {
+    "test_loss": 0.40889885486364363,
+    "test_acc": 90.3,
+    "trainable_params": 1105920,
+    "ckpt_path": "./phase1_results/lora_r30_full.pt",
+    "adapter_path": "./phase1_results/lora_r30_adapter"
+  },
+  "LoRA r=52": {
+    "test_loss": 0.3842954066991806,
+    "test_acc": 90.62,
+    "trainable_params": 1916928,
+    "ckpt_path": "./phase1_results/lora_r52_full.pt",
+    "adapter_path": "./phase1_results/lora_r52_adapter"
+  },
+  "LoRA r=64": {
+    "test_loss": 0.38395306997299194,
+    "test_acc": 90.48,
+    "trainable_params": 2359296,
+    "ckpt_path": "./phase1_results/lora_r64_full.pt",
+    "adapter_path": "./phase1_results/lora_r64_adapter"
+  },
+  "LoRA r=80": {
+    "test_loss": 0.3786165094256401,
+    "test_acc": 90.42,
+    "trainable_params": 2949120,
+    "ckpt_path": "./phase1_results/lora_r80_full.pt",
+    "adapter_path": "./phase1_results/lora_r80_adapter"
+  },
+  "LoRA r=100": {
+    "test_loss": 0.367096852016449,
+    "test_acc": 90.9,
+    "trainable_params": 3686400,
+    "ckpt_path": "./phase1_results/lora_r100_full.pt",
+    "adapter_path": "./phase1_results/lora_r100_adapter"
+  },
+  "LoRA r=128": {
+    "test_loss": 0.3723338495016098,
+    "test_acc": 90.55,
+    "trainable_params": 4718592,
+    "ckpt_path": "./phase1_results/lora_r128_full.pt",
+    "adapter_path": "./phase1_results/lora_r128_adapter"
+  },
+  "LoRA r=150": {
+    "test_loss": 0.36478545644283294,
+    "test_acc": 90.7,
+    "trainable_params": 5529600,
+    "ckpt_path": "./phase1_results/lora_r150_full.pt",
+    "adapter_path": "./phase1_results/lora_r150_adapter"
+  },
+  "LoRA r=200": {
+    "test_loss": 0.36510144916176795,
+    "test_acc": 90.95,
+    "trainable_params": 7372800,
+    "ckpt_path": "./phase1_results/lora_r200_full.pt",
+    "adapter_path": "./phase1_results/lora_r200_adapter"
+  }
+}
