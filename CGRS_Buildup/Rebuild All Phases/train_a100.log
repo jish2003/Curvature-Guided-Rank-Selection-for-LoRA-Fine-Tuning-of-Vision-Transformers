@@ -1,0 +1,199 @@
+nohup: ignoring input
+Device: cuda
+GPU: NVIDIA A100-PCIE-40GB
+VRAM: 42.4 GB
+PROJECT_BASE: /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild
+  model_name: google/vit-base-patch16-224
+  num_classes: 100
+  train_size: 45000
+  batch_size: 16
+  epochs: 5
+  weight_decay: 0.01
+  lr_full: 5e-05
+  lr_frozen: 0.001
+  lr_lora: 0.0005
+  lora_alpha: 16
+  lora_dropout: 0.1
+  target_modules: ['query', 'value']
+  lora_ranks: [3, 5, 6, 10, 12, 16, 30, 52, 64, 80, 100, 128, 150, 200]
+/home1/jkshaikh/.conda/envs/cgrs_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading CIFAR-100...
+Files already downloaded and verified
+Files already downloaded and verified
+Train: 45,000  Val: 5,000  Test: 10,000
+Probe loader: 11250 batches (batch_size=4)
+Model builders and training utilities ready.
+Fisher/curvature utilities ready.
+Persistence helpers ready.
+Full fine-tune already done: 92.37%
+Frozen backbone already done: 86.41%
+  r=   3 already done: acc=85.79% — skipping.
+  r=   5 already done: acc=88.40% — skipping.
+  r=   6 already done: acc=88.75% — skipping.
+  r=  10 already done: acc=89.70% — skipping.
+  r=  12 already done: acc=90.38% — skipping.
+  r=  16 already done: acc=90.65% — skipping.
+  r=  30 already done: acc=90.73% — skipping.
+  r=  52 already done: acc=91.28% — skipping.
+  r=  64 already done: acc=91.08% — skipping.
+  r=  80 already done: acc=91.56% — skipping.
+  r= 100 already done: acc=91.44% — skipping.
+  r= 128 already done: acc=91.50% — skipping.
+  r= 150 already done: acc=91.27% — skipping.
+  r= 200 already done: acc=91.00% — skipping.
+
+Phase 1 complete.
+Method                   Trainable Params   Test Acc
+-------------------------------------------------------
+Full fine-tune                 85,875,556     92.37%
+Frozen backbone                    76,900     86.41%
+LoRA r3                           110,592     85.79%
+LoRA r5                           184,320     88.40%
+LoRA r6                           221,184     88.75%
+LoRA r10                          368,640     89.70%
+LoRA r12                          442,368     90.38%
+LoRA r16                          589,824     90.65%
+LoRA r30                        1,105,920     90.73%
+LoRA r52                        1,916,928     91.28%
+LoRA r64                        2,359,296     91.08%
+LoRA r80                        2,949,120     91.56%
+LoRA r100                       3,686,400     91.44%
+LoRA r128                       4,718,592     91.50%
+LoRA r150                       5,529,600     91.27%
+LoRA r200                       7,372,800     91.00%
+  r=   3 curvature already computed — skipping.
+  r=   5 curvature already computed — skipping.
+  r=   6 curvature already computed — skipping.
+  r=  10 curvature already computed — skipping.
+  r=  12 curvature already computed — skipping.
+  r=  16 curvature already computed — skipping.
+  r=  30 curvature already computed — skipping.
+  r=  52 curvature already computed — skipping.
+  r=  64 curvature already computed — skipping.
+  r=  80 curvature already computed — skipping.
+  r= 100 curvature already computed — skipping.
+  r= 128 curvature already computed — skipping.
+  r= 150 curvature already computed — skipping.
+  r= 200 curvature already computed — skipping.
+
+Phase 2 curvature profiling complete.
+Phase 2 per-layer lambda_max (r=16), 24 layer-proj pairs
+  min=0.000008  25th=0.000063  50th=0.000247  75th=0.000695  max=0.002709
+Phase 3 global CGRS function ready.
+  CGRS_Global_tau_aggressive: already saved (Test Acc 91.13%) — skipping.
+  CGRS_Global_tau_moderate: already saved (Test Acc 90.05%) — skipping.
+  CGRS_Global_tau_conservative: already saved (Test Acc 90.88%) — skipping.
+
+Phase 3 complete.
+Run                                     Tau Final Rank   Test Acc
+------------------------------------------------------------------
+CGRS_Global_tau_aggressive          0.00006         64     91.13%
+CGRS_Global_tau_moderate            0.00025         52     90.05%
+CGRS_Global_tau_conservative        0.00069         52     90.88%
+Loaded existing live calibration from disk.
+Live calibration (r_init=30): 25th=0.000098 50th=0.000222 75th=0.000526
+Per-layer threshold-based CGRS function ready.
+  PL_C1: already saved (Test Acc 90.12%) — skipping.
+  PL_C3_Live: already saved (Test Acc 90.53%) — skipping.
+Ordinal CGRS function (with protected-floor fix) ready.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([100]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([100, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 200: Layer 7 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 9 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 200: Layer 10 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 200: Layer 11 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 6 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 8 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 2 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 1000: Layer 1 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 1200: Layer 0 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 1400: Layer 7 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 2200: Layer 4 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 2600: Layer 6 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 1/5 done. Val Acc 83.54%  Avg Rank 55.3
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 3200: Layer 3 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 3400: Layer 2 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 3600: Layer 5 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 4400: Layer 3 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 2/5 done. Val Acc 88.16%  Avg Rank 62.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 7600: Layer 1 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 3/5 done. Val Acc 89.50%  Avg Rank 63.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 4/5 done. Val Acc 90.06%  Avg Rank 63.0
+  Checkpoint saved after epoch 4 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 5/5 done. Val Acc 90.26%  Avg Rank 63.0
+  Checkpoint saved after epoch 5 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  OrdinalK4_Fixed COMPLETE — Test Acc 89.87%  Avg Rank 63.00  Actual Params 2,322,432
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([100]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([100, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 200: Layer 7 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 8 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 9 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 10 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 200: Layer 11 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 1 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 6 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 600: Layer 7 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 8 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 9 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 800: Layer 2 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 800: Layer 3 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 1000: Layer 5 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 1200: Layer 0 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 1400: Layer 4 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Epoch 1/5 done. Val Acc 85.38%  Avg Rank 58.0
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK5_progress.json
+  Step 3000: Layer 2 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 3400: Layer 6 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 4600: Layer 3 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 5000: Layer 1 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 2/5 done. Val Acc 89.18%  Avg Rank 62.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK5_progress.json
+  Step 6000: Layer 4 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 6600: Layer 5 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 3/5 done. Val Acc 89.28%  Avg Rank 64.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 4/5 done. Val Acc 90.02%  Avg Rank 64.0
+  Checkpoint saved after epoch 4 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 5/5 done. Val Acc 89.96%  Avg Rank 64.0
+  Checkpoint saved after epoch 5 -> /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/phase4_results/OrdinalK5_progress.json
+  OrdinalK5 COMPLETE — Test Acc 90.09%  Avg Rank 64.00  Actual Params 2,359,296
+Correlation vs STATIC Phase 2 lambda_max (r=16):
+PL_C1           vs static  Pearson r=0.3862 (p=0.0623)  Spearman r=0.3459 (p=0.0978)  [positive, not significant]
+PL_C3_Live      vs static  Pearson r=0.0650 (p=0.7629)  Spearman r=0.0122 (p=0.9548)  [positive, not significant]
+OrdinalK4_Fixed vs static  Pearson r=0.1880 (p=0.3791)  Spearman r=0.2178 (p=0.3066)  [positive, not significant]
+/home1/jkshaikh/CGRS_Project/CGRS_Buildup/Rebuild All Phases/CGRS_CIFAR100_Rebuild_AllPhases.py:928: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  pear_r, pear_p = pearsonr(ref_vals, fr_vals)
+/home1/jkshaikh/CGRS_Project/CGRS_Buildup/Rebuild All Phases/CGRS_CIFAR100_Rebuild_AllPhases.py:929: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  spear_r, spear_p = spearmanr(ref_vals, fr_vals)
+OrdinalK5       vs static  Pearson r=nan (p=nan)  Spearman r=nan (p=nan)  [NEGATIVE (anomaly)]
+
+Correlation vs LIVE-calibrated lambda_max:
+PL_C1           vs live    Pearson r=0.3306 (p=0.1146)  Spearman r=0.3499 (p=0.0937)  [positive, not significant]
+PL_C3_Live      vs live    Pearson r=0.2276 (p=0.2848)  Spearman r=-0.0244 (p=0.9098)  [positive, not significant]
+OrdinalK4_Fixed vs live    Pearson r=0.1580 (p=0.4608)  Spearman r=0.1960 (p=0.3587)  [positive, not significant]
+OrdinalK5       vs live    Pearson r=nan (p=nan)  Spearman r=nan (p=nan)  [NEGATIVE (anomaly)]
+Method                         Type        Avg Rank  Test Acc   LoRA Params
+===========================================================================
+Fixed r3                       Static             3    85.79%       110,592
+Fixed r16                      Static            16    90.65%       589,824
+Fixed r64                      Static            64    91.08%     2,359,296
+Full fine-tune                 Static             -    92.37%    85,875,556
+---------------------------------------------------------------------------
+CGRS_Global_tau_aggressive     Global            64    91.13%     2,359,296
+CGRS_Global_tau_moderate       Global            52    90.05%     1,916,928
+CGRS_Global_tau_conservative   Global            52    90.88%     1,916,928
+---------------------------------------------------------------------------
+PL_C1                          Per-Layer      57.17    90.12%     2,107,392
+PL_C3_Live                     Per-Layer      57.00    90.53%     2,101,248
+OrdinalK4_Fixed                Per-Layer      63.00    89.87%     2,322,432
+OrdinalK5                      Per-Layer      64.00    90.09%     2,359,296
+===========================================================================
+Saved complete cross-phase results to /home1/jkshaikh/CGRS_Project/CIFAR100_Rebuild/all_results_complete.json

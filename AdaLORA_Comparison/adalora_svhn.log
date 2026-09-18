@@ -1,0 +1,48 @@
+nohup: ignoring input
+Dataset: svhn  |  Project base: /home1/jkshaikh/CGRS_Project/SVHN_Rebuild
+/home1/jkshaikh/.conda/envs/cgrs_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Using downloaded and verified file: /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/data/train_32x32.mat
+Using downloaded and verified file: /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/data/test_32x32.mat
+Train: 68,000  Val: 5,257  Test: 26,032
+Steps/epoch: 4250  Total steps/run: 12750
+Run: AdaLoRA_target_r16  init_r=24  target_r=16
+/home1/jkshaikh/.conda/envs/cgrs_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/3 done. Val Acc 92.81%
+  Epoch 2/3 done. Val Acc 94.24%
+  Epoch 3/3 done. Val Acc 94.52%
+  AdaLoRA_target_r16 COMPLETE — Test Acc 95.91%  Params 885,312
+Run: AdaLoRA_target_r32  init_r=48  target_r=32
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/3 done. Val Acc 92.79%
+  Epoch 2/3 done. Val Acc 94.48%
+  Epoch 3/3 done. Val Acc 94.83%
+  AdaLoRA_target_r32 COMPLETE — Test Acc 95.74%  Params 1,770,624
+Run: AdaLoRA_target_r64  init_r=96  target_r=64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/3 done. Val Acc 92.77%
+  Epoch 2/3 done. Val Acc 94.27%
+  Epoch 3/3 done. Val Acc 94.39%
+  AdaLoRA_target_r64 COMPLETE — Test Acc 95.86%  Params 3,541,248
+
+======================================================================
+AdaLoRA Comparison — svhn
+======================================================================
+Run                         Target r   Test Acc       Params
+----------------------------------------------------------------------
+AdaLoRA_target_r16                16     95.91%      885,312
+AdaLoRA_target_r32                32     95.74%    1,770,624
+AdaLoRA_target_r64                64     95.86%    3,541,248
+
+Saved to /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/adalora_results/adalora_all_results.json

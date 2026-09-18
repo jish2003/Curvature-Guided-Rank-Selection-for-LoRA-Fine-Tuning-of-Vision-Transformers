@@ -1,0 +1,555 @@
+nohup: ignoring input
+Device: cuda
+GPU: Tesla V100-PCIE-32GB
+VRAM: 34.1 GB
+PROJECT_BASE: /home1/jkshaikh/CGRS_Project/SVHN_Rebuild
+  model_name: google/vit-base-patch16-224
+  num_classes: 10
+  train_size: 68000
+  batch_size: 16
+  epochs: 3
+  weight_decay: 0.01
+  lr_full: 5e-05
+  lr_frozen: 0.001
+  lr_lora: 0.0005
+  lora_alpha: 16
+  lora_dropout: 0.1
+  target_modules: ['query', 'value']
+  lora_ranks: [3, 5, 6, 10, 12, 16, 30, 52, 64, 80, 100, 128, 150, 200]
+/home1/jkshaikh/.conda/envs/cgrs_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading SVHN...
+Downloading http://ufldl.stanford.edu/housenumbers/train_32x32.mat to /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/data/train_32x32.mat
+  0%|                                                                                                                                                         | 0/182040794 [00:00<?, ?it/s]  1%|▉                                                                                                                                    | 1212416/182040794 [00:00<00:16, 11077147.04it/s]  2%|██▍                                                                                                                                  | 3276800/182040794 [00:00<00:10, 16396394.93it/s]  3%|███▉                                                                                                                                 | 5373952/182040794 [00:00<00:09, 18250254.45it/s]  4%|█████▎                                                                                                                               | 7241728/182040794 [00:00<00:09, 18078768.79it/s]  5%|██████▉                                                                                                                              | 9437184/182040794 [00:00<00:08, 19385164.92it/s]  6%|████████▌                                                                                                                           | 11730944/182040794 [00:00<00:08, 20509255.70it/s]  8%|██████████                                                                                                                          | 13828096/182040794 [00:00<00:08, 20394699.38it/s]  9%|███████████▌                                                                                                                        | 15892480/182040794 [00:00<00:08, 19954644.42it/s] 10%|████████████▉                                                                                                                       | 17924096/182040794 [00:00<00:08, 19660990.22it/s] 11%|██████████████▍                                                                                                                     | 19922944/182040794 [00:01<00:08, 19335316.22it/s] 12%|███████████████▉                                                                                                                    | 21954560/182040794 [00:01<00:08, 19265855.47it/s] 13%|█████████████████▍                                                                                                                  | 24051712/182040794 [00:01<00:08, 19743345.29it/s] 14%|██████████████████▉                                                                                                                 | 26050560/182040794 [00:01<00:08, 19402617.18it/s] 15%|████████████████████▎                                                                                                               | 28016640/182040794 [00:01<00:08, 19077892.10it/s] 17%|█████████████████████▊                                                                                                              | 30081024/182040794 [00:01<00:07, 19511187.42it/s] 18%|███████████████████████▎                                                                                                            | 32112640/182040794 [00:01<00:07, 19304891.53it/s] 19%|████████████████████████▊                                                                                                           | 34275328/182040794 [00:01<00:07, 19977161.14it/s] 20%|██████████████████████████▎                                                                                                         | 36339712/182040794 [00:01<00:07, 19669701.77it/s] 21%|███████████████████████████▉                                                                                                        | 38469632/182040794 [00:01<00:07, 20137916.47it/s] 22%|█████████████████████████████▍                                                                                                      | 40599552/182040794 [00:02<00:07, 19914412.20it/s] 23%|███████████████████████████████                                                                                                     | 42762240/182040794 [00:02<00:06, 20388749.21it/s] 25%|████████████████████████████████▌                                                                                                   | 44826624/182040794 [00:02<00:06, 19945410.16it/s] 26%|██████████████████████████████████                                                                                                  | 46956544/182040794 [00:02<00:06, 20291952.08it/s] 27%|███████████████████████████████████▌                                                                                                | 49119232/182040794 [00:02<00:06, 20642064.73it/s] 28%|█████████████████████████████████████▏                                                                                              | 51216384/182040794 [00:02<00:06, 20731124.27it/s] 29%|██████████████████████████████████████▋                                                                                             | 53411840/182040794 [00:02<00:06, 20486373.10it/s] 31%|████████████████████████████████████████▎                                                                                           | 55541760/182040794 [00:02<00:06, 20722757.08it/s] 32%|█████████████████████████████████████████▊                                                                                          | 57671680/182040794 [00:02<00:05, 20832774.71it/s] 33%|███████████████████████████████████████████▎                                                                                        | 59801600/182040794 [00:03<00:05, 20868481.50it/s] 34%|█████████████████████████████████████████████                                                                                       | 62193664/182040794 [00:03<00:05, 21745623.16it/s] 35%|██████████████████████████████████████████████▊                                                                                     | 64585728/182040794 [00:03<00:05, 22128867.38it/s] 37%|████████████████████████████████████████████████▍                                                                                   | 66813952/182040794 [00:03<00:05, 22109810.67it/s] 38%|██████████████████████████████████████████████████                                                                                  | 69042176/182040794 [00:03<00:05, 22060061.30it/s] 39%|███████████████████████████████████████████████████▊                                                                                | 71401472/182040794 [00:03<00:04, 22396248.19it/s] 41%|█████████████████████████████████████████████████████▋                                                                              | 74088448/182040794 [00:03<00:04, 23650233.30it/s] 42%|███████████████████████████████████████████████████████▋                                                                            | 76808192/182040794 [00:03<00:04, 24496696.40it/s] 44%|█████████████████████████████████████████████████████████▌                                                                          | 79364096/182040794 [00:03<00:04, 24710553.15it/s] 45%|███████████████████████████████████████████████████████████▎                                                                        | 81854464/182040794 [00:03<00:04, 23151218.72it/s] 46%|█████████████████████████████████████████████████████████████                                                                       | 84246528/182040794 [00:04<00:04, 23229395.27it/s] 48%|██████████████████████████████████████████████████████████████▉                                                                     | 86867968/182040794 [00:04<00:03, 23960684.25it/s] 49%|████████████████████████████████████████████████████████████████▋                                                                   | 89292800/182040794 [00:04<00:03, 23413069.09it/s] 50%|██████████████████████████████████████████████████████████████████▍                                                                 | 91652096/182040794 [00:04<00:03, 22740982.81it/s] 52%|████████████████████████████████████████████████████████████████████▏                                                               | 94044160/182040794 [00:04<00:03, 23043869.02it/s] 53%|██████████████████████████████████████████████████████████████████████                                                              | 96600064/182040794 [00:04<00:03, 23767514.17it/s] 54%|███████████████████████████████████████████████████████████████████████▊                                                            | 99090432/182040794 [00:04<00:03, 23840657.45it/s] 56%|█████████████████████████████████████████████████████████████████████████                                                          | 101482496/182040794 [00:04<00:03, 23788777.55it/s] 57%|██████████████████████████████████████████████████████████████████████████▊                                                        | 103874560/182040794 [00:04<00:03, 23567206.80it/s] 58%|████████████████████████████████████████████████████████████████████████████▍                                                      | 106266624/182040794 [00:04<00:03, 22988811.13it/s] 60%|██████████████████████████████████████████████████████████████████████████████▏                                                    | 108658688/182040794 [00:05<00:03, 22816541.59it/s] 61%|███████████████████████████████████████████████████████████████████████████████▊                                                   | 110952448/182040794 [00:05<00:03, 22797721.87it/s] 62%|█████████████████████████████████████████████████████████████████████████████████▌                                                 | 113278976/182040794 [00:05<00:03, 22259555.77it/s] 64%|███████████████████████████████████████████████████████████████████████████████████▎                                               | 115802112/182040794 [00:05<00:02, 23015028.83it/s] 65%|█████████████████████████████████████████████████████████████████████████████████████                                              | 118128640/182040794 [00:05<00:02, 22555751.98it/s] 66%|██████████████████████████████████████████████████████████████████████████████████████▋                                            | 120487936/182040794 [00:05<00:02, 22807101.91it/s] 68%|████████████████████████████████████████████████████████████████████████████████████████▍                                          | 122912768/182040794 [00:05<00:02, 23180552.58it/s] 69%|██████████████████████████████████████████████████████████████████████████████████████████                                         | 125239296/182040794 [00:05<00:02, 23069699.84it/s] 70%|███████████████████████████████████████████████████████████████████████████████████████████▊                                       | 127565824/182040794 [00:05<00:02, 21672661.10it/s] 71%|█████████████████████████████████████████████████████████████████████████████████████████████▍                                     | 129826816/182040794 [00:06<00:02, 21920646.79it/s] 73%|███████████████████████████████████████████████████████████████████████████████████████████████                                    | 132055040/182040794 [00:06<00:02, 21952044.54it/s] 74%|████████████████████████████████████████████████████████████████████████████████████████████████▋                                  | 134283264/182040794 [00:06<00:02, 21974817.67it/s] 75%|██████████████████████████████████████████████████████████████████████████████████████████████████▎                                | 136577024/182040794 [00:06<00:02, 21879085.65it/s] 76%|████████████████████████████████████████████████████████████████████████████████████████████████████                               | 139132928/182040794 [00:06<00:01, 22852061.21it/s] 78%|█████████████████████████████████████████████████████████████████████████████████████████████████████▊                             | 141459456/182040794 [00:06<00:01, 22486900.60it/s] 79%|███████████████████████████████████████████████████████████████████████████████████████████████████████▍                           | 143818752/182040794 [00:06<00:01, 22797095.76it/s] 80%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▏                         | 146210816/182040794 [00:06<00:01, 22967319.81it/s] 82%|███████████████████████████████████████████████████████████████████████████████████████████████████████████                        | 148832256/182040794 [00:06<00:01, 23845168.60it/s] 83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                      | 151224320/182040794 [00:06<00:01, 23671767.49it/s] 84%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                    | 153616384/182040794 [00:07<00:01, 23656571.64it/s] 86%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                  | 156008448/182040794 [00:07<00:01, 22959679.51it/s] 87%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                 | 158334976/182040794 [00:07<00:01, 22968334.25it/s] 88%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌               | 160661504/182040794 [00:07<00:00, 22831053.65it/s] 90%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎             | 162955264/182040794 [00:07<00:00, 22773944.08it/s] 91%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉            | 165347328/182040794 [00:07<00:00, 23090670.64it/s] 92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋          | 167673856/182040794 [00:07<00:00, 22985433.94it/s] 93%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎        | 170000384/182040794 [00:07<00:00, 22373472.18it/s] 95%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉       | 172261376/182040794 [00:07<00:00, 22325478.80it/s] 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 174522368/182040794 [00:08<00:00, 22396997.08it/s] 97%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏   | 176816128/182040794 [00:08<00:00, 22544239.67it/s] 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉  | 179109888/182040794 [00:08<00:00, 22656654.18it/s]100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌| 181501952/182040794 [00:08<00:00, 23018459.29it/s]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 182040794/182040794 [00:08<00:00, 21836789.91it/s]
+Downloading http://ufldl.stanford.edu/housenumbers/test_32x32.mat to /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/data/test_32x32.mat
+  0%|                                                                                                                                                          | 0/64275384 [00:00<?, ?it/s]  2%|██▌                                                                                                                                   | 1212416/64275384 [00:00<00:05, 12109216.57it/s]  6%|████████▍                                                                                                                             | 4063232/64275384 [00:00<00:02, 21740405.45it/s] 12%|████████████████▌                                                                                                                     | 7962624/64275384 [00:00<00:01, 29602927.73it/s] 20%|██████████████████████████▍                                                                                                          | 12779520/64275384 [00:00<00:01, 36834211.04it/s] 28%|█████████████████████████████████████                                                                                                | 17924096/64275384 [00:00<00:01, 42057215.50it/s] 36%|████████████████████████████████████████████████                                                                                     | 23232512/64275384 [00:00<00:00, 45646551.06it/s] 44%|███████████████████████████████████████████████████████████▏                                                                         | 28573696/64275384 [00:00<00:00, 48140757.43it/s] 53%|██████████████████████████████████████████████████████████████████████▎                                                              | 33980416/64275384 [00:00<00:00, 50002819.19it/s] 61%|█████████████████████████████████████████████████████████████████████████████████▏                                                   | 39223296/64275384 [00:00<00:00, 50734205.99it/s] 69%|████████████████████████████████████████████████████████████████████████████████████████████▏                                        | 44531712/64275384 [00:01<00:00, 51250635.26it/s] 78%|███████████████████████████████████████████████████████████████████████████████████████████████████████▍                             | 49971200/64275384 [00:01<00:00, 52199878.92it/s] 86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                  | 55312384/64275384 [00:01<00:00, 52454749.97it/s] 94%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍       | 60620800/64275384 [00:01<00:00, 52459459.21it/s]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 64275384/64275384 [00:01<00:00, 46785419.55it/s]
+Train: 68,000  Val: 5,257  Test: 26,032
+Probe loader: 17000 batches (batch_size=4)
+Model builders and training utilities ready.
+Fisher/curvature utilities ready.
+Persistence helpers ready.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Full FT Epoch 1/3 Train Loss 0.2793 Val Acc 96.12%
+  Full FT Epoch 2/3 Train Loss 0.1197 Val Acc 96.90%
+  Full FT Epoch 3/3 Train Loss 0.0576 Val Acc 97.17%
+Full fine-tune — Test Acc 97.77%
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Frozen Epoch 1/3 Train Loss 1.6355 Val Acc 47.97%
+  Frozen Epoch 2/3 Train Loss 1.4485 Val Acc 51.17%
+  Frozen Epoch 3/3 Train Loss 1.3847 Val Acc 51.87%
+Frozen backbone — Test Acc 55.06%
+Training LoRA r=3 (1/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r3 Epoch 1/3 Train Loss 0.4254 Val Acc 93.82%
+  LoRA r3 Epoch 2/3 Train Loss 0.1841 Val Acc 94.94%
+  LoRA r3 Epoch 3/3 Train Loss 0.1286 Val Acc 95.57%
+  r=3 — Test Acc 96.43%  (checkpoint saved)
+Training LoRA r=5 (2/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r5 Epoch 1/3 Train Loss 0.3976 Val Acc 94.10%
+  LoRA r5 Epoch 2/3 Train Loss 0.1723 Val Acc 95.49%
+  LoRA r5 Epoch 3/3 Train Loss 0.1177 Val Acc 95.93%
+  r=5 — Test Acc 96.90%  (checkpoint saved)
+Training LoRA r=6 (3/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r6 Epoch 1/3 Train Loss 0.4011 Val Acc 94.46%
+  LoRA r6 Epoch 2/3 Train Loss 0.1691 Val Acc 95.42%
+  LoRA r6 Epoch 3/3 Train Loss 0.1158 Val Acc 95.87%
+  r=6 — Test Acc 96.80%  (checkpoint saved)
+Training LoRA r=10 (4/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r10 Epoch 1/3 Train Loss 0.4110 Val Acc 94.14%
+  LoRA r10 Epoch 2/3 Train Loss 0.1737 Val Acc 95.30%
+  LoRA r10 Epoch 3/3 Train Loss 0.1189 Val Acc 95.47%
+  r=10 — Test Acc 96.57%  (checkpoint saved)
+Training LoRA r=12 (5/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r12 Epoch 1/3 Train Loss 0.3833 Val Acc 94.01%
+  LoRA r12 Epoch 2/3 Train Loss 0.1641 Val Acc 95.32%
+  LoRA r12 Epoch 3/3 Train Loss 0.1112 Val Acc 95.62%
+  r=12 — Test Acc 96.75%  (checkpoint saved)
+Training LoRA r=16 (6/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r16 Epoch 1/3 Train Loss 0.4091 Val Acc 93.78%
+  LoRA r16 Epoch 2/3 Train Loss 0.1744 Val Acc 95.51%
+  LoRA r16 Epoch 3/3 Train Loss 0.1186 Val Acc 95.95%
+  r=16 — Test Acc 96.58%  (checkpoint saved)
+Training LoRA r=30 (7/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r30 Epoch 1/3 Train Loss 0.3928 Val Acc 93.72%
+  LoRA r30 Epoch 2/3 Train Loss 0.1673 Val Acc 95.34%
+  LoRA r30 Epoch 3/3 Train Loss 0.1105 Val Acc 95.57%
+  r=30 — Test Acc 96.48%  (checkpoint saved)
+Training LoRA r=52 (8/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r52 Epoch 1/3 Train Loss 0.3892 Val Acc 94.20%
+  LoRA r52 Epoch 2/3 Train Loss 0.1604 Val Acc 95.61%
+  LoRA r52 Epoch 3/3 Train Loss 0.1064 Val Acc 95.99%
+  r=52 — Test Acc 96.98%  (checkpoint saved)
+Training LoRA r=64 (9/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r64 Epoch 1/3 Train Loss 0.3645 Val Acc 94.12%
+  LoRA r64 Epoch 2/3 Train Loss 0.1581 Val Acc 95.45%
+  LoRA r64 Epoch 3/3 Train Loss 0.1042 Val Acc 95.99%
+  r=64 — Test Acc 96.83%  (checkpoint saved)
+Training LoRA r=80 (10/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r80 Epoch 1/3 Train Loss 0.3985 Val Acc 94.33%
+  LoRA r80 Epoch 2/3 Train Loss 0.1667 Val Acc 95.70%
+  LoRA r80 Epoch 3/3 Train Loss 0.1116 Val Acc 95.66%
+  r=80 — Test Acc 96.75%  (checkpoint saved)
+Training LoRA r=100 (11/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r100 Epoch 1/3 Train Loss 0.3850 Val Acc 94.20%
+  LoRA r100 Epoch 2/3 Train Loss 0.1671 Val Acc 95.49%
+  LoRA r100 Epoch 3/3 Train Loss 0.1118 Val Acc 95.78%
+  r=100 — Test Acc 96.63%  (checkpoint saved)
+Training LoRA r=128 (12/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r128 Epoch 1/3 Train Loss 0.3673 Val Acc 94.20%
+  LoRA r128 Epoch 2/3 Train Loss 0.1548 Val Acc 95.76%
+  LoRA r128 Epoch 3/3 Train Loss 0.1030 Val Acc 96.16%
+  r=128 — Test Acc 96.98%  (checkpoint saved)
+Training LoRA r=150 (13/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r150 Epoch 1/3 Train Loss 0.3801 Val Acc 93.95%
+  LoRA r150 Epoch 2/3 Train Loss 0.1596 Val Acc 95.66%
+  LoRA r150 Epoch 3/3 Train Loss 0.1071 Val Acc 95.93%
+  r=150 — Test Acc 96.88%  (checkpoint saved)
+Training LoRA r=200 (14/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r200 Epoch 1/3 Train Loss 0.3728 Val Acc 94.52%
+  LoRA r200 Epoch 2/3 Train Loss 0.1569 Val Acc 95.49%
+  LoRA r200 Epoch 3/3 Train Loss 0.1053 Val Acc 95.74%
+  r=200 — Test Acc 96.80%  (checkpoint saved)
+
+Phase 1 complete.
+Method                   Trainable Params   Test Acc
+-------------------------------------------------------
+Full fine-tune                 85,806,346     97.77%
+Frozen backbone                     7,690     55.06%
+LoRA r3                           110,592     96.43%
+LoRA r5                           184,320     96.90%
+LoRA r6                           221,184     96.80%
+LoRA r10                          368,640     96.57%
+LoRA r12                          442,368     96.75%
+LoRA r16                          589,824     96.58%
+LoRA r30                        1,105,920     96.48%
+LoRA r52                        1,916,928     96.98%
+LoRA r64                        2,359,296     96.83%
+LoRA r80                        2,949,120     96.75%
+LoRA r100                       3,686,400     96.63%
+LoRA r128                       4,718,592     96.98%
+LoRA r150                       5,529,600     96.88%
+LoRA r200                       7,372,800     96.80%
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=   3 lambda_max=0.066397  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=   5 lambda_max=0.037318  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=   6 lambda_max=0.025547  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  10 lambda_max=0.011525  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  12 lambda_max=0.007983  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  16 lambda_max=0.001832  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  30 lambda_max=0.000678  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  52 lambda_max=0.000497  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  64 lambda_max=0.000308  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  80 lambda_max=0.000077  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 100 lambda_max=0.000145  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 128 lambda_max=0.000058  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 150 lambda_max=0.000053  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 200 lambda_max=0.000024  (saved)
+
+Phase 2 curvature profiling complete.
+Phase 2 per-layer lambda_max (r=16), 24 layer-proj pairs
+  min=0.000043  25th=0.000195  50th=0.000395  75th=0.001004  max=0.001833
+Phase 3 global CGRS function ready.
+Run: CGRS_Global_tau_aggressive  tau=0.0002  r_init=16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2000: rank 16 -> 64  (lambda=0.00085)  lr 4.70e-04->1.88e-03
+  Epoch 1/3 done. Val Acc 93.72%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 8000: rank 64 -> 52  (lambda=0.00003)  lr 7.70e-04->6.25e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 8400: rank 52 -> 64  (lambda=0.00022)  lr 6.14e-04->7.56e-04
+  Epoch 2/3 done. Val Acc 95.24%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 11600: rank 64 -> 52  (lambda=0.00004)  lr 1.23e-04->1.00e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 12000: rank 52 -> 64  (lambda=0.00093)  lr 7.30e-05->8.99e-05
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 12400: rank 64 -> 52  (lambda=0.00003)  lr 4.02e-05->3.27e-05
+  Epoch 3/3 done. Val Acc 96.18%  Current rank 52
+  CGRS_Global_tau_aggressive COMPLETE — Test Acc 97.03%  Final Rank 52
+Run: CGRS_Global_tau_moderate  tau=0.0004  r_init=16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2000: rank 16 -> 64  (lambda=0.00220)  lr 4.70e-04->1.88e-03
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 4200: rank 64 -> 52  (lambda=0.00011)  lr 1.69e-03->1.38e-03
+  Epoch 1/3 done. Val Acc 92.85%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 4800: rank 52 -> 64  (lambda=0.00087)  lr 1.36e-03->1.67e-03
+  Epoch 2/3 done. Val Acc 94.84%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 9600: rank 64 -> 52  (lambda=0.00009)  lr 5.69e-04->4.62e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 10200: rank 52 -> 64  (lambda=0.00137)  lr 4.22e-04->5.19e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 11800: rank 64 -> 52  (lambda=0.00001)  lr 1.58e-04->1.29e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 12200: rank 52 -> 30  (lambda=0.00000)  lr 8.01e-05->4.62e-05
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 12600: rank 30 -> 64  (lambda=0.00560)  lr 7.98e-06->1.70e-05
+  Epoch 3/3 done. Val Acc 96.08%  Current rank 64
+  CGRS_Global_tau_moderate COMPLETE — Test Acc 97.21%  Final Rank 64
+Run: CGRS_Global_tau_conservative  tau=0.0010  r_init=16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2000: rank 16 -> 30  (lambda=0.00104)  lr 4.70e-04->8.82e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 3000: rank 30 -> 64  (lambda=0.04789)  lr 8.63e-04->1.84e-03
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 3400: rank 64 -> 52  (lambda=0.00024)  lr 1.83e-03->1.49e-03
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 3800: rank 52 -> 64  (lambda=0.00196)  lr 1.48e-03->1.83e-03
+  Epoch 1/3 done. Val Acc 92.89%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 7000: rank 64 -> 52  (lambda=0.00007)  lr 1.31e-03->1.06e-03
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 7400: rank 52 -> 64  (lambda=0.00177)  lr 1.05e-03->1.29e-03
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 8400: rank 64 -> 52  (lambda=0.00018)  lr 1.18e-03->9.62e-04
+  Epoch 2/3 done. Val Acc 94.86%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 9200: rank 52 -> 30  (lambda=0.00019)  lr 8.84e-04->5.10e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 9600: rank 30 -> 52  (lambda=0.00111)  lr 4.94e-04->8.56e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 10000: rank 52 -> 30  (lambda=0.00011)  lr 8.23e-04->4.75e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 10400: rank 30 -> 64  (lambda=0.00262)  lr 4.50e-04->9.61e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 11400: rank 64 -> 52  (lambda=0.00018)  lr 5.92e-04->4.81e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 11800: rank 52 -> 30  (lambda=0.00025)  lr 3.84e-04->2.21e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 12200: rank 30 -> 64  (lambda=0.00687)  lr 1.38e-04->2.94e-04
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 12600: rank 64 -> 52  (lambda=0.00021)  lr 5.08e-05->4.13e-05
+  Epoch 3/3 done. Val Acc 96.58%  Current rank 52
+  CGRS_Global_tau_conservative COMPLETE — Test Acc 97.45%  Final Rank 52
+
+Phase 3 complete.
+Run                                     Tau Final Rank   Test Acc
+------------------------------------------------------------------
+CGRS_Global_tau_aggressive          0.00019         52     97.03%
+CGRS_Global_tau_moderate            0.00039         64     97.21%
+CGRS_Global_tau_conservative        0.00100         52     97.45%
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Computed fresh live calibration and saved to disk.
+Live calibration (r_init=30): 25th=0.000038 50th=0.000082 75th=0.000104
+Per-layer threshold-based CGRS function ready.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 200: Layer 2  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 6  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 0  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 1  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 4  30 -> 64  (in-place, other layers untouched)
+  Epoch 1/3 done. Val Acc 94.03%  Avg Rank 42.2
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 2/3 done. Val Acc 95.38%  Avg Rank 42.2
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 3/3 done. Val Acc 95.99%  Avg Rank 42.2
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/PL_C1_progress.json
+  PL_C1 COMPLETE — Test Acc 96.60%  Avg Rank 42.17  Actual Params 1,554,432
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 200: Layer 0  30 -> 64  (in-place, other layers untouched)
+  Step 200: Layer 1  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 2  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 5  30 -> 64  (in-place, other layers untouched)
+  Step 200: Layer 8  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 9  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 10  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 11  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 6  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 7  30 -> 52  (in-place, other layers untouched)
+  Step 600: Layer 1  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 2  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 4  30 -> 52  (in-place, other layers untouched)
+  Step 600: Layer 10  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 11  52 -> 64  (in-place, other layers untouched)
+  Step 800: Layer 7  52 -> 64  (in-place, other layers untouched)
+  Step 800: Layer 9  52 -> 64  (in-place, other layers untouched)
+  Step 1000: Layer 3  30 -> 52  (in-place, other layers untouched)
+  Step 1000: Layer 8  52 -> 64  (in-place, other layers untouched)
+  Step 2800: Layer 4  52 -> 64  (in-place, other layers untouched)
+  Epoch 1/3 done. Val Acc 93.68%  Avg Rank 63.0
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 2/3 done. Val Acc 95.45%  Avg Rank 63.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 3/3 done. Val Acc 95.49%  Avg Rank 63.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/PL_C3_Live_progress.json
+  PL_C3_Live COMPLETE — Test Acc 96.68%  Avg Rank 63.00  Actual Params 2,322,432
+Ordinal CGRS function (with protected-floor fix) ready.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 200: Layer 2 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 4 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 5 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 200: Layer 6 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 0 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 1 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 3 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 8 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 2 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 9 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 600: Layer 10 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 800: Layer 1 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 800: Layer 7 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 1000: Layer 9 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 1600: Layer 10 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 2000: Layer 11 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 2400: Layer 7 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 3000: Layer 6 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 1/3 done. Val Acc 93.93%  Avg Rank 62.0
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 5200: Layer 4 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 7000: Layer 11 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 2/3 done. Val Acc 95.04%  Avg Rank 64.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 3/3 done. Val Acc 95.57%  Avg Rank 64.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/SVHN_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  OrdinalK4_Fixed COMPLETE — Test Acc 96.47%  Avg Rank 64.00  Actual Params 2,359,296
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([10]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([10, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 200: Layer 0 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 2 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 3 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 200: Layer 5 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 200: Layer 6 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 1 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 400: Layer 4 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 400: Layer 9 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 0 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 3 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 600: Layer 10 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 800: Layer 2 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 800: Layer 4 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 800: Layer 7 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 800: Layer 8 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 800: Layer 11 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 1000: Layer 10 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 1200: Layer 8 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 1800: Layer 7 (top-k)  52 -> 64  (in-place, other layers untouched)

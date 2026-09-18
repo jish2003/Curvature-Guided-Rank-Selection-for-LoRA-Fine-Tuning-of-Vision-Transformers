@@ -1,0 +1,152 @@
+{
+  "run_name": "OrdinalK4_Fixed",
+  "top_k": 4,
+  "protected_layers": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "protected_min_rank": 16,
+  "r_init": 30,
+  "test_acc": 88.94,
+  "test_loss": 0.5142587436437607,
+  "avg_rank": 62.0,
+  "final_ranks": {
+    "0": 64,
+    "1": 52,
+    "2": 64,
+    "3": 64,
+    "4": 52,
+    "5": 64,
+    "6": 64,
+    "7": 64,
+    "8": 64,
+    "9": 64,
+    "10": 64,
+    "11": 64
+  },
+  "total_lora_params": 2285568,
+  "n_rank_changes": 17,
+  "rank_changes": [
+    {
+      "step": 200,
+      "layer": 0,
+      "old_r": 30,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 200,
+      "layer": 1,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 200,
+      "layer": 10,
+      "old_r": 30,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 200,
+      "layer": 11,
+      "old_r": 30,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 400,
+      "layer": 2,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 400,
+      "layer": 8,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 400,
+      "layer": 9,
+      "old_r": 30,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 600,
+      "layer": 7,
+      "old_r": 30,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 800,
+      "layer": 6,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 1000,
+      "layer": 8,
+      "old_r": 52,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 1200,
+      "layer": 2,
+      "old_r": 52,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 1400,
+      "layer": 5,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 3000,
+      "layer": 3,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 4000,
+      "layer": 3,
+      "old_r": 52,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 4600,
+      "layer": 6,
+      "old_r": 52,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 5200,
+      "layer": 4,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 6400,
+      "layer": 5,
+      "old_r": 52,
+      "new_r": 64,
+      "reason": "topk"
+    }
+  ]
+}

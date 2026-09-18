@@ -1,0 +1,97 @@
+nohup: ignoring input
+Dataset: flowers102  |  Project base: /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild
+/home1/jkshaikh/.conda/envs/cgrs_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Train: 1,840  Val: 200  Test: 6,149
+Steps/epoch: 115  Total steps/run: 2300
+Run: AdaLoRA_target_r16  init_r=24  target_r=16
+/home1/jkshaikh/.conda/envs/cgrs_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 1.00%
+  Epoch 2/20 done. Val Acc 34.50%
+  Epoch 3/20 done. Val Acc 72.50%
+  Epoch 4/20 done. Val Acc 89.00%
+  Epoch 5/20 done. Val Acc 95.00%
+  Epoch 6/20 done. Val Acc 95.50%
+  Epoch 7/20 done. Val Acc 96.50%
+  Epoch 8/20 done. Val Acc 97.50%
+  Epoch 9/20 done. Val Acc 98.00%
+  Epoch 10/20 done. Val Acc 98.00%
+  Epoch 11/20 done. Val Acc 98.00%
+  Epoch 12/20 done. Val Acc 98.50%
+  Epoch 13/20 done. Val Acc 98.50%
+  Epoch 14/20 done. Val Acc 98.50%
+  Epoch 15/20 done. Val Acc 99.00%
+  Epoch 16/20 done. Val Acc 99.00%
+  Epoch 17/20 done. Val Acc 99.00%
+  Epoch 18/20 done. Val Acc 99.00%
+  Epoch 19/20 done. Val Acc 99.00%
+  Epoch 20/20 done. Val Acc 99.00%
+  AdaLoRA_target_r16 COMPLETE — Test Acc 98.55%  Params 885,312
+Run: AdaLoRA_target_r32  init_r=48  target_r=32
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 3.00%
+  Epoch 2/20 done. Val Acc 34.00%
+  Epoch 3/20 done. Val Acc 79.00%
+  Epoch 4/20 done. Val Acc 91.00%
+  Epoch 5/20 done. Val Acc 94.50%
+  Epoch 6/20 done. Val Acc 96.00%
+  Epoch 7/20 done. Val Acc 96.00%
+  Epoch 8/20 done. Val Acc 96.50%
+  Epoch 9/20 done. Val Acc 96.50%
+  Epoch 10/20 done. Val Acc 96.50%
+  Epoch 11/20 done. Val Acc 97.50%
+  Epoch 12/20 done. Val Acc 97.00%
+  Epoch 13/20 done. Val Acc 97.50%
+  Epoch 14/20 done. Val Acc 97.50%
+  Epoch 15/20 done. Val Acc 97.50%
+  Epoch 16/20 done. Val Acc 97.50%
+  Epoch 17/20 done. Val Acc 97.50%
+  Epoch 18/20 done. Val Acc 97.50%
+  Epoch 19/20 done. Val Acc 97.50%
+  Epoch 20/20 done. Val Acc 97.50%
+  AdaLoRA_target_r32 COMPLETE — Test Acc 98.78%  Params 1,770,624
+Run: AdaLoRA_target_r64  init_r=96  target_r=64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 2.00%
+  Epoch 2/20 done. Val Acc 35.00%
+  Epoch 3/20 done. Val Acc 76.00%
+  Epoch 4/20 done. Val Acc 92.00%
+  Epoch 5/20 done. Val Acc 96.00%
+  Epoch 6/20 done. Val Acc 97.00%
+  Epoch 7/20 done. Val Acc 97.00%
+  Epoch 8/20 done. Val Acc 97.50%
+  Epoch 9/20 done. Val Acc 97.50%
+  Epoch 10/20 done. Val Acc 97.50%
+  Epoch 11/20 done. Val Acc 98.00%
+  Epoch 12/20 done. Val Acc 98.00%
+  Epoch 13/20 done. Val Acc 98.00%
+  Epoch 14/20 done. Val Acc 98.50%
+  Epoch 15/20 done. Val Acc 98.50%
+  Epoch 16/20 done. Val Acc 98.50%
+  Epoch 17/20 done. Val Acc 98.50%
+  Epoch 18/20 done. Val Acc 98.50%
+  Epoch 19/20 done. Val Acc 98.50%
+  Epoch 20/20 done. Val Acc 98.50%
+  AdaLoRA_target_r64 COMPLETE — Test Acc 98.60%  Params 3,541,248
+
+======================================================================
+AdaLoRA Comparison — flowers102
+======================================================================
+Run                         Target r   Test Acc       Params
+----------------------------------------------------------------------
+AdaLoRA_target_r16                16     98.55%      885,312
+AdaLoRA_target_r32                32     98.78%    1,770,624
+AdaLoRA_target_r64                64     98.60%    3,541,248
+
+Saved to /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/adalora_results/adalora_all_results.json

@@ -1,0 +1,9 @@
+{
+  "run_name": "AdaLoRA_target_r64",
+  "dataset": "svhn",
+  "init_r": 96,
+  "target_r": 64,
+  "test_acc": 95.86278426551937,
+  "test_loss": 0.14918555126132785,
+  "total_lora_params": 3541248
+}

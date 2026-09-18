@@ -1,0 +1,47 @@
+{
+  "run_name": "CGRS_Global_tau_aggressive",
+  "tau": 0.00019493904619594105,
+  "final_rank": 52,
+  "test_acc": 97.03057775046098,
+  "test_loss": 0.11527887396969487,
+  "total_lora_params": 1916928,
+  "n_rank_changes": 6,
+  "rank_changes": [
+    {
+      "step": 2000,
+      "old_r": 16,
+      "new_r": 64,
+      "lambda": 0.0008480906835757196
+    },
+    {
+      "step": 8000,
+      "old_r": 64,
+      "new_r": 52,
+      "lambda": 2.7147865694132634e-05
+    },
+    {
+      "step": 8400,
+      "old_r": 52,
+      "new_r": 64,
+      "lambda": 0.00021996311261318624
+    },
+    {
+      "step": 11600,
+      "old_r": 64,
+      "new_r": 52,
+      "lambda": 3.814319279626943e-05
+    },
+    {
+      "step": 12000,
+      "old_r": 52,
+      "new_r": 64,
+      "lambda": 0.0009300187230110168
+    },
+    {
+      "step": 12400,
+      "old_r": 64,
+      "new_r": 52,
+      "lambda": 3.0508619602187537e-05
+    }
+  ]
+}

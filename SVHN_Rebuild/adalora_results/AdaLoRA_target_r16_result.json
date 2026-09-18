@@ -1,0 +1,9 @@
+{
+  "run_name": "AdaLoRA_target_r16",
+  "dataset": "svhn",
+  "init_r": 24,
+  "target_r": 16,
+  "test_acc": 95.90503995082975,
+  "test_loss": 0.1492424627486101,
+  "total_lora_params": 885312
+}

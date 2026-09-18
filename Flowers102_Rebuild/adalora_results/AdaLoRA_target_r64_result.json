@@ -1,0 +1,9 @@
+{
+  "run_name": "AdaLoRA_target_r64",
+  "dataset": "flowers102",
+  "init_r": 96,
+  "target_r": 64,
+  "test_acc": 98.6013986013986,
+  "test_loss": 0.37362928477587637,
+  "total_lora_params": 3541248
+}

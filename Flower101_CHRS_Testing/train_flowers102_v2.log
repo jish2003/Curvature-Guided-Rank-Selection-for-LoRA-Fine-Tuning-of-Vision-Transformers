@@ -1,0 +1,1027 @@
+nohup: ignoring input
+Device: cuda
+GPU: Tesla V100-PCIE-32GB
+VRAM: 34.1 GB
+PROJECT_BASE: /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild
+  model_name: google/vit-base-patch16-224
+  num_classes: 102
+  internal_val_size: 200
+  batch_size: 16
+  epochs: 20
+  weight_decay: 0.01
+  lr_full: 5e-05
+  lr_frozen: 0.001
+  lr_lora: 0.0005
+  lora_alpha: 16
+  lora_dropout: 0.1
+  target_modules: ['query', 'value']
+  lora_ranks: [3, 5, 6, 10, 12, 16, 30, 52, 64, 80, 100, 128, 150, 200]
+/home1/jkshaikh/.conda/envs/cgrs_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading Flowers-102...
+Train: 1,840  Val: 200  Test: 6,149
+Steps/epoch: 115  Total steps/run: 2300
+Derived check_every=55  cooldown=108  (~41 checks per run)
+Model builders and training utilities ready.
+Fisher/curvature utilities ready.
+Persistence helpers ready.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Full FT Epoch 1/20 Train Loss 3.0898 Val Acc 95.00%
+  Full FT Epoch 2/20 Train Loss 0.4830 Val Acc 98.50%
+  Full FT Epoch 3/20 Train Loss 0.0479 Val Acc 98.50%
+  Full FT Epoch 4/20 Train Loss 0.0127 Val Acc 99.00%
+  Full FT Epoch 5/20 Train Loss 0.0074 Val Acc 99.00%
+  Full FT Epoch 6/20 Train Loss 0.0052 Val Acc 99.00%
+  Full FT Epoch 7/20 Train Loss 0.0041 Val Acc 99.00%
+  Full FT Epoch 8/20 Train Loss 0.0033 Val Acc 99.00%
+  Full FT Epoch 9/20 Train Loss 0.0028 Val Acc 99.00%
+  Full FT Epoch 10/20 Train Loss 0.0025 Val Acc 99.00%
+  Full FT Epoch 11/20 Train Loss 0.0022 Val Acc 99.00%
+  Full FT Epoch 12/20 Train Loss 0.0020 Val Acc 99.00%
+  Full FT Epoch 13/20 Train Loss 0.0019 Val Acc 99.00%
+  Full FT Epoch 14/20 Train Loss 0.0018 Val Acc 99.00%
+  Full FT Epoch 15/20 Train Loss 0.0017 Val Acc 99.00%
+  Full FT Epoch 16/20 Train Loss 0.0016 Val Acc 99.00%
+  Full FT Epoch 17/20 Train Loss 0.0016 Val Acc 99.00%
+  Full FT Epoch 18/20 Train Loss 0.0016 Val Acc 99.00%
+  Full FT Epoch 19/20 Train Loss 0.0015 Val Acc 99.00%
+  Full FT Epoch 20/20 Train Loss 0.0015 Val Acc 99.00%
+Full fine-tune — Test Acc 99.01%
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Frozen Epoch 1/20 Train Loss 1.3982 Val Acc 99.00%
+  Frozen Epoch 2/20 Train Loss 0.0393 Val Acc 99.00%
+  Frozen Epoch 3/20 Train Loss 0.0118 Val Acc 99.00%
+  Frozen Epoch 4/20 Train Loss 0.0058 Val Acc 99.00%
+  Frozen Epoch 5/20 Train Loss 0.0043 Val Acc 98.50%
+  Frozen Epoch 6/20 Train Loss 0.0039 Val Acc 99.00%
+  Frozen Epoch 7/20 Train Loss 0.0026 Val Acc 99.00%
+  Frozen Epoch 8/20 Train Loss 0.0019 Val Acc 99.00%
+  Frozen Epoch 9/20 Train Loss 0.0016 Val Acc 99.00%
+  Frozen Epoch 10/20 Train Loss 0.0014 Val Acc 99.00%
+  Frozen Epoch 11/20 Train Loss 0.0012 Val Acc 99.00%
+  Frozen Epoch 12/20 Train Loss 0.0011 Val Acc 99.00%
+  Frozen Epoch 13/20 Train Loss 0.0011 Val Acc 99.00%
+  Frozen Epoch 14/20 Train Loss 0.0010 Val Acc 99.00%
+  Frozen Epoch 15/20 Train Loss 0.0010 Val Acc 99.00%
+  Frozen Epoch 16/20 Train Loss 0.0009 Val Acc 99.00%
+  Frozen Epoch 17/20 Train Loss 0.0009 Val Acc 99.00%
+  Frozen Epoch 18/20 Train Loss 0.0009 Val Acc 99.00%
+  Frozen Epoch 19/20 Train Loss 0.0009 Val Acc 99.00%
+  Frozen Epoch 20/20 Train Loss 0.0009 Val Acc 99.00%
+Frozen backbone — Test Acc 99.20%
+Training LoRA r=3 (1/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r3 Epoch 1/20 Train Loss 4.4259 Val Acc 18.50%
+  LoRA r3 Epoch 2/20 Train Loss 3.2529 Val Acc 74.50%
+  LoRA r3 Epoch 3/20 Train Loss 2.3670 Val Acc 86.50%
+  LoRA r3 Epoch 4/20 Train Loss 1.8501 Val Acc 93.50%
+  LoRA r3 Epoch 5/20 Train Loss 1.4913 Val Acc 94.00%
+  LoRA r3 Epoch 6/20 Train Loss 1.2461 Val Acc 95.50%
+  LoRA r3 Epoch 7/20 Train Loss 1.0647 Val Acc 96.00%
+  LoRA r3 Epoch 8/20 Train Loss 0.9264 Val Acc 96.50%
+  LoRA r3 Epoch 9/20 Train Loss 0.8220 Val Acc 96.50%
+  LoRA r3 Epoch 10/20 Train Loss 0.7363 Val Acc 95.50%
+  LoRA r3 Epoch 11/20 Train Loss 0.6718 Val Acc 96.00%
+  LoRA r3 Epoch 12/20 Train Loss 0.6206 Val Acc 97.00%
+  LoRA r3 Epoch 13/20 Train Loss 0.5784 Val Acc 97.50%
+  LoRA r3 Epoch 14/20 Train Loss 0.5467 Val Acc 97.00%
+  LoRA r3 Epoch 15/20 Train Loss 0.5229 Val Acc 97.50%
+  LoRA r3 Epoch 16/20 Train Loss 0.5049 Val Acc 97.50%
+  LoRA r3 Epoch 17/20 Train Loss 0.4925 Val Acc 97.50%
+  LoRA r3 Epoch 18/20 Train Loss 0.4846 Val Acc 97.50%
+  LoRA r3 Epoch 19/20 Train Loss 0.4797 Val Acc 97.50%
+  LoRA r3 Epoch 20/20 Train Loss 0.4774 Val Acc 97.50%
+  r=3 — Test Acc 95.56%  (checkpoint saved)
+Training LoRA r=5 (2/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r5 Epoch 1/20 Train Loss 4.4330 Val Acc 25.50%
+  LoRA r5 Epoch 2/20 Train Loss 3.1918 Val Acc 69.00%
+  LoRA r5 Epoch 3/20 Train Loss 2.1688 Val Acc 88.50%
+  LoRA r5 Epoch 4/20 Train Loss 1.5770 Val Acc 92.50%
+  LoRA r5 Epoch 5/20 Train Loss 1.1937 Val Acc 96.00%
+  LoRA r5 Epoch 6/20 Train Loss 0.9311 Val Acc 96.50%
+  LoRA r5 Epoch 7/20 Train Loss 0.7431 Val Acc 97.00%
+  LoRA r5 Epoch 8/20 Train Loss 0.6125 Val Acc 97.50%
+  LoRA r5 Epoch 9/20 Train Loss 0.5126 Val Acc 97.50%
+  LoRA r5 Epoch 10/20 Train Loss 0.4404 Val Acc 97.50%
+  LoRA r5 Epoch 11/20 Train Loss 0.3856 Val Acc 98.00%
+  LoRA r5 Epoch 12/20 Train Loss 0.3439 Val Acc 97.50%
+  LoRA r5 Epoch 13/20 Train Loss 0.3121 Val Acc 97.50%
+  LoRA r5 Epoch 14/20 Train Loss 0.2881 Val Acc 97.50%
+  LoRA r5 Epoch 15/20 Train Loss 0.2705 Val Acc 97.50%
+  LoRA r5 Epoch 16/20 Train Loss 0.2578 Val Acc 97.50%
+  LoRA r5 Epoch 17/20 Train Loss 0.2492 Val Acc 97.00%
+  LoRA r5 Epoch 18/20 Train Loss 0.2438 Val Acc 97.50%
+  LoRA r5 Epoch 19/20 Train Loss 0.2409 Val Acc 97.00%
+  LoRA r5 Epoch 20/20 Train Loss 0.2395 Val Acc 97.00%
+  r=5 — Test Acc 96.80%  (checkpoint saved)
+Training LoRA r=6 (3/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r6 Epoch 1/20 Train Loss 4.4695 Val Acc 24.50%
+  LoRA r6 Epoch 2/20 Train Loss 3.1897 Val Acc 78.50%
+  LoRA r6 Epoch 3/20 Train Loss 2.1245 Val Acc 89.00%
+  LoRA r6 Epoch 4/20 Train Loss 1.5285 Val Acc 92.50%
+  LoRA r6 Epoch 5/20 Train Loss 1.1501 Val Acc 94.00%
+  LoRA r6 Epoch 6/20 Train Loss 0.8919 Val Acc 94.50%
+  LoRA r6 Epoch 7/20 Train Loss 0.7090 Val Acc 96.00%
+  LoRA r6 Epoch 8/20 Train Loss 0.5780 Val Acc 96.00%
+  LoRA r6 Epoch 9/20 Train Loss 0.4782 Val Acc 97.00%
+  LoRA r6 Epoch 10/20 Train Loss 0.4053 Val Acc 97.00%
+  LoRA r6 Epoch 11/20 Train Loss 0.3499 Val Acc 97.00%
+  LoRA r6 Epoch 12/20 Train Loss 0.3091 Val Acc 96.50%
+  LoRA r6 Epoch 13/20 Train Loss 0.2782 Val Acc 96.50%
+  LoRA r6 Epoch 14/20 Train Loss 0.2564 Val Acc 96.00%
+  LoRA r6 Epoch 15/20 Train Loss 0.2401 Val Acc 96.00%
+  LoRA r6 Epoch 16/20 Train Loss 0.2288 Val Acc 96.00%
+  LoRA r6 Epoch 17/20 Train Loss 0.2208 Val Acc 96.00%
+  LoRA r6 Epoch 18/20 Train Loss 0.2160 Val Acc 96.00%
+  LoRA r6 Epoch 19/20 Train Loss 0.2136 Val Acc 96.00%
+  LoRA r6 Epoch 20/20 Train Loss 0.2126 Val Acc 96.00%
+  r=6 — Test Acc 96.57%  (checkpoint saved)
+Training LoRA r=10 (4/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r10 Epoch 1/20 Train Loss 4.5169 Val Acc 28.00%
+  LoRA r10 Epoch 2/20 Train Loss 3.0877 Val Acc 78.00%
+  LoRA r10 Epoch 3/20 Train Loss 1.9257 Val Acc 94.00%
+  LoRA r10 Epoch 4/20 Train Loss 1.2804 Val Acc 95.00%
+  LoRA r10 Epoch 5/20 Train Loss 0.8963 Val Acc 97.00%
+  LoRA r10 Epoch 6/20 Train Loss 0.6439 Val Acc 97.00%
+  LoRA r10 Epoch 7/20 Train Loss 0.4772 Val Acc 97.50%
+  LoRA r10 Epoch 8/20 Train Loss 0.3645 Val Acc 98.00%
+  LoRA r10 Epoch 9/20 Train Loss 0.2868 Val Acc 98.00%
+  LoRA r10 Epoch 10/20 Train Loss 0.2346 Val Acc 98.00%
+  LoRA r10 Epoch 11/20 Train Loss 0.1999 Val Acc 98.00%
+  LoRA r10 Epoch 12/20 Train Loss 0.1769 Val Acc 97.50%
+  LoRA r10 Epoch 13/20 Train Loss 0.1612 Val Acc 97.50%
+  LoRA r10 Epoch 14/20 Train Loss 0.1503 Val Acc 97.50%
+  LoRA r10 Epoch 15/20 Train Loss 0.1417 Val Acc 97.50%
+  LoRA r10 Epoch 16/20 Train Loss 0.1363 Val Acc 97.50%
+  LoRA r10 Epoch 17/20 Train Loss 0.1325 Val Acc 97.50%
+  LoRA r10 Epoch 18/20 Train Loss 0.1302 Val Acc 97.50%
+  LoRA r10 Epoch 19/20 Train Loss 0.1289 Val Acc 97.50%
+  LoRA r10 Epoch 20/20 Train Loss 0.1285 Val Acc 97.50%
+  r=10 — Test Acc 98.00%  (checkpoint saved)
+Training LoRA r=12 (5/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r12 Epoch 1/20 Train Loss 4.4586 Val Acc 24.50%
+  LoRA r12 Epoch 2/20 Train Loss 3.0071 Val Acc 78.00%
+  LoRA r12 Epoch 3/20 Train Loss 1.7872 Val Acc 90.50%
+  LoRA r12 Epoch 4/20 Train Loss 1.1214 Val Acc 95.50%
+  LoRA r12 Epoch 5/20 Train Loss 0.7479 Val Acc 97.50%
+  LoRA r12 Epoch 6/20 Train Loss 0.5208 Val Acc 96.00%
+  LoRA r12 Epoch 7/20 Train Loss 0.3794 Val Acc 97.00%
+  LoRA r12 Epoch 8/20 Train Loss 0.2846 Val Acc 97.50%
+  LoRA r12 Epoch 9/20 Train Loss 0.2287 Val Acc 98.50%
+  LoRA r12 Epoch 10/20 Train Loss 0.1904 Val Acc 98.00%
+  LoRA r12 Epoch 11/20 Train Loss 0.1658 Val Acc 99.00%
+  LoRA r12 Epoch 12/20 Train Loss 0.1486 Val Acc 98.50%
+  LoRA r12 Epoch 13/20 Train Loss 0.1362 Val Acc 99.00%
+  LoRA r12 Epoch 14/20 Train Loss 0.1273 Val Acc 98.50%
+  LoRA r12 Epoch 15/20 Train Loss 0.1209 Val Acc 99.00%
+  LoRA r12 Epoch 16/20 Train Loss 0.1165 Val Acc 98.50%
+  LoRA r12 Epoch 17/20 Train Loss 0.1133 Val Acc 99.00%
+  LoRA r12 Epoch 18/20 Train Loss 0.1113 Val Acc 99.00%
+  LoRA r12 Epoch 19/20 Train Loss 0.1105 Val Acc 99.00%
+  LoRA r12 Epoch 20/20 Train Loss 0.1100 Val Acc 99.00%
+  r=12 — Test Acc 98.41%  (checkpoint saved)
+Training LoRA r=16 (6/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r16 Epoch 1/20 Train Loss 4.4232 Val Acc 27.00%
+  LoRA r16 Epoch 2/20 Train Loss 3.0345 Val Acc 80.50%
+  LoRA r16 Epoch 3/20 Train Loss 1.8900 Val Acc 92.00%
+  LoRA r16 Epoch 4/20 Train Loss 1.1905 Val Acc 95.50%
+  LoRA r16 Epoch 5/20 Train Loss 0.7770 Val Acc 96.50%
+  LoRA r16 Epoch 6/20 Train Loss 0.5286 Val Acc 97.00%
+  LoRA r16 Epoch 7/20 Train Loss 0.3735 Val Acc 98.50%
+  LoRA r16 Epoch 8/20 Train Loss 0.2794 Val Acc 98.00%
+  LoRA r16 Epoch 9/20 Train Loss 0.2232 Val Acc 99.00%
+  LoRA r16 Epoch 10/20 Train Loss 0.1872 Val Acc 98.50%
+  LoRA r16 Epoch 11/20 Train Loss 0.1628 Val Acc 98.50%
+  LoRA r16 Epoch 12/20 Train Loss 0.1456 Val Acc 98.50%
+  LoRA r16 Epoch 13/20 Train Loss 0.1332 Val Acc 99.00%
+  LoRA r16 Epoch 14/20 Train Loss 0.1244 Val Acc 98.50%
+  LoRA r16 Epoch 15/20 Train Loss 0.1180 Val Acc 98.50%
+  LoRA r16 Epoch 16/20 Train Loss 0.1136 Val Acc 98.50%
+  LoRA r16 Epoch 17/20 Train Loss 0.1106 Val Acc 98.50%
+  LoRA r16 Epoch 18/20 Train Loss 0.1086 Val Acc 98.50%
+  LoRA r16 Epoch 19/20 Train Loss 0.1077 Val Acc 98.50%
+  LoRA r16 Epoch 20/20 Train Loss 0.1073 Val Acc 98.50%
+  r=16 — Test Acc 98.15%  (checkpoint saved)
+Training LoRA r=30 (7/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r30 Epoch 1/20 Train Loss 4.5245 Val Acc 25.00%
+  LoRA r30 Epoch 2/20 Train Loss 3.0622 Val Acc 78.50%
+  LoRA r30 Epoch 3/20 Train Loss 1.8013 Val Acc 91.50%
+  LoRA r30 Epoch 4/20 Train Loss 1.1116 Val Acc 96.00%
+  LoRA r30 Epoch 5/20 Train Loss 0.7147 Val Acc 96.50%
+  LoRA r30 Epoch 6/20 Train Loss 0.4824 Val Acc 97.50%
+  LoRA r30 Epoch 7/20 Train Loss 0.3492 Val Acc 98.50%
+  LoRA r30 Epoch 8/20 Train Loss 0.2694 Val Acc 99.00%
+  LoRA r30 Epoch 9/20 Train Loss 0.2180 Val Acc 99.00%
+  LoRA r30 Epoch 10/20 Train Loss 0.1841 Val Acc 99.00%
+  LoRA r30 Epoch 11/20 Train Loss 0.1602 Val Acc 99.00%
+  LoRA r30 Epoch 12/20 Train Loss 0.1438 Val Acc 98.50%
+  LoRA r30 Epoch 13/20 Train Loss 0.1314 Val Acc 99.00%
+  LoRA r30 Epoch 14/20 Train Loss 0.1228 Val Acc 99.00%
+  LoRA r30 Epoch 15/20 Train Loss 0.1160 Val Acc 99.50%
+  LoRA r30 Epoch 16/20 Train Loss 0.1116 Val Acc 99.50%
+  LoRA r30 Epoch 17/20 Train Loss 0.1085 Val Acc 99.50%
+  LoRA r30 Epoch 18/20 Train Loss 0.1067 Val Acc 99.50%
+  LoRA r30 Epoch 19/20 Train Loss 0.1058 Val Acc 99.50%
+  LoRA r30 Epoch 20/20 Train Loss 0.1053 Val Acc 99.50%
+  r=30 — Test Acc 98.03%  (checkpoint saved)
+Training LoRA r=52 (8/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r52 Epoch 1/20 Train Loss 4.3841 Val Acc 28.50%
+  LoRA r52 Epoch 2/20 Train Loss 2.8255 Val Acc 86.50%
+  LoRA r52 Epoch 3/20 Train Loss 1.6219 Val Acc 93.00%
+  LoRA r52 Epoch 4/20 Train Loss 0.9809 Val Acc 94.50%
+  LoRA r52 Epoch 5/20 Train Loss 0.6362 Val Acc 97.00%
+  LoRA r52 Epoch 6/20 Train Loss 0.4431 Val Acc 97.50%
+  LoRA r52 Epoch 7/20 Train Loss 0.3279 Val Acc 97.00%
+  LoRA r52 Epoch 8/20 Train Loss 0.2567 Val Acc 98.50%
+  LoRA r52 Epoch 9/20 Train Loss 0.2101 Val Acc 97.00%
+  LoRA r52 Epoch 10/20 Train Loss 0.1780 Val Acc 97.50%
+  LoRA r52 Epoch 11/20 Train Loss 0.1560 Val Acc 97.00%
+  LoRA r52 Epoch 12/20 Train Loss 0.1399 Val Acc 97.50%
+  LoRA r52 Epoch 13/20 Train Loss 0.1284 Val Acc 97.00%
+  LoRA r52 Epoch 14/20 Train Loss 0.1197 Val Acc 97.50%
+  LoRA r52 Epoch 15/20 Train Loss 0.1135 Val Acc 97.50%
+  LoRA r52 Epoch 16/20 Train Loss 0.1091 Val Acc 97.50%
+  LoRA r52 Epoch 17/20 Train Loss 0.1062 Val Acc 97.50%
+  LoRA r52 Epoch 18/20 Train Loss 0.1044 Val Acc 97.50%
+  LoRA r52 Epoch 19/20 Train Loss 0.1034 Val Acc 97.50%
+  LoRA r52 Epoch 20/20 Train Loss 0.1029 Val Acc 97.50%
+  r=52 — Test Acc 98.24%  (checkpoint saved)
+Training LoRA r=64 (9/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r64 Epoch 1/20 Train Loss 4.4232 Val Acc 26.00%
+  LoRA r64 Epoch 2/20 Train Loss 2.8709 Val Acc 87.50%
+  LoRA r64 Epoch 3/20 Train Loss 1.6081 Val Acc 94.50%
+  LoRA r64 Epoch 4/20 Train Loss 0.9497 Val Acc 96.00%
+  LoRA r64 Epoch 5/20 Train Loss 0.6026 Val Acc 98.50%
+  LoRA r64 Epoch 6/20 Train Loss 0.4077 Val Acc 98.50%
+  LoRA r64 Epoch 7/20 Train Loss 0.2990 Val Acc 99.00%
+  LoRA r64 Epoch 8/20 Train Loss 0.2342 Val Acc 99.00%
+  LoRA r64 Epoch 9/20 Train Loss 0.1910 Val Acc 98.50%
+  LoRA r64 Epoch 10/20 Train Loss 0.1620 Val Acc 99.00%
+  LoRA r64 Epoch 11/20 Train Loss 0.1423 Val Acc 99.00%
+  LoRA r64 Epoch 12/20 Train Loss 0.1275 Val Acc 98.50%
+  LoRA r64 Epoch 13/20 Train Loss 0.1164 Val Acc 98.50%
+  LoRA r64 Epoch 14/20 Train Loss 0.1087 Val Acc 98.50%
+  LoRA r64 Epoch 15/20 Train Loss 0.1031 Val Acc 98.50%
+  LoRA r64 Epoch 16/20 Train Loss 0.0991 Val Acc 98.50%
+  LoRA r64 Epoch 17/20 Train Loss 0.0964 Val Acc 98.50%
+  LoRA r64 Epoch 18/20 Train Loss 0.0949 Val Acc 98.50%
+  LoRA r64 Epoch 19/20 Train Loss 0.0939 Val Acc 98.50%
+  LoRA r64 Epoch 20/20 Train Loss 0.0937 Val Acc 98.50%
+  r=64 — Test Acc 98.73%  (checkpoint saved)
+Training LoRA r=80 (10/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r80 Epoch 1/20 Train Loss 4.4201 Val Acc 24.00%
+  LoRA r80 Epoch 2/20 Train Loss 2.9739 Val Acc 79.50%
+  LoRA r80 Epoch 3/20 Train Loss 1.6241 Val Acc 94.50%
+  LoRA r80 Epoch 4/20 Train Loss 0.9316 Val Acc 97.00%
+  LoRA r80 Epoch 5/20 Train Loss 0.5880 Val Acc 97.50%
+  LoRA r80 Epoch 6/20 Train Loss 0.4022 Val Acc 98.50%
+  LoRA r80 Epoch 7/20 Train Loss 0.2976 Val Acc 98.50%
+  LoRA r80 Epoch 8/20 Train Loss 0.2320 Val Acc 98.50%
+  LoRA r80 Epoch 9/20 Train Loss 0.1907 Val Acc 98.50%
+  LoRA r80 Epoch 10/20 Train Loss 0.1615 Val Acc 98.50%
+  LoRA r80 Epoch 11/20 Train Loss 0.1415 Val Acc 98.50%
+  LoRA r80 Epoch 12/20 Train Loss 0.1267 Val Acc 98.50%
+  LoRA r80 Epoch 13/20 Train Loss 0.1160 Val Acc 98.50%
+  LoRA r80 Epoch 14/20 Train Loss 0.1081 Val Acc 98.50%
+  LoRA r80 Epoch 15/20 Train Loss 0.1026 Val Acc 98.50%
+  LoRA r80 Epoch 16/20 Train Loss 0.0986 Val Acc 98.50%
+  LoRA r80 Epoch 17/20 Train Loss 0.0957 Val Acc 98.50%
+  LoRA r80 Epoch 18/20 Train Loss 0.0940 Val Acc 98.50%
+  LoRA r80 Epoch 19/20 Train Loss 0.0933 Val Acc 98.50%
+  LoRA r80 Epoch 20/20 Train Loss 0.0929 Val Acc 98.50%
+  r=80 — Test Acc 98.70%  (checkpoint saved)
+Training LoRA r=100 (11/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r100 Epoch 1/20 Train Loss 4.5112 Val Acc 22.50%
+  LoRA r100 Epoch 2/20 Train Loss 2.9491 Val Acc 90.00%
+  LoRA r100 Epoch 3/20 Train Loss 1.6132 Val Acc 97.50%
+  LoRA r100 Epoch 4/20 Train Loss 0.9456 Val Acc 98.50%
+  LoRA r100 Epoch 5/20 Train Loss 0.6023 Val Acc 99.50%
+  LoRA r100 Epoch 6/20 Train Loss 0.4151 Val Acc 99.50%
+  LoRA r100 Epoch 7/20 Train Loss 0.3049 Val Acc 99.50%
+  LoRA r100 Epoch 8/20 Train Loss 0.2385 Val Acc 99.50%
+  LoRA r100 Epoch 9/20 Train Loss 0.1944 Val Acc 99.50%
+  LoRA r100 Epoch 10/20 Train Loss 0.1653 Val Acc 99.50%
+  LoRA r100 Epoch 11/20 Train Loss 0.1447 Val Acc 99.50%
+  LoRA r100 Epoch 12/20 Train Loss 0.1300 Val Acc 99.50%
+  LoRA r100 Epoch 13/20 Train Loss 0.1191 Val Acc 99.50%
+  LoRA r100 Epoch 14/20 Train Loss 0.1111 Val Acc 99.50%
+  LoRA r100 Epoch 15/20 Train Loss 0.1055 Val Acc 99.50%
+  LoRA r100 Epoch 16/20 Train Loss 0.1014 Val Acc 99.50%
+  LoRA r100 Epoch 17/20 Train Loss 0.0986 Val Acc 99.50%
+  LoRA r100 Epoch 18/20 Train Loss 0.0970 Val Acc 99.50%
+  LoRA r100 Epoch 19/20 Train Loss 0.0960 Val Acc 99.50%
+  LoRA r100 Epoch 20/20 Train Loss 0.0957 Val Acc 99.50%
+  r=100 — Test Acc 98.86%  (checkpoint saved)
+Training LoRA r=128 (12/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r128 Epoch 1/20 Train Loss 4.4269 Val Acc 26.50%
+  LoRA r128 Epoch 2/20 Train Loss 2.8920 Val Acc 90.50%
+  LoRA r128 Epoch 3/20 Train Loss 1.5950 Val Acc 94.00%
+  LoRA r128 Epoch 4/20 Train Loss 0.9225 Val Acc 96.50%
+  LoRA r128 Epoch 5/20 Train Loss 0.5835 Val Acc 97.50%
+  LoRA r128 Epoch 6/20 Train Loss 0.3979 Val Acc 98.00%
+  LoRA r128 Epoch 7/20 Train Loss 0.2934 Val Acc 97.50%
+  LoRA r128 Epoch 8/20 Train Loss 0.2289 Val Acc 97.50%
+  LoRA r128 Epoch 9/20 Train Loss 0.1868 Val Acc 98.00%
+  LoRA r128 Epoch 10/20 Train Loss 0.1584 Val Acc 98.00%
+  LoRA r128 Epoch 11/20 Train Loss 0.1380 Val Acc 97.50%
+  LoRA r128 Epoch 12/20 Train Loss 0.1234 Val Acc 97.50%
+  LoRA r128 Epoch 13/20 Train Loss 0.1129 Val Acc 98.00%
+  LoRA r128 Epoch 14/20 Train Loss 0.1053 Val Acc 98.00%
+  LoRA r128 Epoch 15/20 Train Loss 0.0998 Val Acc 98.00%
+  LoRA r128 Epoch 16/20 Train Loss 0.0959 Val Acc 98.00%
+  LoRA r128 Epoch 17/20 Train Loss 0.0933 Val Acc 98.00%
+  LoRA r128 Epoch 18/20 Train Loss 0.0917 Val Acc 98.00%
+  LoRA r128 Epoch 19/20 Train Loss 0.0908 Val Acc 98.00%
+  LoRA r128 Epoch 20/20 Train Loss 0.0905 Val Acc 98.00%
+  r=128 — Test Acc 98.89%  (checkpoint saved)
+Training LoRA r=150 (13/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r150 Epoch 1/20 Train Loss 4.3750 Val Acc 27.00%
+  LoRA r150 Epoch 2/20 Train Loss 2.7512 Val Acc 89.50%
+  LoRA r150 Epoch 3/20 Train Loss 1.4555 Val Acc 96.00%
+  LoRA r150 Epoch 4/20 Train Loss 0.8253 Val Acc 96.50%
+  LoRA r150 Epoch 5/20 Train Loss 0.5178 Val Acc 96.50%
+  LoRA r150 Epoch 6/20 Train Loss 0.3550 Val Acc 98.00%
+  LoRA r150 Epoch 7/20 Train Loss 0.2591 Val Acc 97.00%
+  LoRA r150 Epoch 8/20 Train Loss 0.2035 Val Acc 97.50%
+  LoRA r150 Epoch 9/20 Train Loss 0.1666 Val Acc 98.00%
+  LoRA r150 Epoch 10/20 Train Loss 0.1413 Val Acc 97.50%
+  LoRA r150 Epoch 11/20 Train Loss 0.1240 Val Acc 97.50%
+  LoRA r150 Epoch 12/20 Train Loss 0.1111 Val Acc 97.50%
+  LoRA r150 Epoch 13/20 Train Loss 0.1022 Val Acc 97.50%
+  LoRA r150 Epoch 14/20 Train Loss 0.0954 Val Acc 97.50%
+  LoRA r150 Epoch 15/20 Train Loss 0.0905 Val Acc 97.50%
+  LoRA r150 Epoch 16/20 Train Loss 0.0871 Val Acc 97.50%
+  LoRA r150 Epoch 17/20 Train Loss 0.0847 Val Acc 97.50%
+  LoRA r150 Epoch 18/20 Train Loss 0.0834 Val Acc 97.50%
+  LoRA r150 Epoch 19/20 Train Loss 0.0826 Val Acc 97.50%
+  LoRA r150 Epoch 20/20 Train Loss 0.0823 Val Acc 97.50%
+  r=150 — Test Acc 98.75%  (checkpoint saved)
+Training LoRA r=200 (14/14)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  LoRA r200 Epoch 1/20 Train Loss 4.4690 Val Acc 24.00%
+  LoRA r200 Epoch 2/20 Train Loss 2.8839 Val Acc 86.00%
+  LoRA r200 Epoch 3/20 Train Loss 1.5764 Val Acc 96.00%
+  LoRA r200 Epoch 4/20 Train Loss 0.9420 Val Acc 96.50%
+  LoRA r200 Epoch 5/20 Train Loss 0.6089 Val Acc 97.50%
+  LoRA r200 Epoch 6/20 Train Loss 0.4199 Val Acc 98.00%
+  LoRA r200 Epoch 7/20 Train Loss 0.3105 Val Acc 98.00%
+  LoRA r200 Epoch 8/20 Train Loss 0.2422 Val Acc 98.50%
+  LoRA r200 Epoch 9/20 Train Loss 0.1971 Val Acc 98.00%
+  LoRA r200 Epoch 10/20 Train Loss 0.1664 Val Acc 98.50%
+  LoRA r200 Epoch 11/20 Train Loss 0.1451 Val Acc 98.50%
+  LoRA r200 Epoch 12/20 Train Loss 0.1296 Val Acc 99.00%
+  LoRA r200 Epoch 13/20 Train Loss 0.1184 Val Acc 98.50%
+  LoRA r200 Epoch 14/20 Train Loss 0.1103 Val Acc 98.50%
+  LoRA r200 Epoch 15/20 Train Loss 0.1042 Val Acc 98.50%
+  LoRA r200 Epoch 16/20 Train Loss 0.1000 Val Acc 98.50%
+  LoRA r200 Epoch 17/20 Train Loss 0.0974 Val Acc 98.50%
+  LoRA r200 Epoch 18/20 Train Loss 0.0955 Val Acc 98.50%
+  LoRA r200 Epoch 19/20 Train Loss 0.0947 Val Acc 98.50%
+  LoRA r200 Epoch 20/20 Train Loss 0.0944 Val Acc 98.50%
+  r=200 — Test Acc 98.54%  (checkpoint saved)
+
+Phase 1 complete.
+Method                   Trainable Params   Test Acc
+-------------------------------------------------------
+Full fine-tune                 85,877,094     99.01%
+Frozen backbone                    78,438     99.20%
+LoRA r3                           110,592     95.56%
+LoRA r5                           184,320     96.80%
+LoRA r6                           221,184     96.57%
+LoRA r10                          368,640     98.00%
+LoRA r12                          442,368     98.41%
+LoRA r16                          589,824     98.15%
+LoRA r30                        1,105,920     98.03%
+LoRA r52                        1,916,928     98.24%
+LoRA r64                        2,359,296     98.73%
+LoRA r80                        2,949,120     98.70%
+LoRA r100                       3,686,400     98.86%
+LoRA r128                       4,718,592     98.89%
+LoRA r150                       5,529,600     98.75%
+LoRA r200                       7,372,800     98.54%
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=   3 lambda_max=0.027516  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=   5 lambda_max=0.003470  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=   6 lambda_max=0.001499  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  10 lambda_max=0.000168  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  12 lambda_max=0.000067  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  16 lambda_max=0.000219  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  30 lambda_max=0.000014  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  52 lambda_max=0.000006  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  64 lambda_max=0.000004  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r=  80 lambda_max=0.000003  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 100 lambda_max=0.000001  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 128 lambda_max=0.000001  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 150 lambda_max=0.000000  (saved)
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  r= 200 lambda_max=0.000000  (saved)
+
+Phase 2 curvature profiling complete.
+Phase 2 per-layer lambda_max (r=16), 24 layer-proj pairs
+  min=0.000001  25th=0.000005  50th=0.000013  75th=0.000026  max=0.000219
+Phase 3 global CGRS function ready.
+Run: CGRS_Global_tau_aggressive  tau=0.0000  r_init=16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 25.00%  Current rank 16
+  Epoch 2/20 done. Val Acc 76.00%  Current rank 16
+  Epoch 3/20 done. Val Acc 91.50%  Current rank 16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 385: rank 16 -> 64  (lambda=0.00058)  lr 4.66e-04->1.86e-03
+  Epoch 4/20 done. Val Acc 90.00%  Current rank 64
+  Epoch 5/20 done. Val Acc 97.50%  Current rank 64
+  Epoch 6/20 done. Val Acc 99.00%  Current rank 64
+  Epoch 7/20 done. Val Acc 99.50%  Current rank 64
+  Epoch 8/20 done. Val Acc 100.00%  Current rank 64
+  Epoch 9/20 done. Val Acc 99.50%  Current rank 64
+  Epoch 10/20 done. Val Acc 99.50%  Current rank 64
+  Epoch 11/20 done. Val Acc 99.00%  Current rank 64
+  Epoch 12/20 done. Val Acc 99.50%  Current rank 64
+  Epoch 13/20 done. Val Acc 99.00%  Current rank 64
+  Epoch 14/20 done. Val Acc 99.50%  Current rank 64
+  Epoch 15/20 done. Val Acc 99.50%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1760: rank 64 -> 52  (lambda=0.00000)  lr 3.43e-04->2.78e-04
+  Epoch 16/20 done. Val Acc 99.50%  Current rank 52
+  Epoch 17/20 done. Val Acc 99.50%  Current rank 52
+  Epoch 18/20 done. Val Acc 99.50%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2090: rank 52 -> 30  (lambda=0.00000)  lr 9.16e-05->5.28e-05
+  Epoch 19/20 done. Val Acc 97.50%  Current rank 30
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2200: rank 30 -> 64  (lambda=0.00135)  lr 2.44e-05->5.21e-05
+  Epoch 20/20 done. Val Acc 99.50%  Current rank 64
+  CGRS_Global_tau_aggressive COMPLETE — Test Acc 98.52%  Final Rank 64
+Run: CGRS_Global_tau_moderate  tau=0.0000  r_init=16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 27.00%  Current rank 16
+  Epoch 2/20 done. Val Acc 80.50%  Current rank 16
+  Epoch 3/20 done. Val Acc 91.50%  Current rank 16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 385: rank 16 -> 64  (lambda=0.00082)  lr 4.66e-04->1.86e-03
+  Epoch 4/20 done. Val Acc 90.00%  Current rank 64
+  Epoch 5/20 done. Val Acc 98.00%  Current rank 64
+  Epoch 6/20 done. Val Acc 97.50%  Current rank 64
+  Epoch 7/20 done. Val Acc 98.00%  Current rank 64
+  Epoch 8/20 done. Val Acc 98.00%  Current rank 64
+  Epoch 9/20 done. Val Acc 98.50%  Current rank 64
+  Epoch 10/20 done. Val Acc 98.50%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1210: rank 64 -> 52  (lambda=0.00000)  lr 1.13e-03->9.21e-04
+  Epoch 11/20 done. Val Acc 98.50%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1320: rank 52 -> 64  (lambda=0.00006)  lr 8.98e-04->1.11e-03
+  Epoch 12/20 done. Val Acc 99.00%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1485: rank 64 -> 52  (lambda=0.00000)  lr 1.03e-03->8.37e-04
+  Epoch 13/20 done. Val Acc 99.50%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1595: rank 52 -> 30  (lambda=0.00000)  lr 8.00e-04->4.61e-04
+  Epoch 14/20 done. Val Acc 95.50%  Current rank 30
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1705: rank 30 -> 16  (lambda=0.00000)  lr 4.34e-04->2.32e-04
+  Epoch 15/20 done. Val Acc 74.50%  Current rank 16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1815: rank 16 -> 64  (lambda=0.00213)  lr 2.13e-04->8.50e-04
+  Epoch 16/20 done. Val Acc 99.50%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1925: rank 64 -> 52  (lambda=0.00000)  lr 7.47e-04->6.07e-04
+  Epoch 17/20 done. Val Acc 99.50%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2035: rank 52 -> 30  (lambda=0.00000)  lr 4.87e-04->2.81e-04
+  Epoch 18/20 done. Val Acc 96.00%  Current rank 30
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2145: rank 30 -> 16  (lambda=0.00000)  lr 1.77e-04->9.46e-05
+  Epoch 19/20 done. Val Acc 85.00%  Current rank 16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2255: rank 16 -> 64  (lambda=0.01321)  lr 1.84e-05->7.34e-05
+  Epoch 20/20 done. Val Acc 98.50%  Current rank 64
+  CGRS_Global_tau_moderate COMPLETE — Test Acc 98.28%  Final Rank 64
+Run: CGRS_Global_tau_conservative  tau=0.0000  r_init=16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 29.00%  Current rank 16
+  Epoch 2/20 done. Val Acc 84.50%  Current rank 16
+  Epoch 3/20 done. Val Acc 94.50%  Current rank 16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 385: rank 16 -> 64  (lambda=0.00090)  lr 4.66e-04->1.86e-03
+  Epoch 4/20 done. Val Acc 90.50%  Current rank 64
+  Epoch 5/20 done. Val Acc 94.50%  Current rank 64
+  Epoch 6/20 done. Val Acc 97.00%  Current rank 64
+  Epoch 7/20 done. Val Acc 97.50%  Current rank 64
+  Epoch 8/20 done. Val Acc 97.50%  Current rank 64
+  Epoch 9/20 done. Val Acc 98.50%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1100: rank 64 -> 52  (lambda=0.00001)  lr 1.29e-03->1.05e-03
+  Epoch 10/20 done. Val Acc 98.50%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1265: rank 52 -> 30  (lambda=0.00000)  lr 1.00e-03->5.79e-04
+  Epoch 11/20 done. Val Acc 94.50%  Current rank 30
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1375: rank 30 -> 16  (lambda=0.00001)  lr 5.63e-04->3.00e-04
+  Epoch 12/20 done. Val Acc 85.50%  Current rank 16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1485: rank 16 -> 64  (lambda=0.00030)  lr 2.90e-04->1.16e-03
+  Epoch 13/20 done. Val Acc 98.00%  Current rank 64
+  Epoch 14/20 done. Val Acc 98.50%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1650: rank 64 -> 52  (lambda=0.00000)  lr 1.05e-03->8.49e-04
+  Epoch 15/20 done. Val Acc 98.50%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1760: rank 52 -> 30  (lambda=0.00000)  lr 7.91e-04->4.56e-04
+  Epoch 16/20 done. Val Acc 98.50%  Current rank 30
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1870: rank 30 -> 16  (lambda=0.00000)  lr 4.11e-04->2.19e-04
+  Epoch 17/20 done. Val Acc 96.00%  Current rank 16
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 1980: rank 16 -> 64  (lambda=0.00023)  lr 1.86e-04->7.43e-04
+  Epoch 18/20 done. Val Acc 98.50%  Current rank 64
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2090: rank 64 -> 52  (lambda=0.00000)  lr 5.47e-04->4.44e-04
+  Epoch 19/20 done. Val Acc 98.50%  Current rank 52
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Step 2200: rank 52 -> 30  (lambda=0.00000)  lr 2.05e-04->1.19e-04
+  Epoch 20/20 done. Val Acc 97.50%  Current rank 30
+  CGRS_Global_tau_conservative COMPLETE — Test Acc 97.01%  Final Rank 30
+
+Phase 3 complete.
+Run                                     Tau Final Rank   Test Acc
+------------------------------------------------------------------
+CGRS_Global_tau_aggressive          0.00001         64     98.52%
+CGRS_Global_tau_moderate            0.00001         64     98.28%
+CGRS_Global_tau_conservative        0.00003         30     97.01%
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Computed fresh live calibration (115 warm-up steps) and saved to disk.
+Live calibration (r_init=30): 25th=0.000001 50th=0.000010 75th=0.000041
+Per-layer threshold-based CGRS function ready.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 26.50%  Avg Rank 30.0
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 2/20 done. Val Acc 88.50%  Avg Rank 30.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 3/20 done. Val Acc 94.00%  Avg Rank 30.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Step 385: Layer 6  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 7  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 8  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 9  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 10  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 11  30 -> 64  (in-place, other layers untouched)
+  Step 440: Layer 0  30 -> 64  (in-place, other layers untouched)
+  Step 440: Layer 1  30 -> 64  (in-place, other layers untouched)
+  Step 440: Layer 2  30 -> 64  (in-place, other layers untouched)
+  Step 440: Layer 3  30 -> 52  (in-place, other layers untouched)
+  Step 440: Layer 4  30 -> 52  (in-place, other layers untouched)
+  Step 440: Layer 5  30 -> 52  (in-place, other layers untouched)
+  Epoch 4/20 done. Val Acc 94.00%  Avg Rank 61.0
+  Checkpoint saved after epoch 4 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 5/20 done. Val Acc 96.50%  Avg Rank 61.0
+  Checkpoint saved after epoch 5 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Step 605: Layer 5  52 -> 64  (in-place, other layers untouched)
+  Epoch 6/20 done. Val Acc 97.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 6 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 7/20 done. Val Acc 97.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 7 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 8/20 done. Val Acc 97.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 8 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 9/20 done. Val Acc 97.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 9 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 10/20 done. Val Acc 98.00%  Avg Rank 62.0
+  Checkpoint saved after epoch 10 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 11/20 done. Val Acc 98.00%  Avg Rank 62.0
+  Checkpoint saved after epoch 11 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Step 1375: Layer 4  52 -> 64  (in-place, other layers untouched)
+  Epoch 12/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 12 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 13/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 13 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 14/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 14 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 15/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 15 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 16/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 16 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 17/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 17 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 18/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 18 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 19/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 19 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  Epoch 20/20 done. Val Acc 98.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 20 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C1_progress.json
+  PL_C1 COMPLETE — Test Acc 97.92%  Avg Rank 63.00  Actual Params 2,322,432
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 24.50%  Avg Rank 30.0
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 2/20 done. Val Acc 82.00%  Avg Rank 30.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 3/20 done. Val Acc 96.50%  Avg Rank 30.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Step 385: Layer 0  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 1  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 2  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 3  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 4  30 -> 52  (in-place, other layers untouched)
+  Step 385: Layer 6  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 7  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 8  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 9  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 10  30 -> 52  (in-place, other layers untouched)
+  Step 385: Layer 11  30 -> 52  (in-place, other layers untouched)
+  Step 440: Layer 5  30 -> 64  (in-place, other layers untouched)
+  Epoch 4/20 done. Val Acc 95.00%  Avg Rank 61.0
+  Checkpoint saved after epoch 4 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Step 550: Layer 4  52 -> 64  (in-place, other layers untouched)
+  Step 550: Layer 10  52 -> 64  (in-place, other layers untouched)
+  Step 550: Layer 11  52 -> 64  (in-place, other layers untouched)
+  Epoch 5/20 done. Val Acc 96.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 5 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 6/20 done. Val Acc 97.00%  Avg Rank 64.0
+  Checkpoint saved after epoch 6 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 7/20 done. Val Acc 98.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 7 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 8/20 done. Val Acc 98.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 8 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 9/20 done. Val Acc 99.00%  Avg Rank 64.0
+  Checkpoint saved after epoch 9 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 10/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 10 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 11/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 11 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 12/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 12 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 13/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 13 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 14/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 14 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 15/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 15 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 16/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 16 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 17/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 17 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 18/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 18 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 19/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 19 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  Epoch 20/20 done. Val Acc 99.50%  Avg Rank 64.0
+  Checkpoint saved after epoch 20 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/PL_C3_Live_progress.json
+  PL_C3_Live COMPLETE — Test Acc 98.26%  Avg Rank 64.00  Actual Params 2,359,296
+Ordinal CGRS function (with protected-floor fix) ready.
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 25.00%  Avg Rank 30.0
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 2/20 done. Val Acc 85.50%  Avg Rank 30.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 3/20 done. Val Acc 95.00%  Avg Rank 30.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 385: Layer 7 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 9 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 10 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 11 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 440: Layer 6 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 440: Layer 8 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Epoch 4/20 done. Val Acc 94.00%  Avg Rank 46.0
+  Checkpoint saved after epoch 4 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 495: Layer 0 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 495: Layer 1 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 550: Layer 5 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Epoch 5/20 done. Val Acc 95.50%  Avg Rank 52.5
+  Checkpoint saved after epoch 5 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 6/20 done. Val Acc 94.50%  Avg Rank 52.5
+  Checkpoint saved after epoch 6 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 715: Layer 2 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Epoch 7/20 done. Val Acc 96.50%  Avg Rank 54.3
+  Checkpoint saved after epoch 7 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 8/20 done. Val Acc 97.00%  Avg Rank 54.3
+  Checkpoint saved after epoch 8 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 9/20 done. Val Acc 96.50%  Avg Rank 54.3
+  Checkpoint saved after epoch 9 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 10/20 done. Val Acc 97.00%  Avg Rank 54.3
+  Checkpoint saved after epoch 10 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 11/20 done. Val Acc 97.00%  Avg Rank 54.3
+  Checkpoint saved after epoch 11 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 12/20 done. Val Acc 97.00%  Avg Rank 54.3
+  Checkpoint saved after epoch 12 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 13/20 done. Val Acc 97.00%  Avg Rank 54.3
+  Checkpoint saved after epoch 13 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 1540: Layer 1 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 1540: Layer 2 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 1540: Layer 3 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 1540: Layer 4 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Epoch 14/20 done. Val Acc 97.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 14 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Step 1650: Layer 6 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 15/20 done. Val Acc 97.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 15 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 16/20 done. Val Acc 97.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 16 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 17/20 done. Val Acc 97.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 17 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 18/20 done. Val Acc 97.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 18 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 19/20 done. Val Acc 97.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 19 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  Epoch 20/20 done. Val Acc 97.00%  Avg Rank 63.0
+  Checkpoint saved after epoch 20 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK4_Fixed_progress.json
+  OrdinalK4_Fixed COMPLETE — Test Acc 98.23%  Avg Rank 63.00  Actual Params 2,322,432
+Some weights of ViTForImageClassification were not initialized from the model checkpoint at google/vit-base-patch16-224 and are newly initialized because the shapes did not match:
+- classifier.bias: found shape torch.Size([1000]) in the checkpoint and torch.Size([102]) in the model instantiated
+- classifier.weight: found shape torch.Size([1000, 768]) in the checkpoint and torch.Size([102, 768]) in the model instantiated
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  Epoch 1/20 done. Val Acc 29.00%  Avg Rank 30.0
+  Checkpoint saved after epoch 1 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 2/20 done. Val Acc 85.00%  Avg Rank 30.0
+  Checkpoint saved after epoch 2 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 3/20 done. Val Acc 94.50%  Avg Rank 30.0
+  Checkpoint saved after epoch 3 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Step 385: Layer 7 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 8 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 385: Layer 9 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 10 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 385: Layer 11 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 440: Layer 6 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Epoch 4/20 done. Val Acc 96.00%  Avg Rank 46.0
+  Checkpoint saved after epoch 4 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Step 495: Layer 0 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Step 495: Layer 1 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 550: Layer 8 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 5/20 done. Val Acc 97.50%  Avg Rank 51.7
+  Checkpoint saved after epoch 5 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 6/20 done. Val Acc 98.00%  Avg Rank 51.7
+  Checkpoint saved after epoch 6 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 7/20 done. Val Acc 98.50%  Avg Rank 51.7
+  Checkpoint saved after epoch 7 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Step 825: Layer 2 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 825: Layer 4 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 825: Layer 5 (top-k)  30 -> 64  (in-place, other layers untouched)
+  Epoch 8/20 done. Val Acc 98.00%  Avg Rank 58.2
+  Checkpoint saved after epoch 8 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 9/20 done. Val Acc 98.50%  Avg Rank 58.2
+  Checkpoint saved after epoch 9 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Step 1045: Layer 3 (top-k)  30 -> 52  (in-place, other layers untouched)
+  Step 1100: Layer 1 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Step 1100: Layer 2 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 10/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 10 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 11/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 11 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 12/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 12 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 13/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 13 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 14/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 14 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 15/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 15 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 16/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 16 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 17/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 17 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 18/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 18 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Epoch 19/20 done. Val Acc 98.50%  Avg Rank 62.0
+  Checkpoint saved after epoch 19 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  Step 2255: Layer 3 (top-k)  52 -> 64  (in-place, other layers untouched)
+  Epoch 20/20 done. Val Acc 98.50%  Avg Rank 63.0
+  Checkpoint saved after epoch 20 -> /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/phase4_results/OrdinalK5_progress.json
+  OrdinalK5 COMPLETE — Test Acc 98.11%  Avg Rank 63.00  Actual Params 2,322,432
+Correlation vs STATIC Phase 2 lambda_max (r=16):
+PL_C1           vs static  Pearson r=0.1502 (p=0.4836)  Spearman r=0.3267 (p=0.1192)  [positive, not significant]
+PL_C3_Live      DEGENERATE (constant rank vector — correlation undefined)
+OrdinalK4_Fixed vs static  Pearson r=0.1273 (p=0.5535)  Spearman r=0.1742 (p=0.4155)  [positive, not significant]
+OrdinalK5       vs static  Pearson r=0.1231 (p=0.5666)  Spearman r=0.1525 (p=0.4770)  [positive, not significant]
+
+Correlation vs LIVE-calibrated lambda_max:
+PL_C1           vs live    Pearson r=0.1388 (p=0.5178)  Spearman r=0.2178 (p=0.3066)  [positive, not significant]
+PL_C3_Live      DEGENERATE (constant rank vector — correlation undefined)
+OrdinalK4_Fixed vs live    Pearson r=0.0975 (p=0.6505)  Spearman r=0.0436 (p=0.8398)  [positive, not significant]
+OrdinalK5       vs live    Pearson r=0.1246 (p=0.5619)  Spearman r=0.1307 (p=0.5428)  [positive, not significant]
+Method                         Type        Avg Rank  Test Acc   LoRA Params
+===========================================================================
+Fixed r3                       Static             3    95.56%       110,592
+Fixed r16                      Static            16    98.15%       589,824
+Fixed r64                      Static            64    98.73%     2,359,296
+Full fine-tune                 Static             -    99.01%    85,877,094
+---------------------------------------------------------------------------
+CGRS_Global_tau_aggressive     Global            64    98.52%     2,359,296
+CGRS_Global_tau_moderate       Global            64    98.28%     2,359,296
+CGRS_Global_tau_conservative   Global            30    97.01%     1,105,920
+---------------------------------------------------------------------------
+PL_C1                          Per-Layer      63.00    97.92%     2,322,432
+PL_C3_Live                     Per-Layer      64.00    98.26%     2,359,296
+OrdinalK4_Fixed                Per-Layer      63.00    98.23%     2,322,432
+OrdinalK5                      Per-Layer      63.00    98.11%     2,322,432
+===========================================================================
+Saved complete cross-phase results to /home1/jkshaikh/CGRS_Project/Flowers102_Rebuild/all_results_complete.json

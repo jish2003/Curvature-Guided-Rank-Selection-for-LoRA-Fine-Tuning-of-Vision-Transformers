@@ -1,0 +1,29 @@
+{
+  "AdaLoRA_target_r16": {
+    "run_name": "AdaLoRA_target_r16",
+    "dataset": "svhn",
+    "init_r": 24,
+    "target_r": 16,
+    "test_acc": 95.90503995082975,
+    "test_loss": 0.1492424627486101,
+    "total_lora_params": 885312
+  },
+  "AdaLoRA_target_r32": {
+    "run_name": "AdaLoRA_target_r32",
+    "dataset": "svhn",
+    "init_r": 48,
+    "target_r": 32,
+    "test_acc": 95.73985863552551,
+    "test_loss": 0.14954401848230398,
+    "total_lora_params": 1770624
+  },
+  "AdaLoRA_target_r64": {
+    "run_name": "AdaLoRA_target_r64",
+    "dataset": "svhn",
+    "init_r": 96,
+    "target_r": 64,
+    "test_acc": 95.86278426551937,
+    "test_loss": 0.14918555126132785,
+    "total_lora_params": 3541248
+  }
+}

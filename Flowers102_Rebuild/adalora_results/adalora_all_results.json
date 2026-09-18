@@ -1,0 +1,29 @@
+{
+  "AdaLoRA_target_r16": {
+    "run_name": "AdaLoRA_target_r16",
+    "dataset": "flowers102",
+    "init_r": 24,
+    "target_r": 16,
+    "test_acc": 98.55261018051716,
+    "test_loss": 0.43442048186605625,
+    "total_lora_params": 885312
+  },
+  "AdaLoRA_target_r32": {
+    "run_name": "AdaLoRA_target_r32",
+    "dataset": "flowers102",
+    "init_r": 48,
+    "target_r": 32,
+    "test_acc": 98.78028947796389,
+    "test_loss": 0.3879339480361381,
+    "total_lora_params": 1770624
+  },
+  "AdaLoRA_target_r64": {
+    "run_name": "AdaLoRA_target_r64",
+    "dataset": "flowers102",
+    "init_r": 96,
+    "target_r": 64,
+    "test_acc": 98.6013986013986,
+    "test_loss": 0.37362928477587637,
+    "total_lora_params": 3541248
+  }
+}
