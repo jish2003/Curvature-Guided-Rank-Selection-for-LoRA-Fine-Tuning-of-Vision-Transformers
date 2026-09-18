@@ -1,0 +1,9 @@
+{
+  "run_name": "AdaLoRA_target_r32",
+  "dataset": "cifar100",
+  "init_r": 48,
+  "target_r": 32,
+  "test_acc": 89.71,
+  "test_loss": 0.42876969183683394,
+  "total_lora_params": 1770624
+}
