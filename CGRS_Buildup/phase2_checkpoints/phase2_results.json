@@ -1,9 +1,0 @@
-{
-  "r=3": {
-    "test_loss": 1.0125960324287415,
-    "test_acc": 84.91,
-    "trainable_params": 110592,
-    "adapter_path": "./phase2_checkpoints/lora_r3_adapter",
-    "ckpt_path": "./phase2_checkpoints/lora_r3_full.pt"
-  }
-}
