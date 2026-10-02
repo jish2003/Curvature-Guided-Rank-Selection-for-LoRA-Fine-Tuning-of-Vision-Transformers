@@ -10,14 +10,14 @@ Code, logs, and result files for **CGRS**, a family of schedulers that change Lo
 
 ## Contents
 1. [Idea](#idea)
-2. [Headline results](#headline-results)
-3. [Method in detail](#method-in-detail)
-4. [Experimental setup](#experimental-setup)
-5. [Full results](#full-results)
-6. [Repository structure](#repository-structure)
-7. [Environment and running](#environment-and-running)
-8. [Result file formats](#result-file-formats)
-9. [Limitations and implementation notes](#limitations-and-implementation-notes)
+3. [Headline results](#headline-results)
+4. [Method in detail](#method-in-detail)
+5. [Experimental setup](#experimental-setup)
+6. [Full results](#full-results)
+7. [Repository structure](#repository-structure)
+8. [Environment and running](#environment-and-running)
+9. [Result file formats](#result-file-formats)
+10. [Limitations and implementation notes](#limitations-and-implementation-notes)
 
 ---
 
@@ -214,3 +214,146 @@ Final block ranks were correlated with static (`r=16`) and live curvature (Pears
 ---
 
 ## Repository structure
+
+```text
+.
+├── CGRS_Buildup/
+│   └── rebuild_all_phases/
+│       ├── CGRS_CIFAR100_Rebuild_AllPhases.py   # Full CGRS pipeline: Phases 1-4 + analysis (CIFAR-100)
+│       ├── test_inplace_resize.py               # Checks in-place resize leaves other layers' optimizer state untouched
+│       └── test_rank_pattern.py                 # Checks per-layer rank_pattern construction
+├── AdaLORA_Comparison/
+│   ├── CGRS_AdaLoRA_Comparison.py               # AdaLoRA baselines (--dataset cifar100|svhn|flowers102)
+│   └── adalora_{cifar100,flowers102,svhn}.log
+├── CIFAR100_Rebuild/                            # CIFAR-100 results reported in the paper (3-epoch run)
+│   ├── phase1_results/ ... phase4_results/
+│   ├── adalora_results/
+│   └── all_results_complete.json
+├── SVHN_Rebuild/                                # same structure
+├── Flowers102_Rebuild/                          # same structure
+├── figures/                                     # fig3_rank_trajectory.png, fig4_module_heatmap.png
+├── generate_paper_figures.py                    # builds both figures from the all_results_complete.json files
+└── README.md
+```
+
+
+> Note: the pipeline script in this repo is the CIFAR-100 version. SVHN and Flowers-102 CGRS runs used the same pipeline with the dataset-specific settings in the tables above. [Add those scripts here or describe the differences.]
+
+Large artifacts (datasets, `*.pt` checkpoints) are excluded via `.gitignore`.
+
+---
+
+## Environment and running
+
+Tested configuration:
+
+| Component | Version |
+|---|---|
+| Python | 3.11.15 |
+| PyTorch / torchvision | 2.2.0+cu121 / 0.17.0+cu121 (CUDA 12.1) |
+| Transformers | 4.40.0 |
+| PEFT | 0.10.0 |
+| Accelerate / Datasets | 1.13.0 / 4.8.5 |
+| NumPy / SciPy / pandas / Matplotlib | 1.26.4 / 1.17.1 / 3.0.3 / 3.10.9 |
+| GPU | NVIDIA A100 and V100 (mixed across runs) |
+
+```bash
+python -m venv cgrs_env && source cgrs_env/bin/activate
+pip install torch==2.2.0 torchvision==0.17.0 --index-url [https://download.pytorch.org/whl/cu121](https://download.pytorch.org/whl/cu121)
+pip install transformers==4.40.0 peft==0.10.0 accelerate==1.13.0 datasets==4.8.5 \
+            numpy==1.26.4 scipy==1.17.1 pandas matplotlib
+```
+
+**Run the CGRS pipeline** (CIFAR-100):
+
+```bash
+python CGRS_Buildup/rebuild_all_phases/CGRS_CIFAR100_Rebuild_AllPhases.py
+```
+
+- Output paths are set at the top of the script: `PROJECT_BASE = ~/CGRS_Project/CIFAR100_Rebuild`. Change this for your machine.
+- CIFAR-100 downloads automatically into `PROJECT_BASE/data`.
+- The script runs Phases 1→4 in order and **skips** anything already saved: Phase 1 results and checkpoints, Phase 2 curvature, and each run's `*_result.json`.
+- Layer-wise runs checkpoint after every epoch (`*_progress.json/.pt`) and resume automatically. Global runs cannot resume mid-run.
+- Phase 1 stores 14 LoRA checkpoints (`lora_r*_full.pt`). They are large, so they are gitignored.
+
+**AdaLoRA baselines** (3 target ranks per dataset, results in `<dataset>_Rebuild/adalora_results/`):
+
+```bash
+python AdaLORA_Comparison/CGRS_AdaLoRA_Comparison.py --dataset cifar100   # or svhn, flowers102
+```
+
+The `project_base` paths for the three datasets are set in `DATASET_CONFIG` at the top of the script (`~/CGRS_Project/<Dataset>_Rebuild`).
+
+**Figures** (run from the repository root):
+
+```bash
+python generate_paper_figures.py
+```
+
+- Figure 3 plots the global-CGRS rank trajectory (rank vs. % of training, starting at `r = 16`) for the three thresholds on each dataset, with the 15% grace period shaded. It reads `phase3 → rank_changes`.
+- Figure 4 is a heatmap of final per-block ranks for three layer-wise runs: SVHN PL-C1, CIFAR-100 PL-C3-Live, and Flowers-102 PL-C3-Live. It reads `phase4 → final_ranks`.
+- No numbers are hardcoded; both figures are built from each dataset's `all_results_complete.json`.
+
+**Sanity tests:** `python CGRS_Buildup/rebuild_all_phases/test_inplace_resize.py` and `test_rank_pattern.py`
+
+### Reproducing the paper's numbers
+
+Every number in the paper's tables comes from the committed files: fixed and baseline results from `phase1_results/`, thresholds from `phase2_results/`, global CGRS from `phase3_results/`, layer-wise from `phase4_results/`, and AdaLoRA from `adalora_results/`. Each dataset's `all_results_complete.json` combines the CGRS phases. Reruns on different GPUs (A100 vs. V100) may differ slightly.
+
+---
+
+## Result file formats
+
+| File | Contents |
+|---|---|
+| `phase1_results/config.json` | The `CONFIG` dictionary used |
+| `phase1_results/results.json` | Test acc., loss, and trainable params for Full FT, Frozen, and all 14 fixed ranks |
+| `phase2_results/curvature_results.json` | Per-rank `lambda_max`, `trace`, and per-(block, q/v) `λ_max` |
+| `phase3_results/CGRS_Global_tau_{aggressive,moderate,conservative}_result.json` | `tau`, `final_rank`, `test_acc`, `total_lora_params`, `n_rank_changes`, and the `rank_changes` log (step, old/new rank, λ) |
+| `phase4_results/{PL_C1,PL_C3_Live,OrdinalK4_Fixed,OrdinalK5}_result.json` | See schema below |
+| `phase4_results/live_calibration.json` | Live per-module `λ` and percentiles |
+| `adalora_results/AdaLoRA_target_r{16,32,64}_result.json`, `adalora_all_results.json` | `init_r`, `target_r`, `test_acc`, `test_loss`, `total_lora_params` |
+| `all_results_complete.json` | `phase1`, `phase2_layer_lmax_r16`, `phase2_percentiles`, `phase3`, `phase4`, `phase4_live_calibration` combined |
+
+**Layer-wise result schema:**
+
+```json
+{
+  "run_name": "...",
+  "tau": "per-layer | <float>",
+  "r_init": 30,
+  "test_acc": 0.0,
+  "test_loss": 0.0,
+  "avg_rank": 0.0,
+  "final_ranks": {"0": 0, "1": 0, "...": 0, "11": 0},
+  "total_lora_params": 0,
+  "n_rank_changes": 0,
+  "rank_changes": [
+    {"step": 0, "layer": 0, "old_r": 0, "new_r": 0, "lambda": 0.0, "tau": 0.0}
+  ]
+}
+```
+
+Ordinal runs also store `top_k`, `protected_layers`, and `protected_min_rank`, and log a `reason` (`topk` or `floor`) per change instead of `lambda`/`tau`. Adapter parameters satisfy `total_lora_params = 3072 × Σ final_ranks`.
+
+---
+
+## Limitations and implementation notes
+
+**Statistical.**
+- Single seed per configuration. The study uses one backbone and classification only.
+- "Best" CGRS and AdaLoRA configurations were picked by test accuracy.
+- GPU type (A100 vs. V100) varied between runs and `cudnn.benchmark=True`, so exact numbers may shift on rerun.
+- Final adapter counts do not measure peak memory, wall-clock time, or the overhead of probes and SVD.
+- No direct comparison with the concurrent LAARA, GRIT, or CG-LoRA methods.
+
+**Implementation notes (read before interpreting the gains).**
+- **Classifier head.** In the LoRA-family runs (fixed LoRA, CGRS, AdaLoRA) the classification head is created with random initialization and is *not* trained: only adapter parameters have `requires_grad=True`. Only the "Frozen backbone" baseline trains its head. Adapter parameter counts therefore cover the adapters only.
+- **Rank growth.** Growth zero-pads both LoRA factors. Since the gradient of each factor is proportional to the other, newly added directions receive zero gradient, so growth mainly changes the `α/r` scaling (and, for the global scheduler, the learning rate) instead of adding trainable capacity. The observed gains over fixed LoRA at equal final rank should be read as a schedule/scaling effect. A growth rule that initializes new `A` rows randomly (as in standard LoRA) is untested.
+- **Train/eval mode.** Fisher probes and evaluation put the model in `eval()` mode and training mode is not restored afterward. In the CGRS runs, LoRA dropout (0.1) is therefore inactive after the first probe or evaluation. In the AdaLoRA runs it is inactive after the first epoch. Fixed-rank baselines train with dropout throughout.
+- **Grace period.** The global scheduler waits 15% of training before its first change. In the CIFAR-100 layer-wise runs, probing and rank changes begin at step 200 with no grace period.
+- **AdaLoRA regularizer.** The loss is computed outside the PEFT forward pass, so AdaLoRA's orthogonality regularizer is likely not applied.
+- **Probe settings.** Static profiling used 64 probe batches of size 4; in-training probes use size-16 batches. The global scheduler compares a maximum over all coordinates with percentiles of per-module maxima.
+- **Randomness.** The random classifier head differs across runs because the RNG is seeded only once per script.
+
+**Next steps:** multi-seed replication, trainable classifier head, random-initialized growth directions, restoring train mode after probes, shrinkable layer-wise allocation, threshold normalization or hysteresis, and measurement of training cost.
