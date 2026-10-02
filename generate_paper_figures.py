@@ -23,7 +23,7 @@ OUT_DIR = "figures"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 DATASETS = {
-    "CIFAR-100": {"json_path": "CIFAR100_Rebuild_3epoch_backup/all_results_complete.json", "total_steps": 8439},
+    "CIFAR-100": {"json_path": "CIFAR100_Rebuild/all_results_complete.json", "total_steps": 8439},
     "SVHN": {"json_path": "SVHN_Rebuild/all_results_complete.json", "total_steps": 12750},
     "Flowers-102": {"json_path": "Flowers102_Rebuild/all_results_complete.json", "total_steps": 2300},
 }

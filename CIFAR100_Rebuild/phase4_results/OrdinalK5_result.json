@@ -9,15 +9,15 @@
   ],
   "protected_min_rank": 16,
   "r_init": 30,
-  "test_acc": 88.54,
-  "test_loss": 0.540164980506897,
-  "avg_rank": 64.0,
+  "test_acc": 88.66,
+  "test_loss": 0.5267532239198685,
+  "avg_rank": 63.0,
   "final_ranks": {
     "0": 64,
     "1": 64,
     "2": 64,
     "3": 64,
-    "4": 64,
+    "4": 52,
     "5": 64,
     "6": 64,
     "7": 64,
@@ -26,21 +26,21 @@
     "10": 64,
     "11": 64
   },
-  "total_lora_params": 2359296,
-  "n_rank_changes": 18,
+  "total_lora_params": 2322432,
+  "n_rank_changes": 17,
   "rank_changes": [
     {
       "step": 200,
-      "layer": 7,
+      "layer": 6,
       "old_r": 30,
       "new_r": 52,
       "reason": "topk"
     },
     {
       "step": 200,
-      "layer": 8,
+      "layer": 7,
       "old_r": 30,
-      "new_r": 64,
+      "new_r": 52,
       "reason": "topk"
     },
     {
@@ -66,91 +66,84 @@
     },
     {
       "step": 400,
-      "layer": 0,
+      "layer": 1,
+      "old_r": 30,
+      "new_r": 52,
+      "reason": "topk"
+    },
+    {
+      "step": 400,
+      "layer": 2,
       "old_r": 30,
       "new_r": 64,
       "reason": "topk"
     },
     {
       "step": 400,
-      "layer": 1,
+      "layer": 5,
       "old_r": 30,
       "new_r": 52,
       "reason": "topk"
     },
     {
-      "step": 600,
-      "layer": 6,
+      "step": 400,
+      "layer": 8,
       "old_r": 30,
       "new_r": 64,
       "reason": "topk"
     },
     {
       "step": 600,
+      "layer": 0,
+      "old_r": 30,
+      "new_r": 64,
+      "reason": "topk"
+    },
+    {
+      "step": 800,
       "layer": 7,
       "old_r": 52,
       "new_r": 64,
       "reason": "topk"
     },
     {
-      "step": 800,
-      "layer": 2,
+      "step": 1000,
+      "layer": 3,
       "old_r": 30,
       "new_r": 52,
-      "reason": "topk"
-    },
-    {
-      "step": 1200,
-      "layer": 5,
-      "old_r": 30,
-      "new_r": 52,
-      "reason": "topk"
-    },
-    {
-      "step": 1800,
-      "layer": 1,
-      "old_r": 52,
-      "new_r": 64,
       "reason": "topk"
     },
     {
       "step": 1800,
       "layer": 4,
-      "old_r": 30,
-      "new_r": 52,
-      "reason": "topk"
-    },
-    {
-      "step": 2000,
-      "layer": 3,
       "old_r": 30,
       "new_r": 52,
       "reason": "topk"
     },
     {
       "step": 3600,
-      "layer": 2,
+      "layer": 6,
       "old_r": 52,
       "new_r": 64,
       "reason": "topk"
     },
     {
-      "step": 3800,
+      "step": 4200,
       "layer": 3,
       "old_r": 52,
       "new_r": 64,
       "reason": "topk"
     },
     {
-      "step": 3800,
-      "layer": 4,
+      "step": 4800,
+      "layer": 5,
       "old_r": 52,
       "new_r": 64,
       "reason": "topk"
     },
     {
-      "step": 5200,
-      "layer": 5,
+      "step": 6200,
+      "layer": 1,
       "old_r": 52,
       "new_r": 64,
       "reason": "topk"
